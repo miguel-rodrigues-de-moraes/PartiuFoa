@@ -1,0 +1,29 @@
+:root {
+    --fundo-principal: #F9F9FE;
+    --texto-principal: #1C3058;
+    --destaque-claro: #95ABD3;
+    --superficie-clara: #E9E9E9;
+    --botao-principal: #3059C1;
+    --destaque-principal: #3E5B93;
+    --tracado: #B2B2B6;
+}
+
+body {
+    background-color: var(--fundo-principal);
+    margin: 0px;
+}
+
+header {
+    background-color: var(--fundo-principal);
+    width: auto;
+    border-bottom: 1px solid var(--tracado);
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
