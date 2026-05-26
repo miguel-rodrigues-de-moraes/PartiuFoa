@@ -8,116 +8,133 @@
     --botao-principal: #3059C1;
     --destaque-principal: #3E5B93;
     --tracado: #B2B2B6;
-    --fonte-principal: 'Outfit', Arial, Helvetica, sans-serif
+
+    --fonte-principal: 'Outfit', Arial, Helvetica, sans-serif;
 }
+
+/* =========================
+   BODY
+========================= */
 
 body {
-    background-color: var(--fundo-principal);
     margin: 0px;
+    background-color: var(--fundo-principal);
 }
 
+/* =========================
+   HEADER
+========================= */
+
 header {
-    background-color: var(--fundo-principal);
-    width: auto;
-    border-bottom: 1px solid var(--tracado);
     display: flex;
-    justify-content: space-between;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     justify-content: flex-end;
-    display: flex;
+
+    width: auto;
+
+    background-color: var(--fundo-principal);
+
+    border-bottom: 1px solid var(--tracado);
+
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #img-logo {
     width: 175px;
-    margin-left: 25px;
+
     margin-top: 10px;
+    margin-right: 0px;
     margin-bottom: 10px;
+    margin-left: 25px;
 }
 
-.img-perfil {
-    background-color: transparent;
+/* =========================
+   BOTÃO CRIAR CARONA
+========================= */
+
+.criar-carona {
+    margin-top: 20px;
+    margin-right: 5px;
+    margin-bottom: 20px;
+    margin-left: auto;
+
+    padding: 10px;
+
     border: none;
-    margin-right: 25px;
+    border-radius: 50px;
+
+    background-color: var(--botao-principal);
+
+    color: var(--superficie-clara);
+
+    font-family: var(--fonte-principal);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.criar-carona:hover {
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================
+   BOTÕES HEADER
+========================= */
+
+.img-chat,
+.img-coracao,
+.img-sino {
+    width: 70px;
+
     margin-left: 5px;
+    margin-right: 5px;
+
+    border: none;
+
+    background-color: transparent;
+
+    color: var(--texto-principal);
+
+    size: 50px;
+}
+
+.img-chat i,
+.img-coracao i,
+.img-sino i {
+    font-size: 40px;
+    color: var(--texto-principal);
+}
+
+/* =========================
+   PERFIL
+========================= */
+
+.img-perfil {
+    margin-left: 5px;
+    margin-right: 25px;
+
+    border: none;
+
+    background-color: transparent;
 }
 
 .img-perfil img {
     width: 55px;
 }
 
-.criar-carona {
-    background-color: var(--botao-principal);
-    border: none;
-    color: var(--superficie-clara);
-    padding: 10px;
-    border-radius: 50px;
-    font-family: var(--fonte-principal);
-    font-size: 25px;
-    margin-left: auto;
-    margin-right: 5px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-.criar-carona:hover{
-    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
-}
-
-.img-coracao {
-    background-color: transparent;
-    border: none;
-    width: 70px;
-    size: 50px;
-    color: var(--texto-principal);
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.img-coracao i {
-    font-size: 40px;
-    color: var(--texto-principal);
-}
-
-.img-sino {
-    background-color: transparent;
-    border: none;
-    width: 70px;
-    size: 50px;
-    color: var(--texto-principal);
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.img-sino i {
-    font-size: 40px;
-    color: var(--texto-principal);
-}
-
-.img-chat {
-    background-color: transparent;
-    border: none;
-    width: 70px;
-    size: 50px;
-    color: var(--texto-principal);
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.img-chat i {
-    font-size: 40px;
-    color: var(--texto-principal);
-}   
+/* =========================
+   PESQUISA
+========================= */
 
 #pesquisa {
-    background-color: var(--fundo-principal);
-    height: 125px;
     width: 1000px;
+    height: 125px;
+
     margin: auto;
     margin-top: 25px;
+
+    background-color: var(--fundo-principal);
+
     border: 1px solid var(--tracado);
     border-radius: 15px;
-    
 }
 
 .pesquisa-cima {
@@ -125,87 +142,51 @@ header {
 }
 
 .pesquisa-baixo {
-    display: block;
-    margin-top: 15px;
     display: flex;
     flex-direction: column;
+
     gap: 15px;
+
+    margin-top: 15px;
 }
 
-.partida {
-    background-color: var(--superficie-clara);
-    margin: auto;
-    width: 970px;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin: 15px;
-    height: 40px;
-    border-radius: 50px;
+/* =========================
+   CONTAINER
+========================= */
 
-    border: none;
-    font-family: var(--fonte-principal);
-    font-weight: bolder;
-    color: var(--texto-principal);
-    font-size: 25px;
-
-    display: flex;
-    gap: 0px;
-
-}
-
-.destino {
-    background-color: var(--superficie-clara);
-    margin: auto;
-    width: 400px;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-bottom: 15px;
-    height: 40px;
-    border-radius: 50px;
-
-    border: none;
-    font-family: var(--fonte-principal);
-    font-weight: bolder;
-    color: var(--superficie-clara);
-    font-size: 25px;
-
-}
-
-.horario {
-    background-color: var(--superficie-clara);
-    margin: auto;
-    width: 400px;
-    margin-right: 15px;
-    margin-bottom: 15px;
-    height: 40px;
-    border-radius: 50px;
-    
-    border: none;
-    font-family: var(--fonte-principal);
-    font-weight: bolder;
-    color: var(--superficie-clara);
-    font-size: 25px;
-}
-
-.filtrar {
-    background-color: var(--botao-principal);
-    margin: auto;
-    width: 140px;
-    margin-right: 15px;
-    margin-bottom: 15px;
-    height: 40px;
-    border-radius: 50px; 
-
-    border: none;
-    font-family: var(--fonte-principal);
-    font-weight: bolder;
-    color: var(--superficie-clara);
-    font-size: 25px;
-}
 .container {
     display: flex;
     gap: 15px;
 }
+
+/* =========================
+   PARTIDA
+========================= */
+
+.partida {
+    display: flex;
+    gap: 0px;
+
+    width: 970px;
+    height: 40px;
+
+    margin: 15px;
+
+    background-color: var(--superficie-clara);
+
+    border: none;
+    border-radius: 50px;
+
+    color: var(--texto-principal);
+
+    font-family: var(--fonte-principal);
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+/* =========================
+   PARTIU
+========================= */
 
 .partiu {
     display: flex;
@@ -215,15 +196,18 @@ header {
     height: 100%;
 
     padding-left: 20px;
+
     gap: 12px;
 
     border: none;
+
     background-color: transparent;
 
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
 
     color: var(--texto-principal);
+
     font-family: var(--fonte-principal);
 }
 
@@ -236,28 +220,108 @@ header {
     font-size: 25px;
     color: #1C3058;
 }
+
+/* =========================
+   TROCAR
+========================= */
+
 .trocar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     width: 70px;
     height: 100%;
 
+    padding: 0;
+
     border: none;
+
     background: transparent;
 
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 0;
-    line-height: 1;
-
     color: var(--texto-principal);
+
     font-size: 25px;
+    line-height: 1;
 }
 
 .trocar i {
     position: relative;
     top: 1px;
+}
+
+/* =========================
+   DESTINO
+========================= */
+
+.destino {
+    width: 400px;
+    height: 40px;
+
+    margin: auto;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+
+    background-color: var(--superficie-clara);
+
+    border: none;
+    border-radius: 50px;
+
+    color: var(--superficie-clara);
+
+    font-family: var(--fonte-principal);
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+/* =========================
+   HORARIO
+========================= */
+
+.horario {
+    width: 400px;
+    height: 40px;
+
+    margin: auto;
+    margin-right: 15px;
+    margin-bottom: 15px;
+
+    background-color: var(--superficie-clara);
+
+    border: none;
+    border-radius: 50px;
+
+    color: var(--superficie-clara);
+
+    font-family: var(--fonte-principal);
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+/* =========================
+   FILTRAR
+========================= */
+
+.filtrar {
+    width: 140px;
+    height: 40px;
+
+    margin: auto;
+    margin-right: 15px;
+    margin-bottom: 15px;
+
+    background-color: var(--botao-principal);
+
+    border: none;
+    border-radius: 50px;
+
+    color: var(--superficie-clara);
+
+    font-family: var(--fonte-principal);
+    font-size: 25px;
+    font-weight: bolder;
 }
