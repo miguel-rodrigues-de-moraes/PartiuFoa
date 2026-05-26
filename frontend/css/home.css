@@ -23,7 +23,7 @@ header {
     display: flex;
     justify-content: space-between;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    align-items: center;
+    justify-content: flex-end;
     display: flex;
 }
 
@@ -38,7 +38,7 @@ header {
     background-color: transparent;
     border: none;
     margin-right: 25px;
-    margin-left: 7.5px;
+    margin-left: 5px;
 }
 
 .img-perfil img {
@@ -54,6 +54,14 @@ header {
     font-family: var(--fonte-principal);
     font-size: 25px;
     margin-left: auto;
+    margin-right: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.criar-carona:hover{
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
 }
 
 .img-coracao {
@@ -62,12 +70,13 @@ header {
     width: 70px;
     size: 50px;
     color: var(--texto-principal);
-    margin-left: 7.5px;
-    margin-right: 7.5px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .img-coracao i {
     font-size: 40px;
+    color: var(--texto-principal);
 }
 
 .img-sino {
@@ -76,12 +85,13 @@ header {
     width: 70px;
     size: 50px;
     color: var(--texto-principal);
-    margin-left: 7.5px;
-    margin-right: 7.5px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .img-sino i {
     font-size: 40px;
+    color: var(--texto-principal);
 }
 
 .img-chat {
@@ -90,10 +100,164 @@ header {
     width: 70px;
     size: 50px;
     color: var(--texto-principal);
-    margin-left: 15px;
-    margin-right: 7.5px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .img-chat i {
     font-size: 40px;
+    color: var(--texto-principal);
 }   
+
+#pesquisa {
+    background-color: var(--fundo-principal);
+    height: 125px;
+    width: 1000px;
+    margin: auto;
+    margin-top: 25px;
+    border: 1px solid var(--tracado);
+    border-radius: 15px;
+    
+}
+
+.pesquisa-cima {
+    display: block;
+}
+
+.pesquisa-baixo {
+    display: block;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.partida {
+    background-color: var(--superficie-clara);
+    margin: auto;
+    width: 970px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin: 15px;
+    height: 40px;
+    border-radius: 50px;
+
+    border: none;
+    font-family: var(--fonte-principal);
+    font-weight: bolder;
+    color: var(--texto-principal);
+    font-size: 25px;
+
+    display: flex;
+    gap: 0px;
+
+}
+
+.destino {
+    background-color: var(--superficie-clara);
+    margin: auto;
+    width: 400px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    height: 40px;
+    border-radius: 50px;
+
+    border: none;
+    font-family: var(--fonte-principal);
+    font-weight: bolder;
+    color: var(--superficie-clara);
+    font-size: 25px;
+
+}
+
+.horario {
+    background-color: var(--superficie-clara);
+    margin: auto;
+    width: 400px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    height: 40px;
+    border-radius: 50px;
+    
+    border: none;
+    font-family: var(--fonte-principal);
+    font-weight: bolder;
+    color: var(--superficie-clara);
+    font-size: 25px;
+}
+
+.filtrar {
+    background-color: var(--botao-principal);
+    margin: auto;
+    width: 140px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    height: 40px;
+    border-radius: 50px; 
+
+    border: none;
+    font-family: var(--fonte-principal);
+    font-weight: bolder;
+    color: var(--superficie-clara);
+    font-size: 25px;
+}
+.container {
+    display: flex;
+    gap: 15px;
+}
+
+.partiu {
+    display: flex;
+    align-items: center;
+
+    width: 900px;
+    height: 100%;
+
+    padding-left: 20px;
+    gap: 12px;
+
+    border: none;
+    background-color: transparent;
+
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+
+    color: var(--texto-principal);
+    font-family: var(--fonte-principal);
+}
+
+.partiu p {
+    margin: 0;
+    font-size: 25px;
+}
+
+.partiu i {
+    font-size: 25px;
+    color: #1C3058;
+}
+.trocar {
+    width: 70px;
+    height: 100%;
+
+    border: none;
+    background: transparent;
+
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0;
+    line-height: 1;
+
+    color: var(--texto-principal);
+    font-size: 25px;
+}
+
+.trocar i {
+    position: relative;
+    top: 1px;
+}
