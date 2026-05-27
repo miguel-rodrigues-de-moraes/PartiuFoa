@@ -87,12 +87,12 @@ header {
 /* CONTEÚDO */
 
 .conteudo-principal {
-    width: 80%;
-
+    width: 65%;
     margin: 30px auto 0 auto;
     padding: 20px;
 
     border: 2px solid black;
+    border-radius: 27.5px;
 
     display: flex;
     justify-content: center;
@@ -104,7 +104,6 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     margin-top: 10px;
 }
 
@@ -114,7 +113,7 @@ header {
     display: flex;
     align-items: center;
 
-    width: 870px;
+    width: 959px;
     height: 50px;
 
     padding: 0 10px;
@@ -128,7 +127,6 @@ header {
 .campo-busca i {
     font-size: 20px;
     margin: 0 14px 0 10px;
-
     color: var(--destaque-principal);
 }
 
@@ -142,14 +140,23 @@ header {
     font-size: 16px;
 
     background-color: var(--superficie-clara);
-    border-radius: 100px;
 }
 
 .barra-de-busca::placeholder {
     color: var(--texto-principal);
 }
 
-/* CAMPO DESTINO */
+/* GRUPO INFERIOR (DESTINO + DATA) */
+
+.grupo-inferior {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+    margin-right: auto;
+}
+
+/* DESTINO */
 
 .campo-destino {
     display: flex;
@@ -159,8 +166,6 @@ header {
     height: 45px;
 
     padding: 0 10px;
-    margin-top: 15px;
-    margin-right: 612px;
 
     border: 2px solid var(--tracado);
     border-radius: 100px;
@@ -170,9 +175,7 @@ header {
 
 .campo-destino i {
     font-size: 20px;
-    margin-right: 12px;
-    margin-left: 5px;
-
+    margin: 0 12px 0 5px;
     color: var(--destaque-principal);
 }
 
@@ -186,10 +189,44 @@ header {
     font-size: 16px;
 
     background-color: var(--superficie-clara);
-    border-radius: 100px;
 }
 
 .barra-destino::placeholder {
     color: var(--texto-principal);
+}
 
+/* DATA */
+
+.campo-data {
+    display: flex;
+    align-items: center;
+
+    width: 200px;
+    height: 45px;
+
+    padding: 0 10px;
+
+    border: 2px solid var(--tracado);
+    border-radius: 100px;
+
+    background-color: var(--superficie-clara);
+}
+
+.campo-data i {
+    font-size: 20px;
+    margin-right: 10px;
+    color: var(--destaque-principal);
+}
+
+.barra-data {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    font-size: 14px;
+
+    background-color: var(--superficie-clara);
+    color: var(--texto-principal);
 }
