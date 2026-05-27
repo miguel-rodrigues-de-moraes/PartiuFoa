@@ -13,7 +13,9 @@
 <body>
     <header>
         <img id="img-logo" src="assents/img/img-header.png" alt="Logo">
-        <button class="criar-carona">+ Criar Viagem</button>
+        <button class="criar-carona">
+            <span class="texto-criar-carona">+ Criar Carona</span>
+        </button>
         <button class="img-chat"><i class="fa-regular fa-comment-dots"></i></button>
         <button class="img-coracao"><i class="fa-regular fa-heart"></i></i></button>
         <button class="img-sino"><i class="fa-regular fa-bell"></i></button>
@@ -26,7 +28,7 @@
             <i class="fa-solid fa-location-dot"></i>
 
             <input 
-                type="text" 
+                type="search" 
                 class="barra-de-busca"
                 placeholder="Digite o ponto de partida"
             >
@@ -37,20 +39,25 @@
                 <i class="fa-solid fa-flag-checkered"></i>
 
                 <input 
-                    type="text" 
+                    type="search" 
                     class="barra-destino"
                     placeholder="Opção de destino"
                 >
             </div>
 
             <div class="campo-data">
-                <i class="fa-solid fa-flag-checkered"></i>
+                <i class="fa-solid fa-calendar"></i>
 
                 <input 
                     type="datetime-local" 
                     class="barra-data"
-                    placeholder="Opção de destino"
+                    placeholder="Data e Hora Diponivel"
                 >
+            </div>
+
+            <div class="campo-filtrar">
+                <button class="botao-filtrar">Filtrar</button>
+
             </div>
         </div>
         </section>

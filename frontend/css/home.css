@@ -11,6 +11,10 @@
     --fonte-principal: 'Outfit', Arial, Helvetica, sans-serif;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     background-color: var(--fundo-principal);
@@ -23,10 +27,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     border-bottom: 1px solid var(--tracado);
     background-color: var(--fundo-principal);
-
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -46,6 +48,25 @@ header {
     font-size: 25px;
 
     margin-left: auto;
+    cursor: pointer;
+}
+
+.criar-carona:hover {
+    box-shadow: 0px 4px 10px rgba(48, 89, 193, 0.3);
+}
+
+.criar-carona:active {
+    box-shadow: none;
+    transform: translateY(0.5px);
+}
+
+.texto-criar-carona {
+    transition: color 0.3s ease;
+    font-weight: 200;
+}
+
+.texto-criar-carona:hover {
+    color: var(--fundo-principal);
 }
 
 /* BOTÕES */
@@ -87,15 +108,17 @@ header {
 /* CONTEÚDO */
 
 .conteudo-principal {
-    width: 65%;
-    margin: 30px auto 0 auto;
+    width: 73%;
+    margin: 30px auto 0;
     padding: 20px;
 
     border: 2px solid black;
     border-radius: 27.5px;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 /* PESQUISA */
@@ -103,31 +126,40 @@ header {
 .pesquisa {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 100%;
     margin-top: 10px;
 }
 
-/* CAMPO PRINCIPAL */
+/* CAMPOS DE BUSCA PADRÃO */
 
-.campo-busca {
+.campo-busca,
+.campo-destino,
+.campo-data {
     display: flex;
     align-items: center;
 
-    width: 959px;
-    height: 50px;
-
     padding: 0 10px;
-
     border: 2px solid var(--tracado);
     border-radius: 100px;
 
     background-color: var(--superficie-clara);
 }
 
-.campo-busca i {
+.campo-busca i,
+.campo-destino i,
+.campo-data i {
     font-size: 20px;
-    margin: 0 14px 0 10px;
     color: var(--destaque-principal);
+}
+
+/* CAMPO PRINCIPAL */
+
+.campo-busca {
+    height: 50px;
+}
+
+.campo-busca i {
+    margin: 0 14px 0 10px;
 }
 
 .barra-de-busca {
@@ -138,7 +170,6 @@ header {
     outline: none;
 
     font-size: 16px;
-
     background-color: var(--superficie-clara);
 }
 
@@ -146,37 +177,28 @@ header {
     color: var(--texto-principal);
 }
 
-/* GRUPO INFERIOR (DESTINO + DATA) */
+/* GRUPO INFERIOR */
 
 .grupo-inferior {
     display: flex;
     align-items: center;
-    gap: 15px;
+
+    width: 100%;
+    max-width: 1100px;
+    gap: 18px;
+
     margin-top: 15px;
-    margin-right: auto;
 }
 
 /* DESTINO */
 
 .campo-destino {
-    display: flex;
-    align-items: center;
-
-    width: 250px;
+    width: 45%;
     height: 45px;
-
-    padding: 0 10px;
-
-    border: 2px solid var(--tracado);
-    border-radius: 100px;
-
-    background-color: var(--superficie-clara);
 }
 
 .campo-destino i {
-    font-size: 20px;
     margin: 0 12px 0 5px;
-    color: var(--destaque-principal);
 }
 
 .barra-destino {
@@ -187,7 +209,6 @@ header {
     outline: none;
 
     font-size: 16px;
-
     background-color: var(--superficie-clara);
 }
 
@@ -198,24 +219,12 @@ header {
 /* DATA */
 
 .campo-data {
-    display: flex;
-    align-items: center;
-
-    width: 200px;
+    width: 29%;
     height: 45px;
-
-    padding: 0 10px;
-
-    border: 2px solid var(--tracado);
-    border-radius: 100px;
-
-    background-color: var(--superficie-clara);
 }
 
 .campo-data i {
-    font-size: 20px;
     margin-right: 10px;
-    color: var(--destaque-principal);
 }
 
 .barra-data {
@@ -226,7 +235,31 @@ header {
     outline: none;
 
     font-size: 14px;
-
-    background-color: var(--superficie-clara);
     color: var(--texto-principal);
+    background-color: var(--superficie-clara);
+}
+
+/* FILTRO */
+
+.campo-filtrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 210px;
+    height: 45px;
+
+    margin-left: auto;
+    border-radius: 100px;
+
+    background-color: var(--botao-principal);
+}
+
+.botao-filtrar {
+    color: var(--superficie-clara);
+    font-size: 16px;
+    font-weight: bold;
+
+    border: none;
+    background-color: transparent;
 }
