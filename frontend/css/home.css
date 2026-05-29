@@ -39,51 +39,23 @@ header {
 }
 
 #img-logo {
-    width: 175px;
+    height: 75px;
 
     margin-top: 10px;
     margin-right: 0px;
     margin-bottom: 10px;
     margin-left: 25px;
+
+    margin-right: auto;
 }
 
-/* =========================
-   BOTÃO CRIAR CARONA
-========================= */
-
-.criar-carona {
-    margin-top: 20px;
-    margin-right: 5px;
-    margin-bottom: 20px;
-    margin-left: auto;
-
-    padding: 10px;
-
-    border: none;
-    border-radius: 50px;
-
-    background-color: var(--botao-principal);
-
-    color: var(--superficie-clara);
-
-    font-family: var(--fonte-principal);
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.criar-carona:hover {
-    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
-}
 
 /* =========================
    BOTÕES HEADER
 ========================= */
 
 .img-chat,
-.img-coracao,
 .img-sino {
-    width: 70px;
-
     margin-left: 5px;
     margin-right: 5px;
 
@@ -97,7 +69,6 @@ header {
 }
 
 .img-chat i,
-.img-coracao i,
 .img-sino i {
     font-size: 40px;
     color: var(--texto-principal);
@@ -117,7 +88,7 @@ header {
 }
 
 .img-perfil img {
-    width: 55px;
+    width: 40px;
 }
 
 /* =========================
@@ -138,15 +109,14 @@ header {
 }
 
 .pesquisa-cima {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 15px 15px 0 15px;
 }
 
 .pesquisa-baixo {
-    display: flex;
-    flex-direction: column;
-
-    gap: 15px;
-
     margin-top: 15px;
 }
 
@@ -157,6 +127,8 @@ header {
 .container {
     display: flex;
     gap: 15px;
+
+    padding: 0 15px 15px 15px;
 }
 
 /* =========================
@@ -165,23 +137,33 @@ header {
 
 .partida {
     display: flex;
-    gap: 0px;
+    flex: 1;
 
-    width: 970px;
     height: 40px;
+    width: 650px;
 
-    margin: 15px;
+    margin: 0;
 
     background-color: var(--superficie-clara);
 
     border: none;
     border-radius: 50px;
+}
 
-    color: var(--texto-principal);
+.criar-carona {
+    height: 40px;
+    padding: 0 20px;
+
+    border: none;
+    border-radius: 50px;
+
+    background-color: var(--botao-principal);
+    color: var(--superficie-clara);
 
     font-family: var(--fonte-principal);
     font-size: 25px;
-    font-weight: bolder;
+
+    white-space: nowrap;
 }
 
 /* =========================
@@ -192,7 +174,7 @@ header {
     display: flex;
     align-items: center;
 
-    width: 900px;
+    flex: 1;
     height: 100%;
 
     padding-left: 20px;
@@ -200,11 +182,7 @@ header {
     gap: 12px;
 
     border: none;
-
     background-color: transparent;
-
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
 
     color: var(--texto-principal);
 
@@ -257,62 +235,28 @@ header {
    DESTINO
 ========================= */
 
-.destino {
-    width: 400px;
-    height: 40px;
-
-    margin: auto;
-    margin-right: 15px;
-    margin-bottom: 15px;
-    margin-left: 15px;
-
-    background-color: var(--superficie-clara);
-
-    border: none;
-    border-radius: 50px;
-
-    color: var(--superficie-clara);
-
-    font-family: var(--fonte-principal);
-    font-size: 25px;
-    font-weight: bolder;
-}
-
-/* =========================
-   HORARIO
-========================= */
-
+.destino,
 .horario {
-    width: 400px;
+    flex: 1;
     height: 40px;
 
-    margin: auto;
-    margin-right: 15px;
-    margin-bottom: 15px;
+    margin: 0;
 
     background-color: var(--superficie-clara);
 
     border: none;
     border-radius: 50px;
 
-    color: var(--superficie-clara);
-
     font-family: var(--fonte-principal);
     font-size: 25px;
     font-weight: bolder;
 }
-
-/* =========================
-   FILTRAR
-========================= */
 
 .filtrar {
     width: 140px;
     height: 40px;
 
-    margin: auto;
-    margin-right: 15px;
-    margin-bottom: 15px;
+    margin: 0;
 
     background-color: var(--botao-principal);
 
