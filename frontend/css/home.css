@@ -263,3 +263,42 @@ header {
     border: none;
     background-color: transparent;
 }
+
+.caronas {
+    width: 73%;
+    margin: 30px auto 0;
+    padding: 20px;
+
+    border: 2px solid black;
+    border-radius: 27.5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.motorista-1 {
+    display: flex;
+
+    margin-right: auto;
+    margin-top: 10px;
+    margin-left: 17px;
+
+    
+}
+
+.motorista-1 img {
+    width: 90px;
+    height: 90px;
+    border-radius: 70px;
+
+}
+
+.motorista-1 h2 {
+    margin-left: 15px;
+    color: var(--texto-principal);
+    margin-top: 0px;
+    font-size: 22px;
+}
+
