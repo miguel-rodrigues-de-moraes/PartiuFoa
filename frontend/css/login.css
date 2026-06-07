@@ -1,0 +1,88 @@
+body {
+    background-image: url("../img/fundologin.png");
+        background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center; /* horizontal */
+    align-items: center;
+}
+.caixalogin {
+    background-color: rgba(240, 248, 255, 0.422);
+    width: 746px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 195px;
+    padding-right: 195px;
+    margin: 60px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+img {
+    width: 363.8px;
+     display: block;
+     margin: 0 auto;
+}
+h1 {  
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    color: #1C3058;
+    text-align: center;
+    font-size: 40px;
+}
+h2 {
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 28px;
+    color: #1C3058;
+}
+.inputs {
+    width: 100%;
+    height: 60px;
+    border: none;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 18px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding-left: 30px;
+}
+h3{
+   font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 350;
+    color: #3059C1;
+}
+button {
+    display: block;
+    width: 300px;
+    height: 65px;
+
+    margin: 20px auto; /* centralizado */
+
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #3059C1;
+    border-radius: 40px;
+
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+
+     font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500; 
+    text-decoration: none;
+    font-size: 30px;
+    color: aliceblue;
+}
+.texto {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+}
