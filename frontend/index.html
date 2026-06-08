@@ -15,60 +15,65 @@
 <body>
     <header>
         <img id="img-logo" src="assents/img/img-header.png" alt="Logo">
+            <div class="icones">
+            <button class="img-acess">
+                <i class="fa-solid fa-wheelchair" style="color: aliceblue;"></i>
+            </button>
 
-        <button class="criar-carona">
-            + Criar Viagem
-        </button>
+            <button class="img-chat">
+                <i class="fa-regular fa-comment-dots"></i>
+            </button>
 
-        <button class="img-chat">
-            <i class="fa-regular fa-comment-dots"></i>
-        </button>
+            <button class="img-sino">
+                <i class="fa-regular fa-bell"></i>
+            </button>
 
-        <button class="img-coracao">
-            <i class="fa-regular fa-heart"></i>
-        </button>
-
-        <button class="img-sino">
-            <i class="fa-regular fa-bell"></i>
-        </button>
-
-        <button class="img-perfil">
-            <img src="assents/img/img-perfil.png" alt="Foto de Perfil">
-        </button>
+            <button class="img-perfil">
+                <img src="assents/img/img-perfil.png" alt="Foto de Perfil">
+            </button>
+            </div>
     </header>
 
     <main>
+        <section class="card">
         <section id="pesquisa">
+            <i style="color: var(--texto-principal);" id="local" class="fa-solid fa-location-crosshairs"></i>
+            <input type="textarea" placeholder="Ponto de Partida" class="partida">
+            <button class="criar-carona">
+            + Criar Viagem
+        </button>
+        </section>
+        <section id="opcao">
+            <i id="bussola" class="fa-regular fa-compass"></i>
+            <select id="cidade" name="cidade">
+                <option value="">Opções de Destino</option>
+                <option value="olezzio">Campus Três Poços</option>
+                <option value="barra-mansa">Campus Aterrado</option>
+                <option value="hfoa">H-FOA</option>
+                <option value="saindo">Saindo do campus</option>
+            </select>
+            <i id="relogio" class="fa-regular fa-clock"></i>
+            <select id="horario" name="horario">
+                <option value="">Opções de Horário</option>
+                <option value="7">07.00h</option>
+                <option value="8">08.00h</option>
+                <option value="1230">12.30h</option>
+                <option value="1830">18.30h</option>
+                <option value="1930">19.30h</option>
+            </select>
+            <button class="filtrar">
+                Filtrar
+            </button>
+        </section>
+    </section>
 
-            <article class="pesquisa-cima">
-                <div class="partida">
-
-                    <button class="partiu">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <p>Ponto de Partida</p>
-                    </button>
-
-                    <button class="trocar">
-                        <i class="fa-solid fa-arrow-right-arrow-left"></i>
-                    </button>
-
+        <section class="caixa1">
+            <div class="perfil">
+                <img class="fotoperfil" src="img/perfil1.png">
+                <div class="informacao">
+                    <h2>Maria</h2>
                 </div>
-            </article>
-
-            <article class="pesquisa-baixo">
-                <div class="container">
-
-                    <button class="destino"></button>
-
-                    <button class="horario"></button>
-
-                    <button class="filtrar">
-                        Filtrar
-                    </button>
-
-                </div>
-            </article>
-
+            </div>
         </section>
     </main>
 </body>
