@@ -123,6 +123,20 @@ header {
     width: 45px;
 }
 
+
+.img-perfil {
+    margin-left: 5px;
+    margin-right: 25px;
+
+    border: none;
+
+    background-color: transparent;
+}
+
+.img-perfil img {
+    width: 45px;
+}
+
 main{
    margin-left: 190px; 
    margin-right: 190px;
@@ -151,13 +165,14 @@ main{
     font-weight: 500;
     height: 40px;
     font-size: 23px;
-    width: 560px;
-
+    flex: 1;
+    min-width: 0;
+ 
     margin: 20px 0px 20px 0;
-
+ 
     padding: 10px;
     padding-left: 20px;
-
+ 
     background-color: var(--superficie-clara);
     border: none;
     border-radius: 50px;
@@ -178,7 +193,7 @@ select {
     font-weight: 500;
     height: 57px;
     font-size: 23px;
-    width: 335px;
+    flex : 1;
 
     margin: 20px 0px 20px 0;
 
@@ -200,7 +215,7 @@ select {
     margin-right: 20px;
     margin-bottom: 20px;
     margin-left: auto;
-    width: 20%;
+    width: 200px;
 
     padding: 10px;
 
@@ -219,17 +234,312 @@ select {
  
 .caixa1 {
     margin-top: 25px;
-
     background-color: var(--fundo-principal);
-
     border: 1px solid var(--tracado);
     border-radius: 15px; 
-    padding: 20px;
+    padding: 06px 20px;
 }
-.fotoperfil {
-    width: 110px;
-    border-radius: 100%;
-}
+
 .perfil {
-   align-items: center;
+    display: flex;
+    align-items: center;
+    gap: 18px;
 }
+
+.fotoperfil {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.informacao {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.nome-estrelas {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: -8px;
+}
+
+.nome-motorista {
+    font-family: var(--fonte-principal);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--destaque-principal);
+    line-height: 1;
+}
+
+.estrelas {
+    color: var(--destaque-principal);
+    font-size: 14px;
+    display: flex;
+    gap: 2px;
+}
+
+.info-linha {
+    font-family: var(--fonte-principal);
+    font-size: 13.5px;
+    font-weight: 400;
+    color: var(--texto-principal);
+    margin: 0;
+    line-height: 1;
+}
+
+.preco {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+    padding-left: 24px;
+    border-left: 1px solid var(--tracado);
+    min-width: 160px;
+    text-align: center;
+}
+
+.vagas-label {
+    font-family: var(--fonte-principal);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--texto-principal);
+    margin: 0;
+}
+
+.vagas-numero {
+    font-family: var(--fonte-principal);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--destaque-principal);
+    margin: 0;
+}
+
+.solicitar {
+    height: 40px;
+    width: 160px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 50px;
+    background-color: var(--botao-principal);
+    color: var(--superficie-clara);
+    font-family: var(--fonte-principal);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 4px;
+}
+
+.solicitar:hover {
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ── Tablet (≤ 1024px) ── */
+@media (max-width: 1024px) {
+    main {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+ 
+    .partida {
+        font-size: 18px;
+    }
+ 
+    select {
+        font-size: 18px;
+        height: 50px;
+    }
+ 
+    .criar-carona,
+    .filtrar {
+        font-size: 18px;
+        height: 52px;
+        width: auto;
+        padding: 10px 22px;
+        white-space: nowrap;
+    }
+}
+ 
+/* ── Mobile (≤ 768px) ── */
+@media (max-width: 768px) {
+    main {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+ 
+    /* --- Linha de pesquisa ---
+       Layout: [ ícone ] [ input──────────────── ]
+                [ botão Criar Viagem ──────────── ]   */
+    #pesquisa {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 14px 14px 8px;
+        align-items: center;
+    }
+ 
+    #local {
+        padding-left: 0;
+        font-size: 22px;
+        flex-shrink: 0;
+        order: 1;
+    }
+ 
+    .partida {
+        order: 2;
+        flex: 1;
+        min-width: 0;
+        width: auto;
+        font-size: 15px;
+        height: 42px;
+        margin: 0;
+    }
+ 
+    /* Botão vai para a segunda linha sozinho */
+    .criar-carona {
+        order: 3;
+        width: 100%;
+        margin: 0;
+        height: 44px;
+        font-size: 15px;
+    }
+ 
+    /* --- Linha de filtros ---
+       Layout: [ ícone ] [ select destino ] [ ícone ] [ select hora ]
+               [ botão Filtrar ─────────────────────────────────────── ]  */
+    #opcao {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 0 14px 14px;
+        margin-bottom: 0;
+        align-items: center;
+    }
+ 
+    #bussola {
+        padding-left: 0;
+        font-size: 22px;
+        flex-shrink: 0;
+        order: 1;
+    }
+ 
+    #cidade {
+        order: 2;
+        flex: 1;
+        min-width: 0;
+        width: auto;
+        font-size: 15px;
+        height: 42px;
+        margin: 0;
+    }
+ 
+    #relogio {
+        font-size: 22px;
+        flex-shrink: 0;
+        order: 3;
+    }
+ 
+    #horario {
+        order: 4;
+        flex: 1;
+        min-width: 0;
+        width: auto;
+        font-size: 15px;
+        height: 42px;
+        margin: 0;
+    }
+ 
+    /* Botão Filtrar vai para linha própria */
+    .filtrar {
+        order: 5;
+        width: 100%;
+        margin: 0;
+        height: 44px;
+        font-size: 15px;
+    }
+}
+ 
+/* ── Mobile pequeno (≤ 480px) ── */
+@media (max-width: 480px) {
+    header {
+        padding: 0 10px;
+    }
+ 
+    #img-logo {
+        margin-left: 4px;
+        width: 110px;
+    }
+ 
+    .img-perfil {
+        margin-right: 4px;
+    }
+ 
+    /* Ícones decorativos somem para ganhar espaço */
+    #local,
+    #bussola,
+    #relogio {
+        display: none;
+    }
+ 
+    #pesquisa,
+    #opcao {
+        gap: 8px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+ 
+    .partida,
+    #cidade,
+    #horario {
+        font-size: 14px;
+        height: 40px;
+        padding-left: 14px;
+    }
+ 
+    .criar-carona,
+    .filtrar {
+        font-size: 14px;
+        height: 42px;
+    }
+ 
+    /* Card de resultado compacto */
+    .caixa1 {
+        padding: 12px;
+    }
+ 
+    .fotoperfil {
+        width: 64px;
+        height: 64px;
+    }
+ 
+    .nome-motorista {
+        font-size: 15px;
+    }
+ 
+    .estrelas {
+        font-size: 12px;
+    }
+ 
+    .info-linha {
+        font-size: 12px;
+    }
+ 
+    .preco {
+        padding-left: 12px;
+        min-width: 110px;
+    }
+ 
+    .vagas-numero {
+        font-size: 18px;
+    }
+ 
+    .solicitar {
+        width: 120px;
+        font-size: 13px;
+        height: 36px;
+    }
+}
+ 
