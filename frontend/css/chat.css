@@ -299,7 +299,7 @@ a {
 
 .botao-cancelar:hover {
     background-color: #9F382A;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
 }
 
 .icone-analise,
