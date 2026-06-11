@@ -1,271 +1,639 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/* <--- VARIÁVEIS DO PROJETO ---> */
 
 :root {
-    --fundo-principal: #F9F9FE;
-    --texto-principal: #1C3058;
-    --destaque-claro: #95ABD3;
-    --superficie-clara: #E9E9E9;
-    --botao-principal: #3059C1;
-    --destaque-principal: #3E5B93;
-    --tracado: #B2B2B6;
+    --cor-fundo: #F9F9FE;
+    --cor-texto: #1C3058;
+    --cor-icone: #95ABD3;
+    --cor-campo: #E9E9E9;
+    --cor-botao: #3059C1;
+    --cor-destaque: #3E5B93;
+    --cor-borda: #B2B2B6;
 
     --fonte-principal: 'Outfit', Arial, Helvetica, sans-serif;
 }
 
-/* =========================
-   BODY
-========================= */
+/* <--- CONFIGURAÇÕES GERAIS ---> */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scrollbar-width: none;
+}
 
 body {
-    margin: 0px;
-    background-color: var(--fundo-principal);
+    margin: 0;
+    overflow-x: hidden;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: var(--fonte-principal);
 }
 
-/* =========================
-   HEADER
-========================= */
+body::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
 
-header {
+button,
+input,
+select {
+    font-family: var(--fonte-principal);
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* <--- ÍCONES ---> */
+
+.icone-chat,
+.icone-sino,
+.icone-localizacao,
+.icone-trocar,
+.icone-destino,
+.icone-horario,
+.icone-vaga,
+.icone-acessibilidade {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+
+
+/* <--- CABEÇALHO ---> */
+
+.cabecalho {
+    width: 100%;
+    min-height: 86px;
+
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
 
-    width: auto;
+    padding: 0 32px;
 
-    background-color: var(--fundo-principal);
-
-    border-bottom: 1px solid var(--tracado);
-
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--cor-fundo);
+    border-bottom: 1px solid var(--cor-borda);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
 }
 
-#img-logo {
-    height: 75px;
-
-    margin-top: 10px;
-    margin-right: 0px;
-    margin-bottom: 10px;
-    margin-left: 25px;
-
+.cabecalho-logo {
+    display: flex;
+    align-items: center;
     margin-right: auto;
 }
 
-
-/* =========================
-   BOTÕES HEADER
-========================= */
-
-.img-chat,
-.img-sino {
-    margin-left: 5px;
-    margin-right: 5px;
-
-    border: none;
-
-    background-color: transparent;
-
-    color: var(--texto-principal);
-
-    size: 50px;
+.cabecalho-imagem {
+    height: 62px;
 }
 
-.img-chat i,
-.img-sino i {
-    font-size: 40px;
-    color: var(--texto-principal);
-}
-
-/* =========================
-   PERFIL
-========================= */
-
-.img-perfil {
-    margin-left: 5px;
-    margin-right: 25px;
-
-    border: none;
-
-    background-color: transparent;
-}
-
-.img-perfil img {
-    width: 40px;
-}
-
-/* =========================
-   PESQUISA
-========================= */
-
-#pesquisa {
-    width: 1000px;
-    height: 125px;
-
-    margin: auto;
-    margin-top: 25px;
-
-    background-color: var(--fundo-principal);
-
-    border: 1px solid var(--tracado);
-    border-radius: 15px;
-}
-
-.pesquisa-cima {
+.cabecalho-acoes {
     display: flex;
     align-items: center;
-    gap: 15px;
-
-    padding: 15px 15px 0 15px;
+    gap: 14px;
 }
 
-.pesquisa-baixo {
-    margin-top: 15px;
-}
+.cabecalho-botao,
+.cabecalho-perfil {
+    width: 52px;
+    height: 52px;
 
-/* =========================
-   CONTAINER
-========================= */
-
-.container {
-    display: flex;
-    gap: 15px;
-
-    padding: 0 15px 15px 15px;
-}
-
-/* =========================
-   PARTIDA
-========================= */
-
-.partida {
-    display: flex;
-    flex: 1;
-
-    height: 40px;
-    width: 650px;
-
-    margin: 0;
-
-    background-color: var(--superficie-clara);
-
-    border: none;
-    border-radius: 50px;
-}
-
-.criar-carona {
-    height: 40px;
-    padding: 0 20px;
-
-    border: none;
-    border-radius: 50px;
-
-    background-color: var(--botao-principal);
-    color: var(--superficie-clara);
-
-    font-family: var(--fonte-principal);
-    font-size: 25px;
-
-    white-space: nowrap;
-}
-
-/* =========================
-   PARTIU
-========================= */
-
-.partiu {
-    display: flex;
-    align-items: center;
-
-    flex: 1;
-    height: 100%;
-
-    padding-left: 20px;
-
-    gap: 12px;
-
-    border: none;
-    background-color: transparent;
-
-    color: var(--texto-principal);
-
-    font-family: var(--fonte-principal);
-}
-
-.partiu p {
-    margin: 0;
-    font-size: 25px;
-}
-
-.partiu i {
-    font-size: 25px;
-    color: #1C3058;
-}
-
-/* =========================
-   TROCAR
-========================= */
-
-.trocar {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: 70px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: var(--cor-texto);
+}
+
+.cabecalho-botao {
+    font-size: 34px;
+}
+
+.cabecalho-botao:hover {
+    font-size: 40px;
+}
+
+.cabecalho-foto {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+}
+
+.cabecalho-foto:hover {
+    width: 50px;
+    height: 50px;
+}
+
+/* <--- CONTEÚDO PRINCIPAL ---> */
+
+.conteudo-principal {
+    width: 100%;
+    padding: 28px 0 40px;
+}
+
+/* <--- ÁREA DE BUSCA --->*/
+
+.busca {
+    width: calc(100% - 48px);
+    max-width: 1120px;
+
+    margin: 0 auto 28px;
+    padding: 26px;
+
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: 22px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.10);
+}
+
+.busca-principal {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.busca-filtros {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.campo-origem,
+.campo-destino,
+.campo-horario {
+    height: 58px;
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 20px;
+
+    background-color: var(--cor-campo);
+    border: 1px solid transparent;
+    border-radius: 50px;
+}
+
+.campo-origem {
+    padding-right: 0;
+}
+
+.campo-destino,
+.campo-horario {
+    padding-right: 16px;
+}
+
+.icone-localizacao,
+.icone-destino,
+.icone-horario {
+    width: 28px;
+    min-width: 28px;
+
+    color: var(--cor-icone);
+    font-size: 23px;
+}
+
+.campo-input,
+.campo-select {
+    width: 100%;
     height: 100%;
 
-    padding: 0;
+    margin-left: 12px;
 
     border: none;
+    outline: none;
+    background-color: transparent;
 
-    background: transparent;
+    color: var(--cor-texto);
+    font-size: 22px;
+    font-weight: 500;
+}
 
+.campo-input::placeholder {
+    color: var(--cor-texto);
+}
+
+.campo-select {
+    padding: 0 34px 0 0;
+    border-radius: 50px;
+    appearance: none;
+}
+
+.campo-select option {
+    background-color: white;
+    color: var(--cor-texto);
+    font-size: 18px;
+}
+
+.botao-trocar {
+    width: 64px;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0;
+    border: none;
+    background-color: transparent;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
 
-    color: var(--texto-principal);
-
-    font-size: 25px;
-    line-height: 1;
+    color: var(--cor-texto);
+    font-size: 22px;
 }
 
-.trocar i {
-    position: relative;
-    top: 1px;
+.botao-criar-carona,
+.botao-filtrar {
+    width: 200px;
+    height: 58px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0;
+    border: none;
+    border-radius: 50px;
+
+    background-color: var(--cor-botao);
+    color: var(--cor-campo);
+
+    font-size: 21px;
+    font-weight: 700;
 }
 
-/* =========================
-   DESTINO
-========================= */
+.botao-trocar:hover {
+    background-color: var(--cor-borda);
+}
 
-.destino,
-.horario {
+.botao-criar-carona:hover,
+.botao-filtrar:hover,
+.botao-solicitar:hover,
+.acessibilidade-botao:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+/* <--- LISTA DE CARONAS ---> */
+
+.lista-caronas {
+    width: calc(100% - 48px);
+    max-width: 1120px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    margin: 0 auto;
+}
+
+.carona-card {
+    padding: 24px 28px;
+
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: 20px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.10);
+}
+
+.carona-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.carona-foto {
+    width: 108px;
+    height: 108px;
+
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.carona-dados {
     flex: 1;
-    height: 40px;
-
-    margin: 0;
-
-    background-color: var(--superficie-clara);
-
-    border: none;
-    border-radius: 50px;
-
-    font-family: var(--fonte-principal);
-    font-size: 25px;
-    font-weight: bolder;
 }
 
-.filtrar {
-    width: 140px;
-    height: 40px;
+.carona-cabecalho {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 
+    margin-bottom: 6px;
+}
+
+.carona-motorista {
+    color: var(--cor-destaque);
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.carona-estrelas {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    color: var(--cor-destaque);
+    font-size: 14px;
+}
+
+.carona-estrelas i {
+    display: flex;
+    align-items: center;
+}
+
+.carona-texto,
+.carona-valor,
+.vagas-titulo,
+.vagas-numero {
     margin: 0;
+}
 
-    background-color: var(--botao-principal);
+.carona-texto {
+    color: var(--cor-texto);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.45;
+}
+
+.carona-valor {
+    margin-top: 4px;
+
+    color: var(--cor-texto);
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.carona-vagas {
+    min-width: 190px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+
+    padding-left: 30px;
+    border-left: 1px solid var(--cor-borda);
+
+    text-align: center;
+}
+
+.vagas-titulo {
+    color: var(--cor-texto);
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.vagas-numero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--cor-destaque);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.icone-vaga {
+    font-size: 26px;
+}
+
+.botao-solicitar {
+    width: 180px;
+    height: 48px;
+
+    margin-top: 6px;
+    padding: 0 16px;
 
     border: none;
     border-radius: 50px;
 
-    color: var(--superficie-clara);
+    background-color: var(--cor-botao);
+    color: var(--cor-campo);
 
-    font-family: var(--fonte-principal);
-    font-size: 25px;
-    font-weight: bolder;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* <--- BOTÃO DE ACESSIBILIDADE ---> */
+
+.acessibilidade-botao {
+    position: fixed;
+    top: 135px;
+    right: 0;
+
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0;
+    border: none;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+    background-color: var(--cor-botao);
+    color: white;
+    font-size: 30px;
+}
+
+/* <--- RESPONSIVIDADE ---> */
+
+@media (max-width: 1024px) {
+    .busca,
+    .lista-caronas {
+        width: calc(100% - 32px);
+        max-width: none;
+    }
+
+    .carona-foto {
+        width: 96px;
+        height: 96px;
+    }
+
+    .carona-motorista {
+        font-size: 26px;
+    }
+
+    .carona-texto {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 780px) {
+    .cabecalho {
+        min-height: 78px;
+        padding: 0 18px;
+    }
+
+    .cabecalho-imagem {
+        height: 54px;
+    }
+
+    .cabecalho-acoes {
+        gap: 6px;
+    }
+
+    .cabecalho-botao,
+    .cabecalho-perfil {
+        width: 46px;
+        height: 46px;
+    }
+
+    .cabecalho-botao {
+        font-size: 29px;
+    }
+
+    .cabecalho-foto {
+        width: 40px;
+        height: 40px;
+    }
+
+    .conteudo-principal {
+        padding-top: 24px;
+    }
+
+    .busca {
+        padding: 20px;
+    }
+
+    .busca-principal,
+    .busca-filtros,
+    .carona-conteudo {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .campo-origem,
+    .campo-destino,
+    .campo-horario,
+    .botao-criar-carona,
+    .botao-filtrar,
+    .botao-solicitar {
+        width: 100%;
+    }
+
+    .carona-foto {
+        margin: 0 auto;
+    }
+
+    .carona-dados {
+        text-align: center;
+    }
+
+    .carona-cabecalho {
+        justify-content: center;
+    }
+
+    .carona-vagas {
+        min-width: 100%;
+        padding-left: 0;
+        padding-top: 18px;
+        border-left: none;
+        border-top: 1px solid var(--cor-borda);
+    }
+
+    .acessibilidade-botao {
+        top: auto;
+        right: 16px;
+        bottom: 18px;
+
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+    }
+}
+
+@media (max-width: 520px) {
+    .cabecalho {
+        min-height: 70px;
+        padding: 0 12px;
+    }
+
+    .cabecalho-imagem {
+        height: 44px;
+    }
+
+    .cabecalho-botao,
+    .cabecalho-perfil {
+        width: 38px;
+        height: 38px;
+    }
+
+    .cabecalho-botao {
+        font-size: 24px;
+    }
+
+    .cabecalho-foto {
+        width: 34px;
+        height: 34px;
+    }
+
+    .busca,
+    .lista-caronas {
+        width: calc(100% - 20px);
+    }
+
+    .busca {
+        padding: 16px;
+        border-radius: 18px;
+    }
+
+    .campo-origem,
+    .campo-destino,
+    .campo-horario,
+    .botao-criar-carona,
+    .botao-filtrar {
+        height: 52px;
+    }
+
+    .campo-input,
+    .campo-select {
+        font-size: 18px;
+    }
+
+    .botao-criar-carona,
+    .botao-filtrar {
+        font-size: 18px;
+    }
+
+    .carona-card {
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .carona-foto {
+        width: 88px;
+        height: 88px;
+    }
+
+    .carona-motorista {
+        font-size: 24px;
+    }
+
+    .carona-texto {
+        font-size: 18px;
+    }
+
+    .carona-valor {
+        font-size: 19px;
+    }
 }

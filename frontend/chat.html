@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="shortcut icon" href="assents/icon/favicon.ico" type="image/x-icon">
+
+    <title>PartiuFoa | Chat</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <a class="cabecalho-logo" href="index.html" aria-label="Voltar para o início">
+            <img class="cabecalho-imagem" src="assents/img/img-header.png" alt="Logo PartiuFoa">
+        </a>
+
+        <div class="cabecalho-acoes">
+            <a class="cabecalho-botao" href="chat.html" aria-label="Abrir mensagens">
+                <i class="fa-regular fa-comment-dots icone-chat"></i>
+            </a>
+
+            <button class="cabecalho-botao" type="button" aria-label="Notificações">
+                <i class="fa-regular fa-bell icone-sino"></i>
+            </button>
+
+            <button class="cabecalho-perfil" type="button" aria-label="Perfil do usuário">
+                <img class="cabecalho-foto" src="assents/img/img-perfil.png" alt="Foto de perfil">
+            </button>
+        </div>
+    </header>
+
+    <main class="chat-conteudo">
+        <aside class="chat-contatos">
+            <article class="contato-ativo">
+                <img class="contato-foto" src="assents/img/perfil1.png" alt="Foto de Maria Silva">
+
+                <div class="contato-info">
+                    <div class="contato-nome-linha">
+                        <h2 class="contato-nome">Maria</h2>
+                            <div class="contato-estrelas" aria-label="5 estrelas">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                    </div>
+
+                    <p class="contato-texto">Sistema de Informação</p>
+                    <p class="contato-texto">1º Período</p>
+                </div>
+
+                <div class="contato-status" aria-label="Solicitação em análise">
+                    <i class="fa-solid fa-hourglass icone-tempo"></i>
+                </div>
+            </article>
+        </aside>
+
+        <section class="chat-area">
+            <div class="chat-topo">
+                <div class="chat-motorista">
+                    <img class="chat-foto" src="assents/img/perfil1.png" alt="Foto de Maria Silva">
+
+                    <div class="chat-dados">
+                        <h1 class="chat-nome">Maria Silva</h1>
+                        <p class="chat-rota">Retiro → Campus Olézio Galotti | 18:00</p>
+                    </div>
+                </div>
+
+                <div class="chat-acoes">
+                    <div class="analise" type="button">
+                        Solicitação em análise <i class="fa-solid fa-hourglass-half icone-analise"></i>
+                    </div>
+
+                    <button class="botao-cancelar" type="button">
+                        Cancelar <i class="fa-solid fa-xmark icone-cancelar"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="chat-mensagens">
+                <div class="mensagem-enviada">
+                    Oi, Maria! Tudo bem? Vi sua carona saindo do Retiro às 18h. Você consegue passar perto da Bracarense?
+                </div>
+            </div>
+
+            <div class="chat-envio">
+                <input
+                    class="campo-mensagem"
+                    type="text"
+                    placeholder="Digite sua mensagem">
+
+                <button class="botao-enviar" type="button" aria-label="Enviar mensagem">
+                    <i class="fa-solid fa-paper-plane icone-enviar"></i>
+                </button>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
