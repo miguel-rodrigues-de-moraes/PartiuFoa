@@ -5,7 +5,7 @@ document.getElementById("formulario-login").addEventListener("submit", function(
     var senha = document.getElementById("campo-senha").value;
 
     if (matricula == "123456789" && senha == "aluno123") {
-        window.location.href = "index.html";
+        window.location.href = "home.html";
     } else {
         alert("Matrícula ou senha incorretos.");
     }
