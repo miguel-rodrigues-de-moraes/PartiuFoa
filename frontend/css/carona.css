@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/* <--- VARIÁVEIS DO PROJETO ---> */
+
+:root {
+    --cor-fundo: #F9F9FE;
+    --cor-texto: #1C3058;
+    --cor-icone: #95ABD3;
+    --cor-campo: #E9E9E9;
+    --cor-botao: #3059C1;
+    --cor-destaque: #3E5B93;
+    --cor-borda: #b2b2b662;
+
+    --fonte-principal: 'Outfit', Arial, Helvetica, sans-serif;
+}
+
+/* <--- CONFIGURAÇÕES GERAIS ---> */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scrollbar-width: none;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: var(--fonte-principal);
+}
+
+body::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
+
+main {
+    width: calc(100% - 48px);
+    max-width: 1450px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    margin: 0 auto;
+}
+
+button,
+input,
+select {
+    font-family: var(--fonte-principal);
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* <--- ÍCONES ---> */
+
+.icone-chat,
+.icone-sino,
+.icone-localizacao,
+.icone-trocar,
+.icone-destino,
+.icone-horario,
+.icone-vaga,
+.icone-acessibilidade {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+
+/* <--- CABEÇALHO ---> */
+
+.cabecalho {
+    width: 100%;
+    min-height: 86px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 32px;
+
+    background-color: var(--cor-fundo);
+    border-bottom: 1px solid var(--cor-borda);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
+}
+
+.cabecalho-logo {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.cabecalho-imagem {
+    height: 62px;
+}
+
+.cabecalho-acoes {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.cabecalho-botao,
+.cabecalho-perfil {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: var(--cor-texto);
+}
+
+.cabecalho-botao {
+    font-size: 34px;
+}
+
+.cabecalho-botao:hover {
+    font-size: 40px;
+}
+
+.cabecalho-foto {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+}
+
+.cabecalho-foto:hover {
+    width: 50px;
+    height: 50px;
+}
+
+/* <--- CONTEÚDO PRINCIPAL ---> */
+
+.conteudo-principal {
+    width: 100%;
+    padding: 28px 0 40px;
+}
+
+/* <--- Cabeçalho Principal ---> */
+
+.cabecalho-principal{
+    margin: 0;
+    padding: 0;
+}
+
+.voltar-menu {
+    margin: 0;
+    padding: 0;
+
+    color: var(--cor-texto);
+
+    font-size: 20px;
+}
+
+.voltar-menu:hover  {
+    text-decoration: underline;
+}
+
+.detalhe-carona {
+    color: var(--cor-destaque);
+
+    padding-left: 15px;
+    margin: 0;
+    line-height: 0.4;
+}
+
+/* <--- Perfil ---> */
+
+.perfil-card {
+    padding: 24px 28px;
+
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: 20px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.10);
+
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    margin-top: 5px;
+}
+
+.perfil-foto {
+    width: 108px;
+    height: 108px;
+
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.perfil-dados {
+    flex: 1;
+}
+
+.perfil-cabecalho {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-bottom: 6px;
+}
+
+.perfil-motorista {
+    color: var(--cor-destaque);
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.perfil-estrelas {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    color: var(--cor-destaque);
+    font-size: 14px;
+}
+
+.perfil-estrelas i {
+    display: flex;
+    align-items: center;
+}
+
+.perfil-texto {
+    margin: 0;
+    color: var(--cor-texto);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.45;
+}
+
+.aluno-unifoa {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6px;
+
+    color: var(--cor-botao);
+    background-color: #95abd35b;
+    border-radius: 25px;
+
+    width: 175px;
+    height: 40px;
+
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    margin-top: 10px;
+}
+
+.aluno-texto {
+    color: var(--cor-botao);
+    margin-left: 5px;
+}
+
+/* <--- Histórico e confiabilidade ---> *

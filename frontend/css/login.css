@@ -130,6 +130,12 @@ a {
     font-weight: 500;
 }
 
+.login-link:hover {
+    color: var(--cor-texto);
+
+    text-decoration: underline;
+}
+
 /* <--- BOTÃO ---> */
 
 .login-botao {

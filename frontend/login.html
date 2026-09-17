@@ -30,7 +30,8 @@
                     maxlength="9"
                     pattern="[0-9]{9}"
                     title="A matrícula deve conter exatamente 9 números."
-                    required>
+                    required
+                    >
 
                 <label class="login-label" for="campo-senha">Senha</label>
                 <input
@@ -39,9 +40,11 @@
                     id="campo-senha"
                     name="senha"
                     placeholder="Ex: Senha123!"
+                    maxlength="16"
                     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#?!@$%^&*-]).{8,}$"
                     title="A senha deve ter no mínimo 8 caracteres, uma letra maiúscula, uma minúscula, um número e um caractere especial."
-                    required>
+                    required
+                    >
 
                 <a class="login-link" href="#">Esqueceu a senha?</a>
 
