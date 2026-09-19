@@ -393,6 +393,11 @@ a {
     font-size: 35px;
     color: var(--cor-botao);
     margin: 0;
+
+    text-align: center;
+
+    width: 35px;
+    height: 35px;
 }
 
 .condecoracoes {
@@ -474,7 +479,8 @@ a {
     width: 25%;
     flex-direction: column;
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
+
 
     gap: 25px;
     border-right: 1px solid var(--cor-borda);
@@ -484,7 +490,7 @@ a {
     width: 25%;
     flex-direction: column;
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
 
     gap: 25px;
 }
@@ -534,4 +540,42 @@ a {
 
     width: 35px;
     height: 35px;
+}
+
+/* <--- RECADO DO MOTORISTA ---> */
+
+.recado {
+    display: flex;
+    align-items: center;
+    display: flex;
+    justify-content: left;
+    gap: 15px;
+}
+
+
+.recado i {
+    color: var(--cor-botao);
+    font-size: 35px;
+    text-align: center;
+
+    width: 35px;
+    height: 35px;
+}
+
+.recado p {
+    display: inline-flex;
+    justify-content: left;
+    align-items: center;
+
+    color: var(--cor-texto);
+    background-color: var(--cor-afirmativo);
+    border-radius: 5px;
+    border-left: 1px solid var(--cor-texto);
+
+    height: 40px;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    padding: 5px;
 }
