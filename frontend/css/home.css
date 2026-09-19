@@ -457,6 +457,19 @@ a {
 
 /* <--- RESPONSIVIDADE ---> */
 
+@media (max-width: 1270px) {
+    .acessibilidade-botao {
+        top: auto;
+        right: 16px;
+        bottom: 18px;
+
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+    }
+
+}
+
 @media (max-width: 1024px) {
     .busca,
     .lista-caronas {
@@ -475,6 +488,16 @@ a {
 
     .carona-texto {
         font-size: 19px;
+    }
+
+    .acessibilidade-botao {
+        top: auto;
+        right: 16px;
+        bottom: 18px;
+
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
     }
 }
 
@@ -607,7 +630,7 @@ a {
 
     .campo-input,
     .campo-select {
-        font-size: 18px;
+        font-size: 26px;
     }
 
     .botao-criar-carona,
