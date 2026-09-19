@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
 
     <title>PartiuFOA | Login</title>
 </head>
+
 <body>
 
     <main class="login">
@@ -18,33 +20,20 @@
 
             <h1 class="login-titulo">Login</h1>
 
+            <!-- Formulario de Login -->
             <form class="login-formulario" id="formulario-login">
 
+                <!-- Matrícula -->
                 <label class="login-label" for="campo-matricula">Matrícula</label>
-                <input
-                    class="login-campo"
-                    type="text"
-                    id="campo-matricula"
-                    name="matricula"
-                    placeholder="Ex: 202600000"
-                    maxlength="9"
-                    pattern="[0-9]{9}"
-                    title="A matrícula deve conter exatamente 9 números."
-                    required
-                    >
+                <input class="login-campo" type="text" id="campo-matricula" name="matricula" placeholder="Ex: 202600000"
+                    maxlength="9" pattern="[0-9]{9}" title="A matrícula deve conter exatamente 9 números." required>
 
+                <!-- Senha -->
                 <label class="login-label" for="campo-senha">Senha</label>
-                <input
-                    class="login-campo"
-                    type="password"
-                    id="campo-senha"
-                    name="senha"
-                    placeholder="Ex: Senha123!"
-                    maxlength="16"
-                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#?!@$%^&*-]).{8,}$"
+                <input class="login-campo" type="password" id="campo-senha" name="senha" placeholder="Ex: Senha123!"
+                    maxlength="16" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#?!@$%^&*\-]).{8,}$"
                     title="A senha deve ter no mínimo 8 caracteres, uma letra maiúscula, uma minúscula, um número e um caractere especial."
-                    required
-                    >
+                    required>
 
                 <a class="login-link" href="#">Esqueceu a senha?</a>
 
@@ -62,4 +51,5 @@
 
     <script src="login.js"></script>
 </body>
+
 </html>
