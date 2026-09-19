@@ -153,7 +153,7 @@ a {
 .conteudo-principal {
     width: 100%;
     padding: 28px 0 40px;
-}   
+}
 
 /* <--- CABEÇALHO PRINCIPAL ---> */
 
@@ -163,11 +163,7 @@ a {
 }
 
 .voltar-menu {
-    margin: 0;
-    padding: 0;
-
     color: var(--cor-texto);
-
     font-size: 20px;
 }
 
@@ -175,26 +171,30 @@ a {
     text-decoration: underline;
 }
 
-.detalhe-carona {
+.titulo-detalhes-carona {
     color: var(--cor-destaque);
 
     padding-left: 15px;
     margin: 0;
+
     line-height: 0.4;
 }
 
 /* <--- CONTEÚDO CARDS ---> */
 
-.todos-cards {
+.layout-carona {
     display: flex;
 }
 
-.card {
+.card,
+.card-perfil-motorista {
     background-color: var(--cor-fundo);
     border: 1px solid var(--cor-borda);
     border-radius: 20px;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.10);
+}
 
+.card {
     display: flex;
     flex-direction: column;
 
@@ -212,37 +212,30 @@ a {
 
 /* <--- CONTEÚDO DIREITA ---> */
 
-.conteudo-esquerda {
-    gap: 15px;
-
+.painel-informacoes-carona,
+.painel-solicitacao-carona {
     display: flex;
     flex-direction: column;
-
-    width: 75%;
 
     margin-top: 5px;
 }
 
-.conteudo-direita {
+.painel-informacoes-carona {
+    gap: 15px;
+
+    width: 75%;
+}
+
+.painel-solicitacao-carona {
     padding-left: 15px;
 
-    display: flex;
-    flex-direction: column;
-
     width: 25%;
-
-    margin-top: 5px;
 }
 
 /* <--- PERFIL ---> */
 
-.perfil-card {
+.card-perfil-motorista {
     padding: 24px 28px;
-
-    background-color: var(--cor-fundo);
-    border: 1px solid var(--cor-borda);
-    border-radius: 20px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.10);
 
     display: flex;
     align-items: center;
@@ -255,10 +248,11 @@ a {
 
     border-radius: 50%;
     object-fit: cover;
+
     flex-shrink: 0;
 }
 
-.perfil-dados {
+.perfil-informacoes {
     flex: 1;
 }
 
@@ -271,7 +265,7 @@ a {
     margin-bottom: 6px;
 }
 
-.perfil-motorista {
+.perfil-nome {
     color: var(--cor-destaque);
     font-size: 28px;
     font-weight: 700;
@@ -282,6 +276,7 @@ a {
     display: flex;
     align-items: center;
     gap: 2px;
+
     color: var(--cor-destaque);
     font-size: 14px;
 }
@@ -291,8 +286,9 @@ a {
     align-items: center;
 }
 
-.perfil-texto {
+.perfil-curso {
     margin: 0;
+
     color: var(--cor-texto);
     font-size: 20px;
     font-weight: 500;
@@ -303,6 +299,7 @@ a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
+
     margin-bottom: 6px;
 
     color: var(--cor-botao);
@@ -319,16 +316,15 @@ a {
     margin-top: 10px;
 }
 
-.aluno-texto {
-    color: var(--cor-botao);
+.aluno-unifoa-texto {
     margin-left: 5px;
 }
 
 /* <--- HISTÓRICO E CONFIABILIDADE ---> */
 
-.dados {
+.historico-dados {
     display: flex;
-    
+
     width: 100%;
 
     padding-bottom: 15px;
@@ -336,83 +332,86 @@ a {
     border-bottom: 1px solid var(--cor-borda);
 }
 
-.dados-carona {
+.historico-item,
+.historico-item-inicial,
+.historico-item-conclusao {
     width: 100%;
-    padding-left: 30px;
-    border-left: 1px solid var(--cor-borda);
 
     display: flex;
     align-items: center;
+}
 
+.historico-item,
+.historico-item-conclusao {
+    padding-left: 30px;
+    border-left: 1px solid var(--cor-borda);
+}
+
+.historico-item {
     gap: 10px;
 }
 
-.dados-carona-esquerda {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-
+.historico-item-inicial,
+.historico-item-conclusao {
     gap: 5px;
 }
 
-.dados-carona-direita {
-    width: 100%;
-    padding-left: 30px;
-    border-left: 1px solid var(--cor-borda);
-    
-    display: flex;
-    align-items: center;
-
-    gap: 5px;
-}
-
-.dados-carona div {
+.historico-item .historico-item-textos {
     display: flex;
     flex-direction: column;
 
     width: 60%;
 }
 
-.dado-principal {
-    font-size: 25px;
-
+.historico-valor,
+.solicitacao-vagas-valor {
     font-weight: bold;
     margin: 0;
 
     text-align: center;
 }
 
-.dado-complementar {
-    font-size: 20px;
+.historico-valor {
+    font-size: 25px;
+}
+
+.historico-legenda,
+.solicitacao-vagas-legenda {
     margin: 0;
     text-align: center;
 }
 
-.icone-historico {
+.historico-legenda {
+    font-size: 20px;
+}
+
+.historico-icone,
+.detalhe-icone,
+.recado-icone {
     font-size: 35px;
     color: var(--cor-botao);
-    margin: 0;
-
     text-align: center;
 
     width: 35px;
     height: 35px;
 }
 
-.condecoracoes {
+.historico-icone {
+    margin: 0;
+}
+
+.conquistas-motorista {
     display: flex;
     justify-content: center;
     gap: 40px;
 }
 
-.condecoracao {
+.conquista,
+.conquista-destaque {
     display: inline-flex;
     justify-content: center;
     align-items: center;
 
-    color: var(--cor-texto-positivo);
-    background-color: var(--cor-positivo);
     border-radius: 25px;
 
     height: 40px;
@@ -422,41 +421,30 @@ a {
     line-height: 1.2;
 
     margin-top: 15px;
-
     padding: 15px;
 }
 
-.icone-condecoracao {
+.conquista {
+    color: var(--cor-texto-positivo);
+    background-color: var(--cor-positivo);
+}
+
+.conquista-icone {
     padding-right: 10px;
 }
 
-.texto-condecoracao {
+.conquista-texto {
     font-weight: normal;
 }
 
-.condecoracao-azul {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-
+.conquista-destaque {
     color: var(--cor-destaque);
     background-color: var(--cor-afirmativo);
-    border-radius: 25px;
-
-    height: 40px;
-
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1.2;
-
-    margin-top: 15px;
-
-    padding: 15px;
 }
 
 /* <--- DETALHES DA CARONA ---> */
 
-.dados-detalhes {
+.detalhes-carona {
     display: flex;
     justify-content: space-between;
 
@@ -465,104 +453,76 @@ a {
     padding-top: 15px;
 }
 
-.bloco-esquerda {
+.detalhes-rota,
+.detalhes-data-valor,
+.detalhes-horario-vagas {
     flex-direction: column;
     display: flex;
+    gap: 25px;
+}
+
+.detalhes-rota {
     justify-content: left;
 
-    gap: 25px;
     padding-right: 50px;
     border-right: 1px solid var(--cor-borda);
 }
 
-.bloco-centro {
+.detalhes-data-valor,
+.detalhes-horario-vagas {
     width: 25%;
-    flex-direction: column;
-    display: flex;
     justify-content: space-between;
+}
 
-
-    gap: 25px;
+.detalhes-data-valor {
     border-right: 1px solid var(--cor-borda);
 }
 
-.bloco-direita {
-    width: 25%;
-    flex-direction: column;
-    display: flex;
-    justify-content: space-between;
-
-    gap: 25px;
-}
-
-.bloco-detalhe {
+.detalhe-item {
     width: 100%;
 
     display: flex;
     align-items: center;
-
-    gap: 25px;   
+    gap: 25px;
 }
 
-.infos {
+.detalhe-informacoes {
     display: inline-block;
-    flex-direction: column;
-    
 }
 
-.bloco-detalhe p {
+.detalhe-item p {
     margin: 0;
-    padding: 0;
 }
 
-.detalhe-secundario {
-    color: var(--cor-botao);
+.detalhe-label,
+.detalhe-observacao {
     font-size: 18px;
 }
 
-.detalhe-principal {
+.detalhe-label {
+    color: var(--cor-botao);
+}
+
+.detalhe-valor {
     color: var(--cor-texto);
     font-weight: bolder;
-
     font-size: 25px;
 }
 
-.detalhe-terciario {
+.detalhe-observacao {
     color: var(--cor-destaque);
-
-    font-size: 18px;
-}
-
-.icone-detalhe {
-    color: var(--cor-botao);
-    font-size: 35px;
-    text-align: center;
-
-    width: 35px;
-    height: 35px;
 }
 
 /* <--- RECADO DO MOTORISTA ---> */
 
-.recado {
+.recado-motorista {
     display: flex;
     align-items: center;
-    display: flex;
     justify-content: left;
     gap: 15px;
 }
 
-
-.recado i {
-    color: var(--cor-botao);
-    font-size: 35px;
-    text-align: center;
-
-    width: 35px;
-    height: 35px;
-}
-
-.recado p {
+.recado-texto {
     display: inline-flex;
     justify-content: left;
     align-items: center;
@@ -582,25 +542,23 @@ a {
 
 /* <--- SOLICITAR ESTA CARONA ---> */
 
-.solicitar-vagas{
+.solicitacao-vagas {
     width: 100%;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
     gap: 15px;
 
     padding: 10px 0;
-    border-bottom: 1px solid var(--cor-borda)
+    border-bottom: 1px solid var(--cor-borda);
 }
 
-.div-icone {
+.solicitacao-vagas-icone {
     width: 75px;
     height: 75px;
 
     background-color: var(--cor-afirmativo);
-
     border-radius: 50%;
 
     display: flex;
@@ -608,7 +566,7 @@ a {
     justify-content: center;
 }
 
-.icone-vagas {
+.solicitacao-icone-vagas {
     color: var(--cor-botao);
     font-size: 35px;
 
@@ -616,33 +574,25 @@ a {
     padding: 0;
 }
 
-.textos-solicitar {
+.solicitacao-vagas-textos {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.dado-principal-solicitar {
+.solicitacao-vagas-valor {
     color: var(--cor-destaque);
     font-size: 35px;
-
-    font-weight: bold;
-    margin: 0;
-
-    text-align: center;
 }
 
-.dado-complementar-solicitar {
+.solicitacao-vagas-legenda {
     font-size: 18px;
-    margin: 0;
-    text-align: center;
 }
 
-.valor-vaga {
+.solicitacao-valor {
     font-size: 35px;
 
     margin: 0;
-    padding: 0;
 
     width: 100%;
 
@@ -650,7 +600,7 @@ a {
     padding: 10px 0;
 }
 
-.botoes-carona{
+.solicitacao-acoes {
     padding: 10px 0;
     gap: 10px;
 
@@ -659,101 +609,60 @@ a {
     display: flex;
     justify-content: center;
     flex-direction: column;
-
 }
 
-.botao-solicitar {
+.botao-solicitar,
+.botao-conversar {
     width: 100%;
     height: 48px;
 
-    border: none;
     border-radius: 50px;
-
-    background-color: var(--cor-botao);
-    color: var(--cor-campo);
 
     font-size: 18px;
     font-weight: bold;
-   
 }
 
-.div-solicitar {
+.botao-solicitar {
+    border: none;
+
+    background-color: var(--cor-botao);
+    color: var(--cor-campo);
+}
+
+.botao-solicitar-conteudo,
+.botao-conversar-conteudo {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    margin: 0;
-    padding: 0;
-
     gap: 5px;
 }
 
-.div-solicitar div {
+.botao-solicitar-icone,
+.botao-conversar-icone {
     width: 20px;
     height: 20px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
-.texto-solicitar {
-    margin: 0;
-    padding: 0;
-}
-
-.icone-solicitar {
+.botao-solicitar-seta,
+.botao-conversar-texto,
+.icone-conversar {
     margin: 0;
     padding: 0;
 }
 
 .botao-conversar {
-    width: 100%;
-    height: 48px;
-
     border: 2px solid var(--cor-botao);
-    border-radius: 50px;
-
 
     background-color: transparent;
     color: var(--cor-botao);
 
-    font-size: 18px;
-    font-weight: bold;
-
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.div-conversas {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin: 0;
-    padding: 0;
-
-    gap: 5px;
-}
-
-.div-conversas div {
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-}
-
-.texto-conversas {
-    margin: 0;
-    padding: 0;
-}
-
-.icone-conversas {
-    margin: 0;
-    padding: 0;
 }
 
 .botao-solicitar:hover,
@@ -761,11 +670,11 @@ a {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
 }
 
-.div-zap {
+.whatsapp-bloqueado-area {
     padding: 10px 0;
 }
 
-.whatsapp {
+.whatsapp-bloqueado {
     background-color: var(--cor-positivo);
     width: 100%;
 
@@ -777,29 +686,26 @@ a {
 
     padding: 15px;
     gap: 10px;
-
 }
 
-.icone-zap {
+.whatsapp-icone {
     color: #4f984d;
     font-size: 50px;
 
     margin: 0;
 }
 
-.icone-cadeado {
+.whatsapp-cadeado {
     font-size: 15px;
-
 }
 
-.texto-zap {
+.whatsapp-texto {
     font-size: 90%;
 
-    padding: 0;
     margin: 0;
 }
 
-.texto-segurança {
+.solicitacao-aviso-seguranca {
     margin: 0;
     padding-top: 10px;
 
@@ -807,4 +713,3 @@ a {
 
     color: rgba(0, 0, 0, 0.5);
 }
-
