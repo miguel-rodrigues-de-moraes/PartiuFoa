@@ -64,20 +64,29 @@ formulario.addEventListener("submit", function (event) {
 
     };
 
+    //Redirecionamento para Homepage + Configuração das Mensagens de Alert caso erro no Login
+
     let loginValido = false;
+    let matriculaEncontrada = false;
 
     for (let i = 0; i < usuarioArmazenado.matriculaArmazenada.length; i++) {
 
-        if (
-            matriculaInserida.value == usuarioArmazenado.matriculaArmazenada[i] &&
-            senhaInserida.value == usuarioArmazenado.senhaArmazenada[i]
-        ) {
-            loginValido = true;
-            window.location.href = "index.html";
+        if (matriculaInserida.value == usuarioArmazenado.matriculaArmazenada[i]) {
+
+            matriculaEncontrada = true;
+
+            if (senhaInserida.value == usuarioArmazenado.senhaArmazenada[i]) {
+                loginValido = true;
+                window.location.href = "index.html";
+            }
         }
     }
 
-    if (loginValido == false) {
+    if (matriculaEncontrada == false) {
+        alert("Matrícula inexistente ou incorreta.")
+    }
+
+    else if (loginValido == false) {
         alert("Matrícula ou senha incorretos.")
     }
 
