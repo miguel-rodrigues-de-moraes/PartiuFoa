@@ -545,14 +545,64 @@ a {
         align-items: stretch;
     }
 
-    .campo-origem,
-    .campo-destino,
-    .campo-horario,
+    
     .botao-criar-carona,
     .botao-filtrar,
     .botao-solicitar {
         width: 100%;
     }
+
+
+    .campo-origem,
+    .campo-origem input,
+    .campo-origem select,
+    
+    
+    .campo-destino,
+    .campo-destino input,
+    .campo-destino select {
+        height: 65px ;       
+        min-height: 65px ;  
+        font-size: 20px ;    
+        width: 100% ;
+        padding: 0 16px ;    
+        box-sizing: border-box ;
+    }
+
+
+
+
+
+     .campo-horario,
+    .campo-horario input,
+    .campo-horario select,
+   
+    .campo-horario,
+    .campo-horario input,
+    .campo-horario select {
+        height: 55px ;       
+        min-height: 55px ;  
+        font-size: 20px ;    
+        width: 100% ;
+        padding: 0 16px ;    
+        box-sizing: border-box ;
+    }
+    
+
+   
+    .campo-destino,
+    .campo-destino input,
+    .campo-destino select {
+        height: 55px ;       
+        min-height: 55px ;  
+        font-size: 20px ;    
+        width: 100% ;
+        padding: 0 16px ;    
+        box-sizing: border-box ;
+    }
+
+
+    
 
     .carona-foto {
         margin: 0 auto;
@@ -620,13 +670,73 @@ a {
         border-radius: 18px;
     }
 
-    .campo-origem,
-    .campo-destino,
-    .campo-horario,
+    
+    
+    
     .botao-criar-carona,
     .botao-filtrar {
         height: 52px;
     }
+
+    .campo-origem,
+    .campo-origem input,
+    .campo-origem select,
+    
+    
+    .campo-destino,
+    .campo-destino input,
+    .campo-destino select {
+        height: 65px ;       
+        min-height: 65px ;  
+        font-size: 20px ;    
+        width: 100% ;
+        padding: 0 16px ;    
+        box-sizing: border-box ;
+    }
+
+
+
+
+
+     .campo-horario,
+    .campo-horario input,
+    .campo-horario select,
+   
+    .campo-horario,
+    .campo-horario input,
+    .campo-horario select {
+        height: 55px ;       
+        min-height: 55px ;  
+        font-size: 20px ;    
+        width: 100% ;
+        padding: 0 16px ;    
+        box-sizing: border-box ;
+    }
+    
+
+   
+    .campo-destino,
+    .campo-destino input,
+    .campo-destino select {
+        height: 55px ;       
+        min-height: 55px ;  
+        font-size: 20px ;    
+        width: 100% ;
+        padding: 0 16px ;    
+        box-sizing: border-box ;
+    }
+
+.botao-solicitar {
+        font-size: 25px; 
+        width: 100%;
+        height: 60px;
+    }
+
+
+
+
+
+
 
     .campo-input,
     .campo-select {
@@ -635,7 +745,7 @@ a {
 
     .botao-criar-carona,
     .botao-filtrar {
-        font-size: 18px;
+        font-size: 25px;
     }
 
     .carona-card {
