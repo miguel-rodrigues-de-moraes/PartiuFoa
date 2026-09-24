@@ -55,11 +55,11 @@ formulario.addEventListener("submit", function (event) {
         ],
 
         senhaArmazenada: [
-            "Aluno01!",
-            "Aluno02!",
-            "Aluno03!",
-            "Aluno04!",
-            "Aluno05!"
+            "Senha01!",
+            "Senha02!",
+            "Senha03!",
+            "Senha04!",
+            "Senha05!"
         ],
 
     };
@@ -89,24 +89,4 @@ formulario.addEventListener("submit", function (event) {
     else if (loginValido == false) {
         alert("Matrícula ou senha incorretos.")
     }
-
-    const usuario = {
-        matricula: matriculaInserida.value,
-        senha: senhaInserida.value
-    }
-
-    //Transformando o vetor de informações do usario em string com JSON
-    let informacoes_usuario = JSON.stringify(usuario);
-
-    console.log('-'.repeat(50))
-    console.log(informacoes_usuario);
-    console.log(typeof informacoes_usuario);
-
-    //Releitura da String do Usuario em JSON.parse
-    const usuario2 = JSON.parse(informacoes_usuario);
-
-    console.log('-'.repeat(50))
-    console.log(usuario2.matricula)
-    console.log(usuario2.senha)
-
 });
