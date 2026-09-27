@@ -666,7 +666,8 @@ a {
 }
 
 .botao-solicitar:hover,
-.botao-conversar:hover {
+.botao-conversar:hover,
+.acessibilidade-botao:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
 }
 
