@@ -41,21 +41,23 @@ A proposta busca tornar o deslocamento até a universidade mais prático, além 
 
 ## Como executar
 
-### 1. Clone o repositório
+### 1. Copie a URL do nosso site
 
-*git clone URL_DO_REPOSITORIO*
+Aperte no botão `<CODE>` na página inicial do nosso projeto e em seguida copie o link em formato HTTPS
 
+### 2. Abra o powerShell
 
-### 2. Acesse a pasta do projeto
+Vá no explorador de arquivos do seu computador, clique com o botão direito na pasta referente a área de trabalho e clique em *Abrir no terminal*
 
-*cd caronas-universitarias*
+### 3. Clone o repositório
 
+Digite o comando `git clone` e em seguida cole a URL do nosso site
 
-### 3. Execute o projeto
+### 4. Execute o projeto
 
-*Abra o arquivo `index.html` em um navegador.*
+Abra o arquivo `index.html` em um navegador.
 
-Também é possível utilizar uma extensão como o **Live Server** no Visual Studio Code para executar o projeto localmente.
+Também é possível utilizar uma extensão como o Live Server no Visual Studio Code para executar o projeto localmente.
 
 ## Funcionamento
 
