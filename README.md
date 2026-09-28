@@ -4,7 +4,7 @@ Uma plataforma web desenvolvida para facilitar a conexão entre estudantes unive
 
 ## Sobre o projeto
 
-O projeto tem como objetivo desenvolver uma solução que facilite a organização de caronas entre estudantes, permitindo que usuários encontrem pessoas que realizam trajetos semelhantes e diminua o volume e os problemas apresentados pelo transporte público da UniFOA (Foão)
+O projeto tem como objetivo desenvolver uma solução que facilite a organização de caronas entre estudantes, permitindo que usuários encontrem pessoas que realizam trajetos semelhantes e diminua o volume e os problemas apresentados pelo transporte público da `UniFOA (Foão)`
 
 A proposta busca tornar o deslocamento até a universidade mais prático, além de incentivar o compartilhamento de veículos entre estudantes.
 
@@ -57,7 +57,7 @@ Digite o comando `git clone` e em seguida cole a URL do nosso site
 
 Abra o arquivo `index.html` em um navegador.
 
-Também é possível utilizar uma extensão como o Live Server no Visual Studio Code para executar o projeto localmente.
+Também é possível utilizar uma extensão como o `Live Server` no Visual Studio Code para executar o projeto localmente.
 
 ## Funcionamento
 
@@ -75,7 +75,7 @@ A interface foi desenvolvida buscando proporcionar uma boa experiência em difer
 
 ## Projeto acadêmico
 
-Projeto desenvolvido para o curso de `**Sistemas de Informação**`, com o objetivo de aplicar conhecimentos de desenvolvimento web na criação de uma solução para um problema relacionado à mobilidade universitária.
+Projeto desenvolvido para o curso de `Sistemas de Informação`, com o objetivo de aplicar conhecimentos de desenvolvimento web na criação de uma solução para um problema relacionado à mobilidade universitária.
 
 ## Autores
 
