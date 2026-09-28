@@ -4,7 +4,7 @@ Uma plataforma web desenvolvida para facilitar a conexão entre estudantes unive
 
 ## Sobre o projeto
 
-O projeto tem como objetivo desenvolver uma solução que facilite a organização de caronas entre estudantes, permitindo que usuários encontrem pessoas que realizam trajetos semelhantes e diminua o volume e os problemas apresentados pelo transporte público da uniFOA (Foão)
+O projeto tem como objetivo desenvolver uma solução que facilite a organização de caronas entre estudantes, permitindo que usuários encontrem pessoas que realizam trajetos semelhantes e diminua o volume e os problemas apresentados pelo transporte público da UniFOA (Foão)
 
 A proposta busca tornar o deslocamento até a universidade mais prático, além de incentivar o compartilhamento de veículos entre estudantes.
 
@@ -43,11 +43,11 @@ A proposta busca tornar o deslocamento até a universidade mais prático, além 
 
 ### 1. Copie a URL do nosso site
 
-Aperte no botão `<CODE>` na página inicial do nosso projeto e em seguida copie o link em formato HTTPS
+Aperte no botão `<CODE>` na página inicial do nosso projeto e em seguida copie o link em formato `HTTPS`
 
 ### 2. Abra o powerShell
 
-Vá no explorador de arquivos do seu computador, clique com o botão direito na pasta referente a área de trabalho e clique em *Abrir no terminal*
+Vá no explorador de arquivos do seu computador, clique com o botão direito na pasta referente a área de trabalho e clique em `*Abrir no terminal*`
 
 ### 3. Clone o repositório
 
@@ -63,7 +63,7 @@ Também é possível utilizar uma extensão como o Live Server no Visual Studio 
 
 O usuário pode acessar a plataforma e visualizar as opções de caronas disponíveis.
 
-A aplicação utiliza JavaScript para passar da página index para a homepage do projeto e melhorar a qualidade das mensagens de erro, conforme o que a pessoa erre a mensagem muda.
+A aplicação utiliza `JavaScript` para passar da página index para a homepage do projeto e melhorar a qualidade das mensagens de erro, conforme o que a pessoa erre a mensagem muda.
 
 ## Responsividade
 
@@ -75,7 +75,7 @@ A interface foi desenvolvida buscando proporcionar uma boa experiência em difer
 
 ## Projeto acadêmico
 
-Projeto desenvolvido para o curso de **Sistemas de Informação**, com o objetivo de aplicar conhecimentos de desenvolvimento web na criação de uma solução para um problema relacionado à mobilidade universitária.
+Projeto desenvolvido para o curso de `**Sistemas de Informação**`, com o objetivo de aplicar conhecimentos de desenvolvimento web na criação de uma solução para um problema relacionado à mobilidade universitária.
 
 ## Autores
 
