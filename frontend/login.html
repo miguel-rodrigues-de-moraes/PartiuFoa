@@ -31,9 +31,7 @@
                 <!-- Senha -->
                 <label class="login-label" for="campo-senha">Senha</label>
                 <input class="login-campo" type="password" id="campo-senha" name="senha" placeholder="Ex: Senha123!"
-                    maxlength="16" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#?!@$%^&*\-]).{8,}$"
-                    title="A senha deve ter no mínimo 8 caracteres, uma letra maiúscula, uma minúscula, um número e um caractere especial."
-                    required>
+                    minlength="8" maxlength="16" title="A senha deve ter entre 8 a 16 caractéres." required>
 
                 <a class="login-link" href="#">Esqueceu a senha?</a>
 
@@ -53,3 +51,5 @@
 </body>
 
 </html>
+
+<!-- pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#?!@$%^&*\-]).{8,}$" -->
