@@ -476,6 +476,16 @@ a {
     .carona-texto {
         font-size: 19px;
     }
+
+    .acessibilidade-botao {
+        top: auto;
+        right: 16px;
+        bottom: 18px;
+
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+    }
 }
 
 @media (max-width: 780px) {
@@ -513,6 +523,19 @@ a {
 
     .busca {
         padding: 20px;
+    }
+
+    .campo-origem,
+    .campo-destino,
+    .campo-horario,
+    .botao-criar-carona,
+    .botao-filtrar {
+        height: 35px;
+    }
+
+    .campo-input,
+    .campo-select {
+        font-size: 25px;
     }
 
     .busca-principal,
@@ -602,12 +625,12 @@ a {
     .campo-horario,
     .botao-criar-carona,
     .botao-filtrar {
-        height: 52px;
+        height: 35px;
     }
 
     .campo-input,
     .campo-select {
-        font-size: 18px;
+        font-size: 25px;
     }
 
     .botao-criar-carona,
