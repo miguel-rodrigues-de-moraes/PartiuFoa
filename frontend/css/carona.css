@@ -738,3 +738,340 @@ a {
     color: white;
     font-size: 30px;
 }
+
+/* =========================================================
+   <--- RESPONSIVO: TABLET (iPad Pro 13" retrato) ---> 
+   ========================================================= */
+@media (max-width: 1100px) {
+
+    .layout-carona {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .painel-informacoes-carona,
+    .painel-solicitacao-carona {
+        width: 100%;
+    }
+
+    .painel-solicitacao-carona {
+        padding-left: 0;
+        margin-top: 0;
+    }
+
+    /* card de solicitação centralizado, sem esticar demais */
+    .painel-solicitacao-carona .card {
+        max-width: 560px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .titulo-detalhes-carona {
+        line-height: 1.2;
+        padding-left: 0;
+    }
+
+    /* histórico mais compacto para caber 5 itens */
+    .historico-item,
+    .historico-item-conclusao {
+        padding-left: 16px;
+    }
+
+    .historico-legenda {
+        font-size: 16px;
+    }
+
+    .historico-valor {
+        font-size: 22px;
+    }
+
+    .conquistas-motorista {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .detalhes-rota {
+        padding-right: 30px;
+    }
+
+    .detalhe-item {
+        gap: 15px;
+    }
+}
+
+/* =========================================================
+   <--- RESPONSIVO: CELULAR (iPhone SE) ---> 
+   ========================================================= */
+@media (max-width: 640px) {
+
+    main {
+        width: calc(100% - 32px);
+        gap: 16px;
+    }
+
+    .conteudo-principal {
+        padding: 20px 0 32px;
+    }
+
+    /* cabeçalho */
+    .cabecalho {
+        min-height: 70px;
+        padding: 0 16px;
+    }
+
+    .cabecalho-imagem {
+        height: 44px;
+    }
+
+    .cabecalho-acoes {
+        gap: 4px;
+    }
+
+    .cabecalho-botao,
+    .cabecalho-perfil {
+        width: 44px;
+        height: 44px;
+    }
+
+    .cabecalho-botao,
+    .cabecalho-botao:hover {
+        font-size: 26px;
+    }
+
+    .cabecalho-foto,
+    .cabecalho-foto:hover {
+        width: 38px;
+        height: 38px;
+    }
+
+    /* títulos */
+    .voltar-menu {
+        font-size: 16px;
+    }
+
+    .titulo-detalhes-carona {
+        font-size: 26px;
+        line-height: 1.2;
+        padding-left: 0;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .titulo-card {
+        font-size: 22px;
+    }
+
+    /* perfil do motorista */
+    .card-perfil-motorista {
+        padding: 16px;
+        gap: 14px;
+    }
+
+    .perfil-foto {
+        width: 72px;
+        height: 72px;
+    }
+
+    .perfil-nome {
+        font-size: 22px;
+    }
+
+    .perfil-estrelas {
+        font-size: 12px;
+    }
+
+    .perfil-curso {
+        font-size: 16px;
+    }
+
+    .aluno-unifoa {
+        width: auto;
+        height: 34px;
+        padding: 0 14px;
+        font-size: 15px;
+        margin-top: 8px;
+    }
+
+    /* histórico em grade de 2 colunas */
+    .historico-dados {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px 12px;
+    }
+
+    .historico-item,
+    .historico-item-inicial,
+    .historico-item-conclusao {
+        padding-left: 0;
+        border-left: none;
+        gap: 10px;
+    }
+
+    .historico-item .historico-item-textos {
+        width: auto;
+    }
+
+    .historico-item-conclusao {
+        grid-column: 1 / -1;
+        justify-content: center;
+    }
+
+    .historico-icone {
+        font-size: 26px;
+        width: 26px;
+        height: 26px;
+        flex-shrink: 0;
+    }
+
+    .historico-valor {
+        font-size: 20px;
+    }
+
+    .historico-legenda {
+        font-size: 14px;
+    }
+
+    /* conquistas */
+    .conquistas-motorista {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .conquista,
+    .conquista-destaque {
+        height: auto;
+        min-height: 36px;
+        margin-top: 8px;
+        padding: 8px 14px;
+        font-size: 15px;
+    }
+
+    .conquista-texto {
+        margin: 0;
+    }
+
+    .conquista-icone {
+        padding-right: 8px;
+    }
+
+    /* detalhes da carona empilhados */
+    .detalhes-carona {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .detalhes-rota,
+    .detalhes-data-valor,
+    .detalhes-horario-vagas {
+        width: 100%;
+        gap: 18px;
+        padding-right: 0;
+        border-right: none;
+    }
+
+    .detalhes-rota,
+    .detalhes-data-valor {
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--cor-borda);
+    }
+
+    .detalhe-item {
+        gap: 14px;
+    }
+
+    .detalhe-icone,
+    .recado-icone {
+        font-size: 26px;
+        width: 30px;
+        height: 30px;
+        flex-shrink: 0;
+    }
+
+    .detalhe-label,
+    .detalhe-observacao {
+        font-size: 15px;
+    }
+
+    .detalhe-valor {
+        font-size: 20px;
+    }
+
+    /* recado do motorista */
+    .recado-motorista {
+        align-items: flex-start;
+    }
+
+    .recado-texto {
+        height: auto;
+        padding: 10px 12px;
+        font-size: 15px;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    /* solicitação */
+    .painel-solicitacao-carona .card {
+        max-width: 100%;
+    }
+
+    .solicitacao-vagas-icone {
+        width: 60px;
+        height: 60px;
+    }
+
+    .solicitacao-icone-vagas {
+        font-size: 28px;
+    }
+
+    .solicitacao-vagas-valor,
+    .solicitacao-valor {
+        font-size: 28px;
+    }
+
+    .solicitacao-vagas-legenda {
+        font-size: 16px;
+    }
+
+    .whatsapp-bloqueado {
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .whatsapp-icone {
+        font-size: 40px;
+    }
+
+    .solicitacao-aviso-seguranca {
+        font-size: 13px;
+    }
+
+    /* botão de acessibilidade menor */
+    .acessibilidade-botao {
+        top: 90px;
+        width: 48px;
+        height: 48px;
+        font-size: 22px;
+    }
+}
+
+/* telas muito estreitas (iPhone SE antigo, 320–360px) */
+@media (max-width: 360px) {
+
+    .historico-dados {
+        grid-template-columns: 1fr;
+    }
+
+    .historico-item-conclusao {
+        justify-content: flex-start;
+    }
+
+    .titulo-card {
+        font-size: 20px;
+    }
+
+    .perfil-nome {
+        font-size: 20px;
+    }
+}
