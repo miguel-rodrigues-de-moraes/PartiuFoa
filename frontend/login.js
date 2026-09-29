@@ -70,7 +70,7 @@ formulario.addEventListener("submit", function (event) {
 
             if (senhaInserida.value == usuarioArmazenado.senhaArmazenada[i]) {
                 loginValido = true;
-                window.location.href = "index.html";
+                window.location.href = "home.html";
             }
         }
     }
