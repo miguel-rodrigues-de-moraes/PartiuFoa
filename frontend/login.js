@@ -31,12 +31,10 @@ formulario.addEventListener("submit", function (event) {
 
     if (
         senhaInserida.value.length < 8 ||
-        !/[A-Z]/.test(senhaInserida.value) ||
-        !/[a-z]/.test(senhaInserida.value) ||
-        !/[0-9]/.test(senhaInserida.value) ||
-        !/[^\p{L}\p{N}\s]/u.test(senhaInserida.value)) {
-        event.preventDefault();
-        alert("A senha deve ter entre 8 e 16 caracteres, incluindo uma letra maiúscula, uma letra minúscula e um número.");
+        senhaInserida.value.length > 16
+    ) {
+        alert("A senha deve ter entre 8 e 16 caractéres.");
+        return;
     }
 
     //Validação das Matrículas e Senhas por PARES LIGADOS
@@ -72,7 +70,7 @@ formulario.addEventListener("submit", function (event) {
 
             if (senhaInserida.value == usuarioArmazenado.senhaArmazenada[i]) {
                 loginValido = true;
-                window.location.href = "frontend/home.html";
+                window.location.href = "index.html";
             }
         }
     }
