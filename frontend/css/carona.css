@@ -739,9 +739,9 @@ a {
     font-size: 30px;
 }
 
-/* =========================================================
-   <--- RESPONSIVO: TABLET (iPad Pro 13" retrato) ---> 
-   ========================================================= */
+/* <--- RESPONSIVIDADE ---> */
+
+/* Responsivo: tablet (iPad Pro 13) */
 @media (max-width: 1100px) {
 
     .layout-carona {
@@ -799,9 +799,8 @@ a {
     }
 }
 
-/* =========================================================
-   <--- RESPONSIVO: CELULAR (iPhone SE) ---> 
-   ========================================================= */
+/* Responsivo: celular (iPhone SE) */
+
 @media (max-width: 640px) {
 
     main {
@@ -1049,10 +1048,13 @@ a {
 
     /* botão de acessibilidade menor */
     .acessibilidade-botao {
-        top: 90px;
-        width: 48px;
-        height: 48px;
-        font-size: 22px;
+        top: auto;
+        right: 16px;
+        bottom: 18px;
+
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
     }
 }
 

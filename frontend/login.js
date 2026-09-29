@@ -82,6 +82,6 @@ formulario.addEventListener("submit", function (event) {
     }
 
     else if (loginValido == false) {
-        alert("Matrícula ou senha incorretos.")
+        alert("Senha incorreta.")
     }
 });
