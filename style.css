@@ -1,0 +1,102 @@
+* {
+    background-color: #f3f3f3;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cabecalho {
+    text-align: center;
+
+    border-bottom: 0.1px solid #acacac;
+
+    padding-bottom: 25px;
+}
+.cabecalho h1 {
+    color: black;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 50px;
+
+}
+
+.btn-voltar {
+    border-radius: 10px;
+    font-weight: bold;
+
+    font-size: 17px;
+    text-align: center;
+    padding: 10px;
+
+
+    border: 1px solid black; 
+    background-color: white;
+
+    width: 6%;
+    height: 5%;
+}
+
+.btn-voltar:hover {
+    border-radius: 10px;
+    font-weight: bold;
+
+    font-size: 17px;
+    text-align: center;
+    padding: 10px;
+
+
+    border: 1px solid black; 
+    background-color: black;
+    color: white;
+
+    width: 6%;
+    height: 5%;
+}
+
+.inserir{    
+    padding: 20px;
+    text-align: center;
+
+    justify-items: center;
+
+}
+
+.input-item-novo {
+    border-radius: 5px;
+    border: 1px solid black; 
+    background-color: white;
+
+    width: 30%;
+    height: 25px;
+}
+
+.btn-adicionar {
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+
+    border: 1px solid black; 
+    background-color: black;
+    color: white;
+}
+
+.btn-adicionar:hover {
+    border-radius: 10px;
+
+    text-align: center;
+    padding: 10px;
+
+    border: 1px solid black; 
+    background-color: white;
+    color: black;
+}
+
+#notificacao {
+    display: none;
+}
+
+.marcado {
+    opacity: 70%;
+    text-decoration: line-through;
+    text-decoration-thickness: 1.5px;
+}

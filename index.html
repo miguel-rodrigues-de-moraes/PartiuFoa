@@ -1,65 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="shortcut icon" href="frontend/assents/icon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="frontend/css/login.css">
-
-    <title>PartiuFOA | Login</title>
+    <title>AVD2 - Formativa 1</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <header class="cabecalho">
+        <h1> Lista de Compras </h1>
+        <button class="btn-voltar">Voltar</button>
+    </header>
 
-    <main class="login">
-        <section class="login-caixa">
+    <div class="inserir">
+        <input type="text" class="input-item-novo">
+        <button class="btn-adicionar">Adicionar Item</button>
+    </div>
 
-            <img class="login-logo" src="frontend/assents/img/img-header.png" alt="Logo PartiuFOA">
+    <ul id="lista-de-compras">
+        <li>
+            <input type="checkbox">
+            <span>Pão Integral</span>
+            <button>🗑️</button>
+        </li>
 
-            <h1 class="login-titulo">Login</h1>
+        <li>
+            <input type="checkbox">
+            <span>Café</span>
+            <button>🗑️</button>
+        </li>
 
-            <form class="login-formulario" id="formulario-login">
+        <li>
+            <input type="checkbox">
+            <span>Suco de Maracujá</span>
+            <button>🗑️</button>
+        </li>
 
-                <label class="login-label" for="campo-matricula">Matrícula</label>
-                <input
-                    class="login-campo"
-                    type="text"
-                    id="campo-matricula"
-                    name="matricula"
-                    placeholder="Ex: 202600000"
-                    maxlength="9"
-                    pattern="[0-9]{9}"
-                    title="A matrícula deve conter exatamente 9 números."
-                    required
-                    >
+        <li>
+            <input type="checkbox">
+            <span>Biscoito de Maizena</span>
+            <button>🗑️</button>
+        </li>
+    </ul>
 
-                <label class="login-label" for="campo-senha">Senha</label>
-                <input
-                    class="login-campo"
-                    type="password"
-                    id="campo-senha"
-                    name="senha"
-                    placeholder="Ex: Senha123!"
-                    maxlength="16"
-                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#?!@$%^&*-]).{8,}$"
-                    title="A senha deve ter no mínimo 8 caracteres, uma letra maiúscula, uma minúscula, um número e um caractere especial."
-                    required
-                    >
+    <!-- Mensagem de remoção de produto na parte inferior da tela -->
+    <div id="notificacao">
+        O item foi removido da lista!
+        <button id="botao-X">
+            X
+        </button>
+    </div>
 
-                <a class="login-link" href="#">Esqueceu a senha?</a>
-
-                <button class="login-botao" type="submit">Entrar</button>
-
-            </form>
-
-            <div class="login-cadastro">
-                <p class="login-texto">Não possui conta?</p>
-                <a class="login-link" href="#">Cadastre-se aqui!</a>
-            </div>
-
-        </section>
-    </main>
-
-    <script src="frontend/login.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
