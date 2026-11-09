@@ -1,8 +1,8 @@
 // Definindo as Variáveis pegando os elementos dos inputs que serão utilizados
 
-const input = document.getElementById("input-item-novo");
-const botaoAdicionar = document.getElementById("botao-adicionar");
-const lista = document.getElementById("lista-de-compras");
+const input = document.querySelector(".input-item-novo");
+const botaoAdicionar = document.querySelector(".btn-adicionar");
+const lista = document.querySelector("#lista-de-compras");
 const notificacaoProduto = document.getElementById("notificacao");
 const botaoNotificacao = document.getElementById("botao-X");
 
