@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    background-color: #eef2f6;
+}
+
+main {
+    background-color: #ffffff;
+    width: 420px;
+    padding: 35px 30px;
+
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.caixa-input {
+    display: flex;
+    align-items: center;
+
+    background-color: #f1f3f5;
+
+    border: 2px solid rgba(11, 27, 61, 0.1);
+    border-radius: 10px;
+    padding: 10px 14px;
+
+    gap: 10px;
+}
+
+.caixa-input input {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    width: 100%;
+
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.caixa-input input::placeholder {
+    color: #5a697e;
+}
+
+.caixa-input i {
+    color: #0044cc;
+}
+
+.caixa-input .icone-olho {
+    color: #4a6b9c;
+    cursor: pointer;
+
+    width: 20px;
+    min-width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.card-principal {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.card-principal .logo {
+    width: 192px;
+    height: auto;
+
+    margin-top: -45px;
+    margin-bottom: -35px;
+}
+
+.card-principal h1 {
+    color: #0b1b3d;
+    font-size: 32px;
+}
+
+.campo {
+    margin-bottom: 12px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 16px;
+    color: #0b1b3d;
+    margin-bottom: 6px;
+}
+
+.termos {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.termos input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+
+    flex-shrink: 0;
+
+    accent-color: #04c;
+    cursor: pointer;
+}
+
+.termos label {
+    font-size: 15px;
+    font-weight: 400;
+    color: #0b1b3d;
+    line-height: 1.4;
+
+    margin-bottom: 0;
+}
+
+.termos a {
+    color: #0044cc;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.termos a:hover {
+    color: #002b80;
+    text-decoration: underline;
+}
+
+.botao-cadastrar {
+    width: 100%;
+    padding: 13px;
+    background-color: #0044cc;
+    border: none;
+    border-radius: 50px;
+
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 450;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.botao-cadastrar:hover {
+    background-color: #003399;
+}
+
+.link-login {
+    margin-top: 16px;
+
+    text-align: center;
+    color: #0b1b3d;
+}
+
+.link-login a {
+    color: #04c;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.link-login a:hover {
+    text-decoration: underline;
+    color: #003399;
+}
