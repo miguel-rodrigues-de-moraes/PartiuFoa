@@ -1,4 +1,5 @@
 //Validação do campo de matrícula
+
 let matriculaInserida = document.getElementById("campo-matricula");
 
 matriculaInserida.addEventListener("input", function () {
@@ -11,6 +12,7 @@ matriculaInserida.addEventListener("input", function () {
 
 
 //Validação do campo de senha
+
 let senhaInserida = document.getElementById("campo-senha");
 
 senhaInserida.addEventListener("input", function () {
@@ -23,6 +25,7 @@ senhaInserida.addEventListener("input", function () {
 
 
 //Validação de Submit (Botão Entrar)
+
 let formulario = document.getElementById("formulario-login");
 
 formulario.addEventListener("submit", function (event) {
@@ -38,6 +41,7 @@ formulario.addEventListener("submit", function (event) {
     }
 
     //Validação das Matrículas e Senhas por PARES LIGADOS
+
     let usuarioArmazenado = {
 
         matriculaArmazenada: [
@@ -59,6 +63,7 @@ formulario.addEventListener("submit", function (event) {
     };
 
     //Redirecionamento para Homepage + Configuração das Mensagens de Alert caso erro no Login
+
     let loginValido = false;
     let matriculaEncontrada = false;
 
@@ -70,7 +75,7 @@ formulario.addEventListener("submit", function (event) {
 
             if (senhaInserida.value == usuarioArmazenado.senhaArmazenada[i]) {
                 loginValido = true;
-                window.location.href = "frontend/home.html";
+                window.location.href = "index.html";
             }
         }
     }
@@ -83,3 +88,8 @@ formulario.addEventListener("submit", function (event) {
         alert("Senha incorreta.")
     }
 });
+
+// !/[A-Z]/.test(senhaInserida.value) ||
+// !/[a-z]/.test(senhaInserida.value) ||
+// !/[0-9]/.test(senhaInserida.value) ||
+// !/[^\p{L}\p{N}\s]/u.test(senhaInserida.value)
