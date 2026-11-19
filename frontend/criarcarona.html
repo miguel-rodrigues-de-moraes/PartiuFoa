@@ -48,19 +48,34 @@
                 
                 <section class="card">
                     <h1 class="titulo-card">Trajeto</h1>
-                    <div>
-                        <p>Ponto de partida</p>
-                        <input type="text">
-                    </div>
-
-                    <div>
-                        <p>Ponto de partida</p>
-                        <input type="text">
-                    </div>
-
-                    <div>
-                        <p>Ponto de partida</p>
-                        <input type="text">
+                    <div class="interno-card">
+                        <div class="dados">
+                            <p class="dados-titulo">Ponto de partida</p>
+                            <input
+                                class="campo-input"
+                                placeholder="Ex: Vila"
+                                maxlength="20"
+                                type="text">
+                        </div>
+                        <div class="dados">
+                            <p class="dados-titulo">Destino</p>
+                            <select id="campo-destino" class="campo-select">
+                                <option value="">Destino</option>
+                                <option value="Campus Olezio Galotti">Campus Olezio Galotti</option>
+                                <option value="Campus Porfírio José de Almeida">Campus Porfírio José de Almeida</option>
+                                <option value="Campus Colina">Campus Colina</option>
+                                <option value="HFOA">HFOA</option>
+                            </select>
+                        </div>
+                        <div class="dados-largo">
+                            <p class="dados-titulo">Ponto de referência</p>
+                            <input 
+                                class="campo-input"
+                                placeholder="Ex: Praça Brasil"
+                                maxlength="50"
+                                type="text"
+                            >
+                        </div>
                     </div>
                 </section>
 
