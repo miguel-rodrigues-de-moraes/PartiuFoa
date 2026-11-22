@@ -19,4 +19,3 @@ olhos.forEach(olho => {
         };
     });
 });
-
