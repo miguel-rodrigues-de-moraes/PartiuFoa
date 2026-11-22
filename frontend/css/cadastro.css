@@ -135,6 +135,18 @@ label {
     text-decoration: underline;
 }
 
+/* Botao Cadastrar */
+
+.botao-cadastrar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.botao-cadastrar:not(:disabled) {
+    box-shadow: 0 4px 12px rgba(0, 68, 204, 0.25);
+    transform: scale(1.02);
+}
+
 .botao-cadastrar {
     width: 100%;
     padding: 13px;
@@ -148,12 +160,19 @@ label {
     font-weight: 450;
 
     cursor: pointer;
-    transition: 0.2s;
+
+    transition: background-color 0.2s ease,
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-.botao-cadastrar:hover {
-    background-color: #003399;
+.botao-cadastrar:not(:disabled):hover {
+    transform: scale(1.02) translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 68, 204, 0.35);
 }
+
+
 
 .link-login {
     margin-top: 16px;
