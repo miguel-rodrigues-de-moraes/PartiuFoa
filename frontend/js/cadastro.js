@@ -45,6 +45,7 @@ formulario.addEventListener("submit", function (event) {
     const erroNome = validarNome(nome.value)
     if (erroNome) {
         marcarErro(nome);
+        mostrarAlerta(erroNome, 'erro')
         return;
     } else {
         removerErro(nome);
