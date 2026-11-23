@@ -38,7 +38,7 @@ formulario.addEventListener("submit", function (event) {
         alert(erroNome)
         return;
     }
-    
+
     const erroEmail = validarEmail(email.value)
     if (erroEmail) {
         alert(erroEmail);
@@ -51,16 +51,15 @@ formulario.addEventListener("submit", function (event) {
         return;
     };
 
-
-
-    // Aqui incluir uma validação no futuro para buscar se a matricula já esta cadastrada no banco de dados, caso esteja, impedir o cadastro duplicado
-
-    const erroSenha = validarSenha(senha.value);
+    const erroSenha = validarSenha(senha.value, confirmarSenha.value);
     if (erroSenha) {
         alert(erroSenha);
+        return;
     };
 
-    nome.value = 
+    
+
+    nome.value =
         nome.value.trim()
         .toLowerCase()
         .split(/\s+/)
@@ -83,8 +82,8 @@ formulario.addEventListener("submit", function (event) {
     };
 
     console.log(usuario);
-
 });
+
 
 function validarNome(nome) {
     if (!nome.trim()) {
@@ -97,6 +96,7 @@ function validarNome(nome) {
 
     return null;
 };
+
 
 function validarEmail(email) {
     const emailLimpo = email?.trim().toLowerCase();
@@ -115,6 +115,7 @@ function validarEmail(email) {
     return null;
 };
 
+
 function validarMatricula(matricula) {
 
     const regex = /^\d+$/;
@@ -132,11 +133,13 @@ function validarMatricula(matricula) {
         return 'A matrícula deve conter apenas números!';
     };
 
-    return null;
+    // Aqui incluir uma validação no futuro para buscar se a matricula já esta cadastrada no banco de dados, caso esteja, impedir o cadastro duplicado
 
+    return null;
 };
 
-function validarSenha(senha) {
+
+function validarSenha(senha, confirmarSenha) {
     const resultado = {
         tamanhoMinimo: senha.length >= 8,
         temMaiuscula: /[A-Z]/.test(senha),
@@ -169,5 +172,19 @@ function validarSenha(senha) {
         return 'A senha deve conter ao menos 1 caracter especial!';
     };
 
+    if (!senha) {
+        return 'O campo confirmar senha não pode estar em branco!';
+    };
+
+    if (senha !== confirmarSenha) {
+        return 'A confirmação de senha deve ser igual à senha digitada!';
+    };
+
     return null;
 };
+
+function validarTermos(termos) {
+    if (!termos.checked) {
+        return ''
+    }
+}
