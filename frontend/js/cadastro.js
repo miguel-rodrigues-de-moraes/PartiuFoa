@@ -1,5 +1,3 @@
-// Troca do tipo do input de "password" -> "text" / "text" -> "password"
-
 const olhos = document.querySelectorAll('.icone-olho')
 
 olhos.forEach(olho => {
@@ -23,6 +21,15 @@ const formulario = document.querySelector("#formulario-cadastro");
 
 formulario.addEventListener("submit", function (event) {
     event.preventDefault();
+
+    window.addEventListener("pageshow", function (event) {
+        if (event.persisted) {
+            const form = document.querySelector("#formulario-cadastro");
+            if (form) {
+                form.reset();
+            }
+        }
+    });
 
     const nome = document.querySelector("#nome");
     const email = document.querySelector("#email");
@@ -86,6 +93,8 @@ formulario.addEventListener("submit", function (event) {
     };
 
     console.log(usuario);
+
+    window.location.href = 'home.html'
 });
 
 
@@ -107,14 +116,16 @@ function validarEmail(email) {
     const regex = /^[a-z0-9._-]+@unifoa\.edu\.br$/;
 
     if (!emailLimpo) {
-        return "O email não pode estar vazio!";
+        return 'O email não pode estar vazio!';
     };
 
     if (!regex.test(emailLimpo)) {
-        return "Digite um e-mail institucional valido! (ex: bleno@unifoa.edu.br)";
+        return 'Digite um e-mail institucional valido! (ex: bleno@unifoa.edu.br)';
     };
 
-    // Colocar aqui no futuro uma opção de buscar se o email já existe no banco de dados (ainda não implementado pois não aprendemos banco de dados)
+    if (usuarioArmazenado.emailArmazenados.includes(emailLimpo)) {
+        return 'Email já cadastrado por outro usuário! Tente um email diferente!';
+    };
 
     return null;
 };
@@ -137,7 +148,9 @@ function validarMatricula(matricula) {
         return 'A matrícula deve conter apenas números!';
     };
 
-    // Aqui incluir uma validação no futuro para buscar se a matricula já esta cadastrada no banco de dados, caso esteja, impedir o cadastro duplicado
+    if (usuarioArmazenado.matriculaArmazenada.includes(matriculaLimpa)) {
+        return 'A matricula informada já esta cadastrada! Tente uma matrícula diferente!';
+    };
 
     return null;
 };
@@ -192,3 +205,31 @@ function validarTermos(termos) {
         return 'Para continuar, é necessário ler e aceitar os nossos Termos de Uso. Sem o aceite, não é possível concluir o cadastro.'
     }
 }
+
+let usuarioArmazenado = {
+
+        matriculaArmazenada: [
+            "202610001",
+            "202610002",
+            "202610003",
+            "202610004",
+            "202610005"
+        ],
+
+        emailArmazenados: [
+            "email1@unifoa.edu.br",
+            "email2@unifoa.edu.br",
+            "email3@unifoa.edu.br",
+            "email4@unifoa.edu.br",
+            "email5@unifoa.edu.br",
+        ], 
+
+        senhaArmazenada: [
+            "Senha01!",
+            "Senha02!",
+            "Senha03!",
+            "Senha04!",
+            "Senha05!"
+        ],
+
+    };
