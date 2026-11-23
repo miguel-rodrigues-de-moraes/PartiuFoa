@@ -57,8 +57,12 @@ formulario.addEventListener("submit", function (event) {
         return;
     };
 
-    
-
+    const erroTermo = validarTermos(termos)
+        if (erroTermo) {
+            alert(erroTermo);
+            return;
+        };
+        
     nome.value =
         nome.value.trim()
         .toLowerCase()
@@ -90,7 +94,7 @@ function validarNome(nome) {
         return 'O nome não pode estar vazio!';
     };
 
-    if (nome.length < 5) {
+    if (nome.trim().length < 5) {
         return 'O nome deve conter ao menos 5 caracteres!';
     };
 
@@ -185,6 +189,6 @@ function validarSenha(senha, confirmarSenha) {
 
 function validarTermos(termos) {
     if (!termos.checked) {
-        return ''
+        return 'Para continuar, é necessário ler e aceitar os nossos Termos de Uso. Sem o aceite, não é possível concluir o cadastro.'
     }
 }
