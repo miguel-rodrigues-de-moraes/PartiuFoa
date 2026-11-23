@@ -353,6 +353,7 @@ a {
 
     padding-bottom: 15px;
     padding-top: 15px;
+    border-bottom: 1px solid var(--cor-borda);
 }
 
 .historico-item,
@@ -386,7 +387,8 @@ a {
     width: 60%;
 }
 
-.historico-valor {
+.historico-valor,
+.solicitacao-vagas-valor {
     font-weight: bold;
     margin: 0;
 
@@ -397,8 +399,8 @@ a {
     font-size: 25px;
 }
 
-.historico-legenda
-{
+.historico-legenda,
+.solicitacao-vagas-legenda {
     margin: 0;
     text-align: center;
 }
@@ -407,8 +409,9 @@ a {
     font-size: 20px;
 }
 
-.historico-icone
-{
+.historico-icone,
+.detalhe-icone,
+.recado-icone {
     font-size: 35px;
     color: var(--cor-botao);
     text-align: center;
@@ -417,27 +420,66 @@ a {
     height: 35px;
 }
 
-<<<<<<< HEAD
-=======
+.historico-icone {
+    margin: 0;
+}
 
+.conquistas-motorista {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
 
+.conquista,
+.conquista-ruim,
+.conquista-destaque {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 
+    border-radius: 25px;
 
+    height: 40px;
 
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
 
+    margin-top: 15px;
+    padding: 15px;
+}
 
+.conquista {
+    color: var(--cor-texto-positivo);
+    background-color: var(--cor-positivo);
+}
 
+.conquista-icone {
+    padding-right: 10px;
+}
 
+.conquista-texto {
+    font-weight: normal;
+}
 
+.conquista-ruim {
+    color: rgb(94, 36, 36);
+    background-color: rgb(240, 228, 228);
+}
 
+.conquista-ruim-icone {
+    padding-right: 10px;
+}
 
+.conquista-ruim {
+    font-weight: normal;
+}
 
+.conquista-destaque {
+    color: var(--cor-destaque);
+    background-color: var(--cor-afirmativo);
+}
 
-
-
-
-
->>>>>>> origin/main
 /* <--- BOTÃO DE ACESSIBILIDADE ---> */
 
 .acessibilidade-botao {
