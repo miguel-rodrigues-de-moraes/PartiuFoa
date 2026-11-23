@@ -60,7 +60,6 @@
                         <div class="dados">
                             <p class="dados-titulo">Destino</p>
                             <select id="campo-destino" class="campo-select">
-                                <option value="">Destino</option>
                                 <option value="Campus Olezio Galotti">Campus Olezio Galotti</option>
                                 <option value="Campus Porfírio José de Almeida">Campus Porfírio José de Almeida</option>
                                 <option value="Campus Colina">Campus Colina</option>
@@ -81,6 +80,7 @@
 
                 <section class="card">
                     <h1 class="titulo-card">Data e Horário</h1>
+            
                 </section>
 
             </article>
@@ -88,10 +88,38 @@
             <article class="painel-direita">
                 <section class="card">
                     <h1 class="titulo-card">Vagas e valor</h1>
+                        <div class="dados">
+                            <p class="dados-titulo">Número de Vagas disponiveis</p>
+                            <input
+                                class="campo-input"
+                                placeholder="Ex: 3"
+                                maxlength="20"
+                                type="number">
+                        </div>
+                        <div class="dados">
+                            <p class="dados-titulo">Número de Vagas disponiveis</p>
+                            <input
+                                class="campo-input"
+                                placeholder="Ex: 2,50"
+                                maxlength="3"
+                                type="number">
+                                <p class="sugerido">Valor sugerido: 2,50 por vaga</p>
+                        </div>
                 </section>
 
                 <section class="card">
                     <h1 class="titulo-card">Recado do motorista</h1>
+                        <div class="dados" id="campo-recado">
+                            <textarea
+                                name="teste"
+                                class="campo-input campo-textarea"
+                                rows="4"
+                                maxlength="500"
+                                style="resize: none"
+                                placeholder="Compartilhe alguma informação importante para os passageiros..."
+                            ></textarea>
+                            <p class="sugerido">Esse campo é opcional</p>
+                        </div>
                 </section>
             </article>
         </aside>

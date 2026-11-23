@@ -224,6 +224,7 @@ a {
     margin-bottom: 5px;
 }
 
+
 .campo-input,
 .campo-select {
     width: 100%;
@@ -242,9 +243,17 @@ a {
     padding: 0 15px;
 }
 
+.campo-textarea {
+    height: auto;
+    min-height: 110px;
+    padding: 12px 15px;
+    resize: vertical;
+    font-family: var(--fonte-principal);
+}
+
 .campo-select option {
     background-color: #F3F6FA;
-    color: var(--cor-texto);
+    color: var(--cor-borda);
     font-size: 15px;
 }
 
@@ -254,6 +263,15 @@ a {
 }
 
 
+
+.sugerido {
+    padding-top: 4px;
+    margin: 0;
+
+    color: #556177;
+
+    font-size: 14px;
+}
 
 /* <--- CONTEÚDO DIREITA ---> */
 
@@ -276,6 +294,10 @@ a {
     padding-left: 15px;
 
     width: 35%;
+}
+
+#campo-recado {
+    padding-top: 10px;
 }
 
 /* <--- BOTÃO DE ACESSIBILIDADE ---> */
