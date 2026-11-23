@@ -11,7 +11,7 @@
     --cor-destaque: #3E5B93;
     --cor-borda: #b2b2b662;
     --cor-positivo: rgb(228 240 231);
-    --cor-texto-positivo:rgb(36, 94, 62);
+    --cor-texto-positivo: rgb(36, 94, 62);
     --cor-afirmativo: rgb(237 239 254);
 
     --fonte-principal: 'Outfit', Arial, Helvetica, sans-serif;
@@ -157,7 +157,7 @@ a {
 
 /* <--- CABEÇALHO PRINCIPAL ---> */
 
-.cabecalho-principal{
+.cabecalho-principal {
     margin: 0;
     padding: 0;
 }
@@ -167,7 +167,7 @@ a {
     font-size: 20px;
 }
 
-.voltar-menu:hover  {
+.voltar-menu:hover {
     text-decoration: underline;
 }
 
@@ -198,6 +198,8 @@ a {
     display: flex;
     flex-direction: column;
 
+
+
     padding: 18px 28px 28px;
 }
 
@@ -212,25 +214,99 @@ a {
 
 /* <--- CONTEÚDO DIREITA ---> */
 
-.painel-informacoes-carona,
-.painel-solicitacao-carona {
-    display: flex;
-    flex-direction: column;
-
-    margin-top: 5px;
-}
-
 .painel-informacoes-carona {
     gap: 15px;
-
-    width: 75%;
+    width: 65%;
 }
 
 .painel-solicitacao-carona {
     padding-left: 15px;
-
-    width: 25%;
+    width: 35%;
 }
+
+.painel-solicitacao-carona .card {
+    height: 50%;
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.layout-carona {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.painel-informacoes-carona {
+    gap: 15px;
+    width: 68%;
+}
+
+.painel-solicitacao-carona {
+    padding-left: 0;
+    width: 32%;
+}
+
+.card-veiculo {
+    padding: 24px 26px 28px;
+}
+
+.titulo-veiculo {
+    letter-spacing: 0.4px;
+    margin-bottom: 22px;
+}
+
+.grade-veiculo {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 20px;
+}
+
+.campo-veiculo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.rotulo-veiculo {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--cor-texto);
+    letter-spacing: 0.3px;
+}
+
+.valor-veiculo {
+    width: 100%;
+    min-height: 46px;
+    padding: 8px 14px;
+    background-color: #F4F5FA;
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--cor-texto);
+}
+
+.valor-cor {
+    padding: 6px;
+}
+
+.faixa-cor-veiculo {
+    width: 100%;
+    height: 32px;
+    border-radius: 8px;
+    background-color: #C92A2A;
+}
+
+
 
 /* <--- PERFIL ---> */
 
@@ -350,7 +426,6 @@ a {
     display: flex;
 
     width: 100%;
-
     padding-bottom: 15px;
     padding-top: 15px;
     border-bottom: 1px solid var(--cor-borda);
