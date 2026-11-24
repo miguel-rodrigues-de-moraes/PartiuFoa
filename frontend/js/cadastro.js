@@ -177,22 +177,22 @@ function validarSenha(senha) {
     return null;
 };
 
-// Funcionalidade visual do botão de cadastrar
+// // Funcionalidade visual do botão de cadastrar
 
-const botaoCadastrar = document.querySelector(".botao-cadastrar");
+// const botaoCadastrar = document.querySelector(".botao-cadastrar");
 
-function alterarAparenciaBotao() {
-    const formularioValido =
-        validarNome(nome.value) === null &&
-        validarEmail(email.value) === null &&
-        validarMatricula(matricula.value) === null &&
-        validarSenha(senha.value) === null &&
-        senha.value === confirmarSenha.value &&
-        confirmarSenha.value !== "" &&
-        termos.checked === true;
+// function alterarAparenciaBotao() {
+//     const formularioValido =
+//         validarNome(nome.value) === null &&
+//         validarEmail(email.value) === null &&
+//         validarMatricula(matricula.value) === null &&
+//         validarSenha(senha.value) === null &&
+//         senha.value === confirmarSenha.value &&
+//         confirmarSenha.value !== "" &&
+//         termos.checked === true;
 
-    botaoCadastrar.disabled = !formularioValido;
-}
+//     botaoCadastrar.disabled = !formularioValido;
+// }
 
-formulario.addEventListener("input", alterarAparenciaBotao);
-formulario.addEventListener("change", alterarAparenciaBotao);
+// formulario.addEventListener("input", alterarAparenciaBotao);
+// formulario.addEventListener("change", alterarAparenciaBotao);
