@@ -1,266 +1,239 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
-/* <--- VARIÁVEIS DO PROJETO ---> */
-
-:root {
-    --cor-fundo: #F9F9FE;
-    --cor-texto: #1C3058;
-    --cor-icone: #95ABD3;
-    --cor-campo: #E9E9E9;
-    --cor-botao: #3059C1;
-    --cor-destaque: #3E5B93;
-    --cor-borda: #B2B2B6;
-    --cor-branco: #FFFFFF;
-
-    --fonte-principal: 'Outfit', Arial, Helvetica, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
-/* <--- CONFIGURAÇÕES GERAIS ---> */
 
 body {
-    margin: 0;
+    background-color: #eef2f6;
+    font-family: 'Outfit', Arial, Helvetica, sans-serif;
+}
+
+.pagina-login {
     min-height: 100vh;
-
-    background-image: url("../assents/img/fundologin.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-    color: var(--cor-texto);
-    font-family: var(--fonte-principal);
-}
-
-button,
-input {
-    font-family: var(--fonte-principal);
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-/* <--- ÁREA PRINCIPAL DO LOGIN ---> */
-
-.login {
-    min-height: 100vh;
-
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-
-    padding: 30px;
+    justify-content: center;
+    padding: 20px;
 }
 
-.login-caixa {
-    width: 720px;
+.login-cartao {
+    width: 100%;
+    max-width: 420px;
+    padding: 35px;
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
 
-    padding: 35px 90px;
-    margin: 20px;
+.login-formulario,
+.login-cadastro {
+    width: 100%;
+    max-width: 400px;
+}
 
-    background-color: rgba(249, 249, 254, 0.72);
-    border: 1px solid var(--cor-borda);
-    border-radius: 24px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+/* Cabeçalho e logo */
+
+.login-cabecalho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
 }
 
 .login-logo {
-    width: 360px;
-
-    display: block;
-
-    margin: 0 auto 10px;
+    width: 192px;
+    height: auto;
+    margin-top: -45px;
+    margin-bottom: -35px;
+    object-fit: contain;
 }
 
 .login-titulo {
-    margin: 10px 0 26px;
-
-    text-align: center;
-    font-size: 42px;
+    font-size: 35px;
     font-weight: 600;
-    color: var(--cor-texto);
+    color: #1C3058;
 }
 
-/* <--- FORMULÁRIO ---> */
+/* Campos formulário */
 
-.login-formulario {
-    width: 100%;
+.login-inputs {
+    margin-bottom: 16px;
 }
 
 .login-label {
     display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1C3058;
+    margin-bottom: 6px;
+}
 
-    margin: 18px 0 8px;
+.login-caixa-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-    font-size: 26px;
+    width: 100%;
+    padding: 10px 14px;
+
+    background-color: #E9E9E9;
+    border: 2px solid rgba(28, 48, 88, 0.1);
+    border-radius: 10px;
+
+    transition: border-color 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.login-caixa-input:focus-within {
+    border-color: #3059C1;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(48, 89, 193, 0.12);
+}
+
+.login-caixa-input > i {
+    color: #0044CC;
+    flex-shrink: 0;
+}
+
+.login-caixa-input .login-campo {
+    width: 100%;
+    padding: 0;
+
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+
+    font-family: inherit;
+    font-size: 14px;
+    color: #1C3058;
+
+    outline: none;
+}
+
+.login-caixa-input .login-campo:focus {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+/* Campo senha + olho */
+
+.login-olho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    padding: 0;
+
+    border: none;
+    background: transparent;
+    color: #4A6B9C;
+    font-size: 16px;
+    cursor: pointer;
+
+    flex-shrink: 0;
+}
+
+.icone-olho {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Esqueceu a senha */
+
+.login-recuperar {
+    margin-left: 15px;
+    margin-bottom: 8px;
+}
+
+.login-recuperar .login-link {
+    font-size: 16px;
     font-weight: 500;
-    color: var(--cor-texto);
 }
 
-.login-campo {
-    width: 94%;
-    height: 58px;
+/* Botão entrar */
 
-    padding-left: 26px;
-    padding-right: 18px;
+.login-botao {
+    width: 100%;
+    padding: 13px;
 
-    border: 1px solid var(--cor-borda);
-    border-radius: 20px;
-    background-color: var(--cor-branco);
+    background-color: #0044CC;
+    border: none;
+    border-radius: 50px;
 
-    color: var(--cor-texto);
-    font-size: 18px;
-    font-weight: 400;
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 450;
 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+
+    transition: background-color 0.2s ease,
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-.login-campo::placeholder {
-    color: var(--cor-icone);
+/* desabilitado */
+.login-botao:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
 }
+
+/* habilitado */
+.login-botao:not(:disabled) {
+    opacity: 1;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 68, 204, 0.25);
+    transform: scale(1.02);
+}
+
+/* hover */
+.login-botao:not(:disabled):hover {
+    background-color: #003399;
+    transform: scale(1.02) translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 68, 204, 0.35);
+}
+
+/* Botao "Cadastre aqui" */
 
 .login-link {
-    display: inline-block;
-
-    margin-top: 14px;
-
-    color: var(--cor-botao);
-    font-size: 18px;
+    color: #3059C1;
+    font-size: 16px;
     font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 .login-link:hover {
-    color: var(--cor-texto);
-
+    color: #1C3058;
     text-decoration: underline;
 }
 
-/* <--- BOTÃO ---> */
-
-.login-botao {
-    width: 300px;
-    height: 64px;
-
-    display: block;
-
-    margin: 28px auto 18px;
-
-    border: none;
-    border-radius: 40px;
-    background-color: var(--cor-botao);
-
-    color: var(--cor-branco);
-    font-size: 30px;
-    font-weight: 600;
-
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18);
-
-    cursor: pointer;
-}
-
-/* <--- CADASTRO ---> */
+/* Botao de cadastrar */
 
 .login-cadastro {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
+    margin-top: 16px;
+    text-align: center;
+    color: #1C3058;
 }
 
 .login-texto {
-    margin: 14px 0 0;
-
-    color: var(--cor-texto);
-    font-size: 18px;
-    font-weight: 500;
+    display: inline;
+    font-size: 16px;
 }
 
-/* <-- RESPONSIVIDADE ---> */
-
-@media (max-width: 900px) {
-    .login-caixa {
-        width: 78%;
-        padding: 32px 55px;
-    }
-
-    .login-logo {
-        width: 300px;
-    }
-
-    .login-titulo {
-        font-size: 38px;
-    }
-
-    .login-label {
-        font-size: 24px;
-    }
-}
-
-@media (max-width: 600px) {
-    .login {
-        padding: 18px;
-    }
-
-    .login-caixa {
-        width: 86%;
-        padding: 28px 28px;
-        margin: 10px;
-    }
-
-    .login-logo {
-        width: 240px;
-    }
-
-    .login-titulo {
-        font-size: 34px;
-    }
-
-    .login-label {
-        font-size: 22px;
-    }
-
-    .login-campo {
-        width: 88%;
-        height: 56px;
-        font-size: 16px;
-    }
-
-    .login-botao {
-        width: 240px;
-        height: 60px;
-        font-size: 26px;
-    }
-
-    .login-cadastro {
-        display: block;
-        text-align: center;
-    }
-
-    .login-texto {
-        margin-bottom: 4px;
-    }
-}
-
-@media (max-width: 400px) {
-    .login-caixa {
-        padding: 24px 18px;
-    }
-
-    .login-logo {
-        width: 210px;
-    }
-
-    .login-titulo {
-        font-size: 30px;
-    }
-
-    .login-campo {
-        width: 86%;
-    }
-
-    .login-botao {
-        width: 220px;
-        font-size: 24px;
-    }
+.login-cadastro .login-link {
+    font-weight: 600;
+    font-size: 16px;
 }

@@ -26,6 +26,8 @@ main {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
+/* Caixas de Input */
+
 .caixa-input {
     display: flex;
     align-items: center;
@@ -37,6 +39,16 @@ main {
     padding: 10px 14px;
 
     gap: 10px;
+
+    transition: border-color 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.caixa-input:focus-within {
+    border-color: #3059C1;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(48, 89, 193, 0.12);
 }
 
 .caixa-input input {
@@ -61,11 +73,28 @@ main {
     color: #4a6b9c;
     cursor: pointer;
 
+    font-size: 16px;
+
     width: 20px;
     min-width: 20px;
     text-align: center;
     flex-shrink: 0;
 }
+
+.botao-olho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    background: transparent;
+    padding: 0;
+
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* Card Principal + Logo */
 
 .card-principal {
     text-align: center;
@@ -82,7 +111,7 @@ main {
 
 .card-principal h1 {
     color: #0b1b3d;
-    font-size: 32px;
+    font-size: px;
 }
 
 .campo {
@@ -96,6 +125,8 @@ label {
     color: #0b1b3d;
     margin-bottom: 6px;
 }
+
+/* Caixa de Termos + Texto */
 
 .termos {
     display: flex;
@@ -135,6 +166,18 @@ label {
     text-decoration: underline;
 }
 
+/* Botao Cadastrar */
+
+.botao-cadastrar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.botao-cadastrar:not(:disabled) {
+    box-shadow: 0 4px 12px rgba(0, 68, 204, 0.25);
+    transform: scale(1.02);
+}
+
 .botao-cadastrar {
     width: 100%;
     padding: 13px;
@@ -148,12 +191,19 @@ label {
     font-weight: 450;
 
     cursor: pointer;
-    transition: 0.2s;
+
+    transition: background-color 0.2s ease,
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-.botao-cadastrar:hover {
-    background-color: #003399;
+.botao-cadastrar:not(:disabled):hover {
+    transform: scale(1.02) translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 68, 204, 0.35);
 }
+
+
 
 .link-login {
     margin-top: 16px;
@@ -171,76 +221,4 @@ label {
 .link-login a:hover {
     text-decoration: underline;
     color: #003399;
-}
-
-/* Mensagens de Erro e Sucesso */
-
-.container-alertas {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.alerta-card {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    min-width: 280px;
-    max-width: 380px;
-    padding: 16px 20px;
-    border-radius: 8px;
-    color: #fff;
-    font-family: sans-serif;
-    font-size: 14px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    animation: deslizarEntrada 0.3s ease forwards;
-}
-
-/* Cores por tipo */
-.alerta-erro {
-    background-color: #e53935; /* Vermelho */
-    border-left: 6px solid #b71c1c;
-}
-
-.alerta-sucesso {
-    background-color: #43a047; /* Verde */
-    border-left: 6px solid #1b5e20;
-}
-
-.alerta-fechar {
-    margin-left: auto;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    opacity: 0.8;
-}
-
-.alerta-fechar:hover {
-    opacity: 1;
-}
-
-@keyframes deslizarEntrada {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-.caixa-input.input-erro {
-    border: 2px solid #e53935;
-    background-color: #fff5f5;
-}
-
-.caixa-input {
-    transition: border 0.2s ease, background-color 0.2s ease;
 }
