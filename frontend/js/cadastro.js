@@ -1,3 +1,5 @@
+import { mostrarAlerta, marcarErro, removerErro } from "./functions/mostrarAlertas.js"
+
 const olhos = document.querySelectorAll('.icone-olho')
 
 olhos.forEach(olho => {
@@ -17,12 +19,7 @@ olhos.forEach(olho => {
     });
 });
 
-const formulario = document.querySelector("#formulario-cadastro");
-
-formulario.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    window.addEventListener("pageshow", function (event) {
+window.addEventListener("pageshow", function (event) {
         if (event.persisted) {
             const form = document.querySelector("#formulario-cadastro");
             if (form) {
@@ -30,6 +27,11 @@ formulario.addEventListener("submit", function (event) {
             }
         }
     });
+
+const formulario = document.querySelector("#formulario-cadastro");
+
+formulario.addEventListener("submit", function (event) {
+    event.preventDefault();
 
     const nome = document.querySelector("#nome");
     const email = document.querySelector("#email");
@@ -42,34 +44,49 @@ formulario.addEventListener("submit", function (event) {
 
     const erroNome = validarNome(nome.value)
     if (erroNome) {
-        alert(erroNome)
+        marcarErro(nome);
+        mostrarAlerta(erroNome, 'erro')
         return;
-    }
+    } else {
+        removerErro(nome);
+    };
 
     const erroEmail = validarEmail(email.value)
     if (erroEmail) {
-        alert(erroEmail);
+        marcarErro(email);
+        mostrarAlerta(erroEmail, 'erro');
         return;
-    }
+    } else {
+        removerErro(email);
+    };
 
     const erroMatricula = validarMatricula(matricula.value)
     if (erroMatricula) {
-        alert(erroMatricula);
+        marcarErro(matricula);
+        mostrarAlerta(erroMatricula, 'erro');
         return;
+    } else {
+        removerErro(matricula);
     };
 
-    const erroSenha = validarSenha(senha.value, confirmarSenha.value);
+    const erroSenha = validarSenha(senha.value, confirmarSenha.value, matricula.value);
     if (erroSenha) {
-        alert(erroSenha);
+        marcarErro(senha);
+        marcarErro(confirmarSenha);
+        mostrarAlerta(erroSenha, 'erro');
         return;
+    } else {
+        removerErro(senha);
+        removerErro(confirmarSenha);
     };
 
     const erroTermo = validarTermos(termos)
-        if (erroTermo) {
-            alert(erroTermo);
-            return;
-        };
-        
+    if (erroTermo) {
+        marcarErro(termos)
+        mostrarAlerta(erroTermo, 'erro');
+        return;
+    };
+
     nome.value =
         nome.value.trim()
         .toLowerCase()
@@ -94,17 +111,32 @@ formulario.addEventListener("submit", function (event) {
 
     console.log(usuario);
 
-    window.location.href = 'home.html'
+    mostrarAlerta("Cadastro realizado com sucesso!", 'sucesso')
+    setTimeout(() => {
+        window.location.href = '/frontend/home.html';
+    }, 820)
 });
 
 
 function validarNome(nome) {
-    if (!nome.trim()) {
+    const nomeLimpo = nome.trim();
+
+    if (!nomeLimpo) {
         return 'O nome não pode estar vazio!';
     };
 
-    if (nome.trim().length < 5) {
-        return 'O nome deve conter ao menos 5 caracteres!';
+    if (!/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/.test(nomeLimpo)) {
+        return 'O nome deve conter apenas letras!';
+    };
+    
+    const partes = nomeLimpo.split(/\s+/);
+
+    if (partes.length < 2) {
+        return 'Digite seu nome completo! (Nome e Sobrenome)';
+    };  
+
+    if (partes[0].length < 3 || partes[1].length < 2) {
+        return 'Digite seu nome completo! (Nome e Sobrenome)';
     };
 
     return null;
@@ -134,6 +166,7 @@ function validarEmail(email) {
 function validarMatricula(matricula) {
 
     const regex = /^\d+$/;
+    const sequenciaNumeros = /^(\d)\1+$/
 
     const matriculaLimpa = matricula?.trim()
     if (!matriculaLimpa) {
@@ -148,6 +181,10 @@ function validarMatricula(matricula) {
         return 'A matrícula deve conter apenas números!';
     };
 
+    if (sequenciaNumeros.test(matriculaLimpa) || matriculaLimpa === '123456789') {
+        return 'Matrícula inváida!'
+    }
+
     if (usuarioArmazenado.matriculaArmazenada.includes(matriculaLimpa)) {
         return 'A matricula informada já esta cadastrada! Tente uma matrícula diferente!';
     };
@@ -156,7 +193,7 @@ function validarMatricula(matricula) {
 };
 
 
-function validarSenha(senha, confirmarSenha) {
+function validarSenha(senha, confirmarSenha, matricula) {
     const resultado = {
         tamanhoMinimo: senha.length >= 8,
         temMaiuscula: /[A-Z]/.test(senha),
@@ -189,8 +226,12 @@ function validarSenha(senha, confirmarSenha) {
         return 'A senha deve conter ao menos 1 caracter especial!';
     };
 
-    if (!senha) {
-        return 'O campo confirmar senha não pode estar em branco!';
+    if (/\s+/.test(senha)) {
+        return 'A senha não pode conter espaços!';
+    };
+
+    if (matricula && senha.includes(matricula)) {
+        return 'A senha não pode conter o número da sua matrícula!';
     };
 
     if (senha !== confirmarSenha) {
@@ -206,30 +247,32 @@ function validarTermos(termos) {
     }
 }
 
+// Usuarios Ficticios para simular erro de validação
+
 let usuarioArmazenado = {
 
-        matriculaArmazenada: [
-            "202610001",
-            "202610002",
-            "202610003",
-            "202610004",
-            "202610005"
-        ],
+    matriculaArmazenada: [
+        "202610001",
+        "202610002",
+        "202610003",
+        "202610004",
+        "202610005"
+    ],
 
-        emailArmazenados: [
-            "email1@unifoa.edu.br",
-            "email2@unifoa.edu.br",
-            "email3@unifoa.edu.br",
-            "email4@unifoa.edu.br",
-            "email5@unifoa.edu.br",
-        ], 
+    emailArmazenados: [
+        "email1@unifoa.edu.br",
+        "email2@unifoa.edu.br",
+        "email3@unifoa.edu.br",
+        "email4@unifoa.edu.br",
+        "email5@unifoa.edu.br",
+    ],
 
-        senhaArmazenada: [
-            "Senha01!",
-            "Senha02!",
-            "Senha03!",
-            "Senha04!",
-            "Senha05!"
-        ],
+    senhaArmazenada: [
+        "Senha01!",
+        "Senha02!",
+        "Senha03!",
+        "Senha04!",
+        "Senha05!"
+    ],
 
-    };
+};
