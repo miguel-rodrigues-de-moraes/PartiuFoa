@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 /* <--- VARIÁVEIS DO PROJETO ---> */
@@ -11,7 +12,7 @@
     --cor-destaque: #3E5B93;
     --cor-borda: #b2b2b662;
     --cor-positivo: rgb(228 240 231);
-    --cor-texto-positivo:rgb(36, 94, 62);
+    --cor-texto-positivo: rgb(36, 94, 62);
     --cor-afirmativo: rgb(237 239 254);
 
     --fonte-principal: 'Outfit', Arial, Helvetica, sans-serif;
@@ -53,7 +54,8 @@ main {
 
 button,
 input,
-select {
+select,
+textarea {
     font-family: var(--fonte-principal);
 }
 
@@ -157,7 +159,7 @@ a {
 
 /* <--- CABEÇALHO PRINCIPAL ---> */
 
-.cabecalho-principal{
+.cabecalho-principal {
     margin: 0;
     padding: 0;
 }
@@ -167,7 +169,7 @@ a {
     font-size: 20px;
 }
 
-.voltar-menu:hover  {
+.voltar-menu:hover {
     text-decoration: underline;
 }
 
@@ -209,14 +211,14 @@ a {
 
 .interno-card {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
     width: 100%;
 
     gap: 8px;
 }
 
 .dados-largo {
-    grid-column: span 2
+    grid-column: span 2;
 }
 
 .dados-titulo {
@@ -253,9 +255,84 @@ a {
     color: var(--cor-texto);
 }
 
+.campo-textarea {
+    height: auto;
+    padding: 12px 15px;
+}
 
+.sugerido {
+    font-size: 13px;
+    margin: 5px 0 0;
+}
 
-/* <--- CONTEÚDO DIREITA ---> */
+/* <--- TIPO DE CARONA ---> */
+
+.campo-carona {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.rotulo {
+    font-size: 15px;
+    color: #2b3a55;
+    font-weight: 400;
+}
+
+.segmented-control {
+    position: relative;
+    display: inline-flex;
+    background-color: #f8f9fb;
+    border: 1px solid #e2e6ee;
+    border-radius: 999px;
+    overflow: hidden;
+    padding: 0;
+}
+
+.segmented-control input[type="radio"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    pointer-events: none;
+}
+
+.segmented-control input[type="radio"]:focus,
+.segmented-control input[type="radio"]:focus-visible {
+    outline: none;
+}
+
+.segmented-control label {
+    padding: 10px 50px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0b2249;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 999px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    text-align: center;
+}
+
+.segmented-control input[type="radio"]:not(:checked) + label:hover {
+    background-color: #eef1f6;
+}
+
+.segmented-control input[type="radio"]:checked + label {
+    background-color: #2554c7;
+    color: #ffffff;
+}
+
+.segmented-control input[type="radio"]:focus + label,
+.segmented-control input[type="radio"]:focus-visible + label {
+    outline: none;
+}
+
+/* <--- PAINÉIS LATERAIS ---> */
 
 .painel-esquerda,
 .painel-direita {
@@ -267,14 +344,12 @@ a {
 
 .painel-esquerda {
     gap: 15px;
-
     width: 65%;
 }
 
 .painel-direita {
     gap: 15px;
     padding-left: 15px;
-
     width: 35%;
 }
 
