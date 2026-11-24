@@ -1,54 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PartiuFOA | Login</title>
 
     <link rel="shortcut icon" href="frontend/assents/icon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="frontend/css/login.css">
-
-    <title>PartiuFOA | Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
+
 <body>
 
-    <main class="login">
-        <section class="login-caixa">
+    <main class="pagina-login">
 
-            <img class="login-logo" src="frontend/assents/img/img-header.png" alt="Logo PartiuFOA">
+        <div class="login-cartao">
 
-            <h1 class="login-titulo">Login</h1>
+            <div class="login-cabecalho">
+                <img class="login-logo" src="frontend/assents/icon/android-chrome-192x192.png" alt="Logo PartiuFOA">
+                <h1 class="login-titulo">Login</h1>
+            </div>
+
+            <!-- Formulario de Login -->
 
             <form class="login-formulario" id="formulario-login">
 
-                <label class="login-label" for="campo-matricula">Matrícula</label>
-                <input
-                    class="login-campo"
-                    type="text"
-                    id="campo-matricula"
-                    name="matricula"
-                    placeholder="Ex: 202600000"
-                    maxlength="9"
-                    pattern="[0-9]{9}"
-                    title="A matrícula deve conter exatamente 9 números."
-                    required
-                    >
+                <!-- Matrícula -->
+                <div class="login-inputs">
+                    <label class="login-label" for="campo-matricula">Matrícula</label>
 
-                <label class="login-label" for="campo-senha">Senha</label>
-                <input
-                    class="login-campo"
-                    type="password"
-                    id="campo-senha"
-                    name="senha"
-                    placeholder="Ex: Senha123!"
-                    maxlength="16"
-                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#?!@$%^&*-]).{8,}$"
-                    title="A senha deve ter no mínimo 8 caracteres, uma letra maiúscula, uma minúscula, um número e um caractere especial."
-                    required
-                    >
+                    <div class="login-caixa-input">
+                        <i class="fa-solid fa-id-card"></i>
 
-                <a class="login-link" href="#">Esqueceu a senha?</a>
+                        <input class="login-campo" type="text" id="campo-matricula" name="matricula"
+                            placeholder="Ex: 202600000" maxlength="9" pattern="[0-9]{9}"
+                            title="A matrícula deve conter exatamente 9 números." required>
+                    
+                    </div>
+                </div>
 
-                <button class="login-botao" type="submit">Entrar</button>
+                <!-- Senha -->
+                <div class="login-inputs">
+                    <label class="login-label" for="campo-senha">Senha</label>
+
+                    <div class="login-caixa-input">
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input type="password" class="login-campo" id="campo-senha" name="senha"
+                            placeholder="Ex: Senha123!" minlength="8" maxlength="16"
+                            title="A senha deve ter entre 8 a 16 caractéres." required>
+
+                        <button class="login-olho" type="button" id="botao-olho">
+                            <i class="fa-solid fa-eye-slash icone-olho"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Esqueceu a Senha -->
+                <div class="login-recuperar">
+                    <a class="login-link" href="#">Esqueceu a senha?</a>
+                </div>
+
+                <!-- Botao Entrar -->
+                <div>
+                    <button class="login-botao" type="submit">Entrar</button>
+                </div>
 
             </form>
 
@@ -56,11 +73,13 @@
                 <p class="login-texto">Não possui conta?</p>
                 <a class="login-link" href="frontend/cadastro.html">Cadastre-se aqui!</a>
             </div>
-
-        </section>
+        </div>
 
     </main>
 
     <script src="frontend/js/login.js"></script>
 </body>
+
 </html>
+
+<!-- pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#?!@$%^&*\-]).{8,}$" -->
