@@ -113,7 +113,7 @@ formulario.addEventListener("submit", function (event) {
 
     mostrarAlerta("Cadastro realizado com sucesso!", 'sucesso')
     setTimeout(() => {
-        window.location.href = '/frontend/home.html';
+        window.location.href = '.   /frontend/home.html';
     }, 820)
 });
 
