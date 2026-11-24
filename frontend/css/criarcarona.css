@@ -265,6 +265,26 @@ a {
     margin: 5px 0 0;
 }
 
+.grupo-dias {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.opcoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+
+.opcao {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
 /* <--- TIPO DE CARONA ---> */
 
 .campo-carona {
@@ -351,6 +371,74 @@ a {
     gap: 15px;
     padding-left: 15px;
     width: 35%;
+}
+
+.criar-acoes {
+    gap: 10px;
+
+    width: 100%;
+
+    display: flex;
+
+}
+
+.botao-criar,
+.botao-cancelar {
+    width: 50%;
+    height: 48px;
+
+    border-radius: 50px;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.botao-criar {
+    border: none;
+
+    background-color: var(--cor-botao);
+    color: var(--cor-campo);
+}
+
+.botao-criar-conteudo,
+.botao-cancelar-conteudo {
+    display: grid;
+    align-items: inherit;
+    justify-content: center;
+    gap: 5px;
+}
+
+.botao-criar-icone,
+.botao-cancelar-icone {
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-criar-seta,
+.botao-cancelar-texto {
+    margin: 0;
+    padding: 0;
+}
+
+.botao-cancelar {
+    border: 2px solid var(--cor-botao);
+
+    background-color: transparent;
+    color: var(--cor-botao);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-criar:hover,
+.botao-cancelar:hover,
+.acessibilidade-botao:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
 }
 
 /* <--- BOTÃO DE ACESSIBILIDADE ---> */
