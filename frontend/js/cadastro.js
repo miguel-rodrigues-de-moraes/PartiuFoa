@@ -5,7 +5,7 @@ const olhos = document.querySelectorAll('.icone-olho')
 olhos.forEach(olho => {
     olho.addEventListener("click", function () {
 
-        const inputSenha = olho.parentElement.querySelector("input");
+        const inputSenha = olho.parentElement.parentElement.querySelector("input");
 
         if (inputSenha.type === "password") {
             inputSenha.type = "text"
@@ -18,6 +18,7 @@ olhos.forEach(olho => {
         };
     });
 });
+
 
 // Validação da Página de Cadastro
 

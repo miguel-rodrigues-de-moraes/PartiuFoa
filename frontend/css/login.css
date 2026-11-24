@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #f9f9f9;
+    background-color: #eef2f6;
     font-family: 'Outfit', Arial, Helvetica, sans-serif;
 }
 
@@ -22,7 +22,7 @@ body {
 
 .login-cartao {
     width: 100%;
-    max-width: 450px;
+    max-width: 420px;
     padding: 35px;
     background-color: #FFFFFF;
     border-radius: 16px;
@@ -54,7 +54,7 @@ body {
 }
 
 .login-titulo {
-    font-size: 28px;
+    font-size: 35px;
     font-weight: 600;
     color: #1C3058;
 }
@@ -73,54 +73,78 @@ body {
     margin-bottom: 6px;
 }
 
-.login-campo {
+.login-caixa-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
     width: 100%;
-    padding: 12px 14px;
+    padding: 10px 14px;
 
     background-color: #E9E9E9;
     border: 2px solid rgba(28, 48, 88, 0.1);
     border-radius: 10px;
+
+    transition: border-color 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.login-caixa-input:focus-within {
+    border-color: #3059C1;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(48, 89, 193, 0.12);
+}
+
+.login-caixa-input > i {
+    color: #0044CC;
+    flex-shrink: 0;
+}
+
+.login-caixa-input .login-campo {
+    width: 100%;
+    padding: 0;
+
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
 
     font-family: inherit;
     font-size: 14px;
     color: #1C3058;
 
     outline: none;
-    transition: 0.2s ease;
 }
 
-.login-campo:focus {
-    border-color: #3059C1;
-    background-color: #FFFFFF;
-    box-shadow: 0 0 0 3px rgba(48, 89, 193, 0.12);
+.login-caixa-input .login-campo:focus {
+    background-color: transparent;
+    box-shadow: none;
 }
 
 /* Campo senha + olho */
 
-.login-senha {
-    position: relative;
-    width: 100%;
-}
-
-.login-senha .login-campo {
-    padding-right: 45px;
-}
-
 .login-olho {
-    position: absolute;
-    top: 50%;
-    right: 14px;
-    transform: translateY(-50%);
-
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 24px;
+    padding: 0;
 
     border: none;
     background: transparent;
     color: #4A6B9C;
     font-size: 16px;
     cursor: pointer;
+
+    flex-shrink: 0;
+}
+
+.icone-olho {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
 }
 
 /* Esqueceu a senha */

@@ -1,3 +1,24 @@
+// Troca do tipo do input de "password" -> "text" / "text" -> "password"
+
+const olho = document.querySelector('.icone-olho')
+
+olho.addEventListener("click", function () {
+
+    const inputSenha = document.querySelector("#campo-senha");
+
+    if (inputSenha.type === "password") {
+        inputSenha.type = "text"
+        olho.classList.remove("fa-eye-slash")
+        olho.classList.add("fa-eye")
+    }
+    else if (inputSenha.type === "text") {
+        inputSenha.type = "password"
+        olho.classList.remove("fa-eye")
+        olho.classList.add("fa-eye-slash")
+    };
+});
+
+
 //Validação do campo de matrícula
 
 let matriculaInserida = document.getElementById("campo-matricula");

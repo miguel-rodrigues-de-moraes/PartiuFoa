@@ -29,22 +29,30 @@
                 <!-- Matrícula -->
                 <div class="login-inputs">
                     <label class="login-label" for="campo-matricula">Matrícula</label>
-                    <input class="login-campo" type="text" id="campo-matricula" name="matricula"
-                        placeholder="Ex: 202600000" maxlength="9" pattern="[0-9]{9}"
-                        title="A matrícula deve conter exatamente 9 números." required>
+
+                    <div class="login-caixa-input">
+                        <i class="fa-solid fa-id-card"></i>
+
+                        <input class="login-campo" type="text" id="campo-matricula" name="matricula"
+                            placeholder="Ex: 202600000" maxlength="9" pattern="[0-9]{9}"
+                            title="A matrícula deve conter exatamente 9 números." required>
+                    
+                    </div>
                 </div>
 
                 <!-- Senha -->
                 <div class="login-inputs">
                     <label class="login-label" for="campo-senha">Senha</label>
 
-                    <div class="login-senha">
-                        <input class="login-campo" type="password" id="campo-senha" name="senha"
+                    <div class="login-caixa-input">
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input type="password" class="login-campo" id="campo-senha" name="senha"
                             placeholder="Ex: Senha123!" minlength="8" maxlength="16"
                             title="A senha deve ter entre 8 a 16 caractéres." required>
 
                         <button class="login-olho" type="button" id="botao-olho">
-                            <i class="fa-solid fa-eye"></i>
+                            <i class="fa-solid fa-eye-slash icone-olho"></i>
                         </button>
                     </div>
                 </div>
