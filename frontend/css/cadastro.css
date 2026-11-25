@@ -286,3 +286,14 @@ label {
         opacity: 1;
     }
 }
+
+/* Input com erro de validação */
+.caixa-input.input-erro {
+    border: 2px solid #e53935;
+    background-color: #fff5f5;
+}
+
+/* Transição suave */
+.caixa-input {
+    transition: border 0.2s ease, background-color 0.2s ease;
+}
