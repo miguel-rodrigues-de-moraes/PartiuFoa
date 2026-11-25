@@ -59,12 +59,12 @@
                                 <div class="dados">
                                     <p class="dados-titulo">Ponto de partida</p>
                                     <input class="campo-input" id="partida" name="partida" placeholder="Ex: Vila Santa Cecilia, Volta Redonda"
-                                        maxlength="20" type="text">
+                                        maxlength="40" type="text" required>
                                 </div>
 
                                 <div class="dados">
                                     <p class="dados-titulo">Destino</p>
-                                    <select id="campo-destino" name="destino" aria-placeholder="Destino" class="campo-select">
+                                    <select id="campo-destino" name="destino" aria-placeholder="Destino" class="campo-select" required>
                                         <option value="">Destino</option>
                                         <option value="Campus Olezio Galotti">Campus Olezio Galotti</option>
                                         <option value="Campus Porfírio José de Almeida">Campus Porfírio José de Almeida
@@ -76,8 +76,8 @@
 
                                 <div class="dados-largo">
                                     <p class="dados-titulo">Ponto de referência</p>
-                                    <input class="campo-input" placeholder="Ex: Praça Brasil" maxlength="50"
-                                        type="text">
+                                    <input class="campo-input" id="pontoReferencia" name="pontoReferencia" placeholder="Ex: Praça Brasil" maxlength="50"
+                                        type="text" required>
                                 </div>
 
                             </div>
@@ -105,12 +105,12 @@
                                     </div>
                                 </div>
 
-                                <div class="dados">
+                                <div class="dados" id="campo-data">
                                     <p class="dados-titulo">Data de saída</p>
-                                    <input class="campo-input" type="date">
+                                    <input class="campo-input" type="date" name="campoData">
                                 </div>
 
-                                <div class="dados-largo">
+                                <div class="dados-largo" id="campo-dias" hidden>
                                     <p class="dados-titulo">Dias da semana</p>
                                     <div class="grupo-dias">
                                         <div class="opcoes">
