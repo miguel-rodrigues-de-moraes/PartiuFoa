@@ -1,20 +1,23 @@
 import { mostrarAlerta, marcarErro, removerErro } from "./functions/mostrarAlertas.js"
 
-const olhos = document.querySelectorAll('.icone-olho')
+// Funcionalidade do botão de olho
+
+const olhos = document.querySelectorAll('.icone-olho');
 
 olhos.forEach(olho => {
     olho.addEventListener("click", function () {
 
-        const inputSenha = olho.parentElement.querySelector("input");
+        const caixaInput = olho.parentElement.parentElement;
+        const inputSenha = caixaInput.querySelector(".caixa-senha");
 
         if (inputSenha.type === "password") {
-            inputSenha.type = "text"
-            olho.classList.remove("fa-eye-slash")
-            olho.classList.add("fa-eye")
-        } else if (inputSenha.type === "text") {
-            inputSenha.type = "password"
-            olho.classList.remove("fa-eye")
-            olho.classList.add("fa-eye-slash")
+            inputSenha.type = "text";
+            olho.classList.remove("fa-eye-slash");
+            olho.classList.add("fa-eye");
+        } else {
+            inputSenha.type = "password";
+            olho.classList.remove("fa-eye");
+            olho.classList.add("fa-eye-slash");
         };
     });
 });
