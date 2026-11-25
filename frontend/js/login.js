@@ -1,4 +1,26 @@
-//Validação do campo de matrícula
+import { mostrarAlerta, marcarErro, removerErro } from "./functions/mostrarAlertas.js";
+
+// Funcionalidade do Olho
+
+const olho = document.querySelector('.icone-olho')
+
+olho.addEventListener("click", function () {
+
+    const inputSenha = document.querySelector("#campo-senha");
+
+    if (inputSenha.type === "password") {
+        inputSenha.type = "text"
+        olho.classList.remove("fa-eye-slash")
+        olho.classList.add("fa-eye")
+    }
+    else if (inputSenha.type === "text") {
+        inputSenha.type = "password"
+        olho.classList.remove("fa-eye")
+        olho.classList.add("fa-eye-slash")
+    };
+});
+
+// Formatação e limitação do campo de matrícula
 
 let matriculaInserida = document.getElementById("campo-matricula");
 
@@ -11,7 +33,7 @@ matriculaInserida.addEventListener("input", function () {
 });
 
 
-//Validação do campo de senha
+// Formatação e limitação do campo de senha
 
 let senhaInserida = document.getElementById("campo-senha");
 
@@ -32,12 +54,15 @@ formulario.addEventListener("submit", function (event) {
 
     event.preventDefault();
 
-    if (
-        senhaInserida.value.length < 8 ||
-        senhaInserida.value.length > 16
-    ) {
-        alert("A senha deve ter entre 8 e 16 caractéres.");
+    //Validação da Matrícula
+
+    if (matriculaInserida.value.length !== 9) {
+        marcarErro(matriculaInserida);
+        mostrarAlerta("A matrícula deve conter exatamente 9 números.", "erro");
         return;
+
+    } else {
+        removerErro(matriculaInserida);
     }
 
     //Validação das Matrículas e Senhas por PARES LIGADOS
@@ -78,14 +103,33 @@ formulario.addEventListener("submit", function (event) {
                 window.location.href = "./frontend/home.html";
             }
         }
-    }
+    };
+
+    // Verificação da existência da Matrícula
 
     if (matriculaEncontrada == false) {
-        alert("Matrícula inexistente ou incorreta.")
+        marcarErro(matriculaInserida);
+        mostrarAlerta("Matrícula inexistente ou incorreta.", "erro")
+        return
     }
 
-    else if (loginValido == false) {
-        alert("Senha incorreta.")
+    // Validação da senha (Vazia)
+
+    if (senhaInserida.value.length === 0) {
+        marcarErro(senhaInserida)
+        mostrarAlerta("A senha não pode estar vazia.", "erro");
+        return;
+    }
+    else {
+        removerErro(senhaInserida)
+    }
+
+    // Verificação da senha (Incorreta)
+
+    if (loginValido == false) {
+        marcarErro(senhaInserida)
+        mostrarAlerta("Senha incorreta.", "erro")
+        return;
     }
 });
 
