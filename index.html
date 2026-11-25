@@ -24,7 +24,7 @@
 
             <!-- Formulario de Login -->
 
-            <form class="login-formulario" id="formulario-login">
+            <form class="login-formulario" id="formulario-login" novalidate>
 
                 <!-- Matrícula -->
                 <div class="login-inputs">
@@ -36,7 +36,7 @@
                         <input class="login-campo" type="text" id="campo-matricula" name="matricula"
                             placeholder="Ex: 202600000" maxlength="9" pattern="[0-9]{9}"
                             title="A matrícula deve conter exatamente 9 números." required>
-                    
+
                     </div>
                 </div>
 
@@ -75,9 +75,11 @@
             </div>
         </div>
 
+        <div id="container-alertas" class="container-alertas"></div>
+
     </main>
 
-    <script src="js/login.js"></script>
+    <script type="module" src="frontend/js/login.js"></script>
 </body>
 
 </html>
