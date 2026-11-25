@@ -1,197 +1,208 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+    <!DOCTYPE html>
+    <html lang="pt-BR">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/criarcarona.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="shortcut icon" href="assents/icon/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/criarcarona.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link rel="shortcut icon" href="assents/icon/favicon.ico" type="image/x-icon">
 
-    <title>PartiuFoa | Criar Carona</title>
-</head>
+        <title>PartiuFoa | Criar Carona</title>
+    </head>
 
-<body>
+    <body>
 
-    <header class="cabecalho">
-        <a class="cabecalho-logo" href="home.html" aria-label="Voltar para o início">
-            <img class="cabecalho-imagem" src="assents/img/img-header.png" alt="Logo PartiuFoa">
-        </a>
-
-        <div class="cabecalho-acoes">
-            <a class="cabecalho-botao" href="chat.html" aria-label="Abrir mensagens">
-                <i class="fa-regular fa-comment-dots icone-chat"></i>
+        <header class="cabecalho">
+            <a class="cabecalho-logo" href="home.html" aria-label="Voltar para o início">
+                <img class="cabecalho-imagem" src="assents/img/img-header.png" alt="Logo PartiuFoa">
             </a>
 
-            <button class="cabecalho-botao" type="button" aria-label="Notificações">
-                <i class="fa-regular fa-bell icone-sino"></i>
-            </button>
-
-            <button class="cabecalho-perfil" type="button" aria-label="Perfil do usuário">
-                <a href="perfil.html" class="cabecalho-foto">
-                    <img class="cabecalho-foto" src="assents/img/img-perfil.png" alt="Foto de perfil">
+            <div class="cabecalho-acoes">
+                <a class="cabecalho-botao" href="chat.html" aria-label="Abrir mensagens">
+                    <i class="fa-regular fa-comment-dots icone-chat"></i>
                 </a>
+
+                <button class="cabecalho-botao" type="button" aria-label="Notificações">
+                    <i class="fa-regular fa-bell icone-sino"></i>
+                </button>
+
+                <button class="cabecalho-perfil" type="button" aria-label="Perfil do usuário">
+                    <a href="perfil.html" class="cabecalho-foto">
+                        <img class="cabecalho-foto" src="assents/img/img-perfil.png" alt="Foto de perfil">
+                    </a>
+                </button>
+            </div>
+        </header>
+
+        <main class="conteudo-principal">
+
+            <div class="voltar-menu">
+                <i class="fa-solid fa-arrow-left"></i>
+                <a href="home.html">Voltar para o Menu</a>
+            </div>
+
+            <h1 class="titulo-detalhes-carona">Criar Carona</h1>
+
+            <form action="">
+
+                <aside class="layout-carona">
+
+                    <article class="painel-esquerda">
+
+                        <section class="card">
+                            <h1 class="titulo-card">Trajeto</h1>
+
+                            <div class="interno-card">
+
+                                <div class="dados">
+                                    <p class="dados-titulo">Ponto de partida</p>
+                                    <input class="campo-input" id="partida" name="partida" placeholder="Ex: Vila Santa Cecilia, Volta Redonda"
+                                        maxlength="20" type="text">
+                                </div>
+
+                                <div class="dados">
+                                    <p class="dados-titulo">Destino</p>
+                                    <select id="campo-destino" name="destino" aria-placeholder="Destino" class="campo-select">
+                                        <option value="">Destino</option>
+                                        <option value="Campus Olezio Galotti">Campus Olezio Galotti</option>
+                                        <option value="Campus Porfírio José de Almeida">Campus Porfírio José de Almeida
+                                        </option>
+                                        <option value="Campus Colina">Campus Colina</option>
+                                        <option value="HFOA">HFOA</option>
+                                    </select>
+                                </div>
+
+                                <div class="dados-largo">
+                                    <p class="dados-titulo">Ponto de referência</p>
+                                    <input class="campo-input" placeholder="Ex: Praça Brasil" maxlength="50"
+                                        type="text">
+                                </div>
+
+                            </div>
+                        </section>
+
+                        <section class="card">
+                            <h1 class="titulo-card">Data e Horário</h1>
+
+                            <div class="interno-card">
+
+                                <div class="dados">
+                                    <div class="campo-carona">
+                                        <p class="dados-titulo">Tipo de carona</p>
+
+                                        <div class="segmented-control" role="radiogroup" aria-label="Tipo de carona">
+
+                                            <input type="radio" id="uma-data" name="tipo-carona" value="uma-data"
+                                                checked>
+                                            <label for="uma-data">Uma data</label>
+
+                                            <input type="radio" id="recorrente" name="tipo-carona" value="recorrente">
+                                            <label for="recorrente">Recorrente</label>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dados">
+                                    <p class="dados-titulo">Data de saída</p>
+                                    <input class="campo-input" type="date">
+                                </div>
+
+                                <div class="dados-largo">
+                                    <p class="dados-titulo">Dias da semana</p>
+                                    <div class="grupo-dias">
+                                        <div class="opcoes">
+                                            <label class="opcao"><input type="checkbox" name="dias" value="seg">
+                                                Seg</label>
+                                            <label class="opcao"><input type="checkbox" name="dias" value="ter">
+                                                Ter</label>
+                                            <label class="opcao"><input type="checkbox" name="dias" value="qua">
+                                                Qua</label>
+                                            <label class="opcao"><input type="checkbox" name="dias" value="qui">
+                                                Qui</label>
+                                            <label class="opcao"><input type="checkbox" name="dias" value="sex">
+                                                Sex</label>
+                                            <label class="opcao"><input type="checkbox" name="dias" value="sab">
+                                                Sáb</label>
+                                            <label class="opcao"><input type="checkbox" name="dias" value="dom">
+                                                Dom</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dados-largo">
+                                    <p class="dados-titulo">Horário de saída</p>
+                                    <input class="campo-input" type="time" id="horario" name="horario" value="09:00"
+                                        required>
+                                </div>
+
+                            </div>
+                        </section>
+
+                    </article>
+
+                    <article class="painel-direita">
+
+                        <section class="card">
+                            <h1 class="titulo-card">Vagas e valor</h1>
+
+                            <div class="dados">
+                                <p class="dados-titulo">Número de Vagas disponíveis</p>
+                                <input class="campo-input" placeholder="Ex: 3" maxlength="20" type="number">
+                            </div>
+
+                            <div class="dados">
+                                <p class="dados-titulo">Valor por vaga</p>
+                                <input class="campo-input" placeholder="Ex: 2,50" maxlength="3" type="number">
+
+                                <p class="sugerido">Valor sugerido: 2,50 por vaga</p>
+                            </div>
+
+                        </section>
+
+                        <section class="card">
+                            <h1 class="titulo-card">Recado do motorista</h1>
+
+                            <div class="dados" id="campo-recado">
+                                <textarea name="teste" class="campo-input campo-textarea" rows="4" maxlength="500"
+                                    style="resize: none"
+                                    placeholder="Compartilhe alguma informação importante para os passageiros..."></textarea>
+
+                                <p class="sugerido">Esse campo é opcional</p>
+                            </div>
+
+                        </section>
+
+                        <section class="criar-acoes">
+                            <div class="criar-acoes">
+                                <button type="submit" class="botao-criar">
+                                    <div class="botao-criar-conteudo">Publicar</div>
+                                </button>
+                                <button href="chat.html" class="botao-cancelar botao-cancelar-conteudo">
+                                    <div class="botao-cancelar-texto botao-cancelar-conteudo ">Cancelar</div>
+                                </button>
+                            </div>
+                        </section>
+
+                    </article>
+
+                </aside>
+            </form>
+
+            <button class="acessibilidade-botao" type="button" aria-label="Abrir acessibilidade">
+                <i class="fa-solid fa-wheelchair icone-acessibilidade"></i>
             </button>
-        </div>
-    </header>
 
-    <main class="conteudo-principal">
+            <div id="container-alertas" class="container-alertas"></div>
 
-        <div class="voltar-menu">
-            <i class="fa-solid fa-arrow-left"></i>
-            <a href="home.html">Voltar para o Menu</a>
-        </div>
-
-        <h1 class="titulo-detalhes-carona">Criar Carona</h1>
-
-        <form action="">
-
-            <aside class="layout-carona">
-
-                <article class="painel-esquerda">
-
-                    <section class="card">
-                        <h1 class="titulo-card">Trajeto</h1>
-
-                        <div class="interno-card">
-
-                            <div class="dados">
-                                <p class="dados-titulo">Ponto de partida</p>
-                                <input class="campo-input" id="partida" name="partida" placeholder="Ex: Vila" maxlength="20"
-                                    type="text">
-                            </div>
-
-                            <div class="dados">
-                                <p class="dados-titulo">Destino</p>
-                                <select id="campo-destino" class="campo-select">
-                                    <option value="">Destino</option>
-                                    <option value="Campus Olezio Galotti">Campus Olezio Galotti</option>
-                                    <option value="Campus Porfírio José de Almeida">Campus Porfírio José de Almeida
-                                    </option>
-                                    <option value="Campus Colina">Campus Colina</option>
-                                    <option value="HFOA">HFOA</option>
-                                </select>
-                            </div>
-
-                            <div class="dados-largo">
-                                <p class="dados-titulo">Ponto de referência</p>
-                                <input class="campo-input" placeholder="Ex: Praça Brasil" maxlength="50" type="text">
-                            </div>
-
-                        </div>
-                    </section>
-
-                    <section class="card">
-                        <h1 class="titulo-card">Data e Horário</h1>
-
-                        <div class="interno-card">
-
-                            <div class="dados">
-                                <div class="campo-carona">
-                                    <p class="dados-titulo">Tipo de carona</p>
-
-                                    <div class="segmented-control" role="radiogroup" aria-label="Tipo de carona">
-
-                                        <input type="radio" id="uma-data" name="tipo-carona" value="uma-data" checked>
-                                        <label for="uma-data">Uma data</label>
-
-                                        <input type="radio" id="recorrente" name="tipo-carona" value="recorrente">
-                                        <label for="recorrente">Recorrente</label>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="dados">
-                                <p class="dados-titulo">Data de saída</p>
-                                <input class="campo-input" type="date">
-                            </div>
-
-                            <div class="dados-largo">
-                                <p class="dados-titulo">Dias da semana</p>
-                                <div class="grupo-dias">
-                                    <div class="opcoes">
-                                        <label class="opcao"><input type="checkbox" name="dias" value="seg"> Seg</label>
-                                        <label class="opcao"><input type="checkbox" name="dias" value="ter"> Ter</label>
-                                        <label class="opcao"><input type="checkbox" name="dias" value="qua"> Qua</label>
-                                        <label class="opcao"><input type="checkbox" name="dias" value="qui"> Qui</label>
-                                        <label class="opcao"><input type="checkbox" name="dias" value="sex"> Sex</label>
-                                        <label class="opcao"><input type="checkbox" name="dias" value="sab"> Sáb</label>
-                                        <label class="opcao"><input type="checkbox" name="dias" value="dom"> Dom</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="dados-largo">
-                                <p class="dados-titulo">Horário de saída</p>
-                                <input class="campo-input" type="time" id="horario" name="horario" value="09:00"
-                                    required>
-                            </div>
-
-                        </div>
-                    </section>
-
-                </article>
-
-                <article class="painel-direita">
-
-                    <section class="card">
-                        <h1 class="titulo-card">Vagas e valor</h1>
-
-                        <div class="dados">
-                            <p class="dados-titulo">Número de Vagas disponíveis</p>
-                            <input class="campo-input" placeholder="Ex: 3" maxlength="20" type="number">
-                        </div>
-
-                        <div class="dados">
-                            <p class="dados-titulo">Valor por vaga</p>
-                            <input class="campo-input" placeholder="Ex: 2,50" maxlength="3" type="number">
-
-                            <p class="sugerido">Valor sugerido: 2,50 por vaga</p>
-                        </div>
-
-                    </section>
-
-                    <section class="card">
-                        <h1 class="titulo-card">Recado do motorista</h1>
-
-                        <div class="dados" id="campo-recado">
-                            <textarea name="teste" class="campo-input campo-textarea" rows="4" maxlength="500"
-                                style="resize: none"
-                                placeholder="Compartilhe alguma informação importante para os passageiros..."></textarea>
-
-                            <p class="sugerido">Esse campo é opcional</p>
-                        </div>
-
-                    </section>
-
-                    <section class="criar-acoes">
-                        <div class="criar-acoes">
-                            <button type="submit" class="botao-criar">
-                                <div class="botao-criar-conteudo">Publicar</div>
-                            </button>
-                            <button href="chat.html" class="botao-cancelar botao-cancelar-conteudo">
-                                <div class="botao-cancelar-texto botao-cancelar-conteudo ">Cancelar</div>
-                            </button>
-                        </div>
-                    </section>
-
-                </article>
-
-            </aside>
-        </form>
-
-        <button class="acessibilidade-botao" type="button" aria-label="Abrir acessibilidade">
-            <i class="fa-solid fa-wheelchair icone-acessibilidade"></i>
-        </button>
-
-    </main>
+        </main>
 
 
 
-    <script src="js/criarCarona.js"></script>
+        <script type="module" src="js/criarCarona.js"></script>
 
-</body>
+    </body>
 
-</html>
+    </html>

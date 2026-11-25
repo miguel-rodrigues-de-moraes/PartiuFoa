@@ -32,12 +32,11 @@ export function mostrarAlerta(mensagem, tipo = 'erro') {
 }
 
 export function marcarErro(input) {
-    const caixaInput = input.parentElement;
-    caixaInput.classList.add('input-erro');
+    const elementoVisual = input.closest('.caixa-input') || input;
+    elementoVisual.classList.add('input-erro');
 }
 
 export function removerErro(input) {
-    const caixaInput = input.parentElement;
-    caixaInput.classList.remove('input-erro');
+    const elementoVisual = input.closest('.caixa-input') || input;
+    elementoVisual.classList.remove('input-erro');
 }
-

@@ -1,4 +1,6 @@
-const formulario = document.querySelector('form');
+import { mostrarAlerta, marcarErro, removerErro } from "./functions/mostrarAlertas.js"
+
+const formCriarCarona = document.querySelector('form');
 const inputPartida = document.querySelector('#partida');
 
 inputPartida.addEventListener('blur', async () => {
@@ -9,39 +11,45 @@ inputPartida.addEventListener('blur', async () => {
     const resultado = await buscarBairroPorCep(partida);
 
     if (!resultado.sucesso) {
-        alert(resultado.mensagem);
+        marcarErro(formCriarCarona.elements.partida)
+        mostrarAlerta(resultado.mensagem, 'erro');
         return;
-    }
+    } else {
+        removerErro(formCriarCarona.elements.partida)
+    };
 
     inputPartida.value = `${resultado.bairro}, ${resultado.cidade}`;
 
 });
 
-
-
-formulario.addEventListener('submit', async (e) => {
+formCriarCarona.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const formCarona = new FormData(formulario);
+    const formCarona = new FormData(formCriarCarona);
     const carona = Object.fromEntries(formCarona);
 
     const erroPartida = validarPartida(carona.partida)
     if (erroPartida) {
-        alert(erroPartida);
+        marcarErro(formCriarCarona.elements.partida);
+        mostrarAlerta(erroPartida, 'erro')
         return;
     };
 
     const resultado = await buscarBairroPorCep(carona.partida);
-    if (resultado.sucesso === false) {
-        alert(resultado.mensagem);
-        return;
+    if (resultado.sucesso) {
+        carona.partida = `${resultado.bairro}, ${resultado.cidade}`;
     };
 
-    if (resultado.sucesso) {
-        carona.partida = `${resultado.bairro}, ${resultado.cidade}`
+    const erroDestino = validarDestino(carona.destino);
+    if (erroDestino) {
+        marcarErro(formCriarCarona.elements.destino);
+        mostrarAlerta(erroDestino, 'erro');
+        return;
     }
 
-    console.log(carona.partida)
+
+    console.log(carona.partida);
+    console.log(carona.destino)
 
 });
 
@@ -70,7 +78,7 @@ function validarPartida(partidaDigitada) {
         return 'Partida inválida! Não use sequência de letras iguais!';
     };
 
-    if (!/^[a-zA-ZÀ-ÿ\s,'-]+$/.test(partida)) {
+    if (!/^(?![0-9\s]+$)[a-zA-ZÀ-ÿ0-9ºª\s,'-]+$/.test(partida)) {
         return 'Digíte apenas um CEP ou nome do Bairro!';
     };
 
@@ -82,7 +90,7 @@ async function buscarBairroPorCep(partida) {
 
     if (cep.length !== 8) {
         return partida;
-    }
+    };
 
     try {
         const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
@@ -92,8 +100,8 @@ async function buscarBairroPorCep(partida) {
             return {
                 sucesso: false,
                 mensagem: 'CEP não encontrado!'
-            };;
-        }
+            };
+        };
 
         return {
             sucesso: true,
@@ -107,8 +115,17 @@ async function buscarBairroPorCep(partida) {
             mensagem: 'Erro ao consultar o CEP!'
         };
     };
-}
+};
 
 function isCep(valor) {
     return /^\d{5}-?\d{3}$/.test(valor.trim());
-}
+};
+
+
+function validarDestino(destino) {
+    if (!destino) {
+        return 'Escolha um local de destino!';
+    };
+
+    return null;
+};
