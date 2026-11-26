@@ -573,6 +573,128 @@ a {
     font-weight: 400;
 }
 
+/* <--- HISTÓRICO E CONFIABILIDADE ---> */
+
+.historico-dados {
+    display: flex;
+
+    width: 100%;
+
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.historico-item,
+.historico-item-inicial,
+.historico-item-conclusao {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+}
+
+.historico-item,
+.historico-item-conclusao {
+    padding-left: 30px;
+    border-left: 1px solid var(--cor-borda);
+}
+
+.historico-item {
+    gap: 10px;
+}
+
+.historico-item-inicial,
+.historico-item-conclusao {
+    gap: 5px;
+}
+
+.historico-item .historico-item-textos {
+    display: flex;
+    flex-direction: column;
+
+    width: 60%;
+}
+
+.historico-valor,
+.solicitacao-vagas-valor {
+    font-weight: bold;
+    margin: 0;
+
+    text-align: center;
+}
+
+.historico-valor {
+    font-size: 25px;
+}
+
+.historico-legenda,
+.solicitacao-vagas-legenda {
+    margin: 0;
+    text-align: center;
+}
+
+.historico-legenda {
+    font-size: 20px;
+}
+
+.historico-icone,
+.detalhe-icone,
+.recado-icone {
+    font-size: 35px;
+    color: var(--cor-botao);
+    text-align: center;
+
+    width: 35px;
+    height: 35px;
+}
+
+.historico-icone {
+    margin: 0;
+}
+
+.conquistas-motorista {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.conquista,
+.conquista-destaque {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 25px;
+
+    height: 40px;
+
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    margin-top: 15px;
+    padding: 15px;
+}
+
+.conquista {
+    color: var(--cor-texto-positivo);
+    background-color: var(--cor-positivo);
+}
+
+.conquista-icone {
+    padding-right: 10px;
+}
+
+.conquista-texto {
+    font-weight: normal;
+}
+
+.conquista-destaque {
+    color: var(--cor-destaque);
+    background-color: var(--cor-afirmativo);
+}
+
 /* SEÇÃO COMENTÁRIOS */
 .card-comentarios {
     padding: 24px 28px;
