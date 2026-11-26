@@ -94,11 +94,11 @@
 
                                         <div class="segmented-control" role="radiogroup" aria-label="Tipo de carona">
 
-                                            <input type="radio" id="uma-data" name="tipo-carona" value="uma-data"
+                                            <input type="radio" id="uma-data" name="tipoCarona" value="uma-data"
                                                 checked>
                                             <label for="uma-data">Uma data</label>
 
-                                            <input type="radio" id="recorrente" name="tipo-carona" value="recorrente">
+                                            <input type="radio" id="recorrente" name="tipoCarona" value="recorrente">
                                             <label for="recorrente">Recorrente</label>
 
                                         </div>
@@ -107,7 +107,7 @@
 
                                 <div class="dados" id="campo-data">
                                     <p class="dados-titulo">Data de saída</p>
-                                    <input class="campo-input" type="date" name="campoData">
+                                    <input class="campo-input" type="date" name="campoData" required>
                                 </div>
 
                                 <div class="dados-largo" id="campo-dias" hidden>
@@ -150,12 +150,12 @@
 
                             <div class="dados">
                                 <p class="dados-titulo">Número de Vagas disponíveis</p>
-                                <input class="campo-input" placeholder="Ex: 3" maxlength="20" type="number">
+                                <input class="campo-input" name="vagasDisponiveis" placeholder="Ex: 3" maxlength="20" type="number">
                             </div>
 
                             <div class="dados">
                                 <p class="dados-titulo">Valor por vaga</p>
-                                <input class="campo-input" placeholder="Ex: 2,50" maxlength="3" type="number">
+                                <input class="campo-input" name="valorCarona" placeholder="Ex: 2,50" type="text" inputmode="decimal">
 
                                 <p class="sugerido">Valor sugerido: 2,50 por vaga</p>
                             </div>
@@ -180,7 +180,7 @@
                                 <button type="submit" class="botao-criar">
                                     <div class="botao-criar-conteudo">Publicar</div>
                                 </button>
-                                <button href="chat.html" class="botao-cancelar botao-cancelar-conteudo">
+                                <button class="botao-cancelar botao-cancelar-conteudo" type="button" name="botaoCancelar">
                                     <div class="botao-cancelar-texto botao-cancelar-conteudo ">Cancelar</div>
                                 </button>
                             </div>
