@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
-/* <--- VARIÁVEIS DO PROJETO ---> */
-
+/* VARIÁVEIS E RESET GLOBAL */
 :root {
     --cor-fundo: #F9F9FE;
     --cor-texto: #1C3058;
@@ -10,14 +9,14 @@
     --cor-botao: #3059C1;
     --cor-destaque: #3E5B93;
     --cor-borda: #b2b2b662;
-    --cor-positivo: rgb(228 240 231);
-    --cor-texto-positivo:rgb(36, 94, 62);
-    --cor-afirmativo: rgb(237 239 254);
+    --cor-positivo: rgb(228, 240, 231);
+    --cor-texto-positivo: rgb(36, 94, 62);
+    --cor-negativo: rgb(240, 228, 228);
+    --cor-texto-negativo: rgb(94, 36, 36);
+    --cor-afirmativo: rgb(237, 239, 254);
 
     --fonte-principal: 'Outfit', Arial, Helvetica, sans-serif;
 }
-
-/* <--- CONFIGURAÇÕES GERAIS ---> */
 
 * {
     box-sizing: border-box;
@@ -43,11 +42,9 @@ body::-webkit-scrollbar {
 main {
     width: calc(100% - 48px);
     max-width: 1450px;
-
     display: flex;
     flex-direction: column;
     gap: 22px;
-
     margin: 0 auto;
 }
 
@@ -67,7 +64,6 @@ a {
 }
 
 /* <--- ÍCONES ---> */
-
 .icone-chat,
 .icone-sino,
 .icone-localizacao,
@@ -82,17 +78,46 @@ a {
     line-height: 1;
 }
 
-/* <--- CABEÇALHO ---> */
+.historico-icone,
+.detalhe-icone,
+.recado-icone {
+    font-size: 35px;
+    color: var(--cor-botao);
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    margin: 0;
+}
 
+.card,
+.card-perfil-motorista {
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: 20px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.10);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 18px 28px 28px;
+}
+
+.titulo-card {
+    color: var(--cor-texto);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+}
+
+/*  CABEÇALHO  */
 .cabecalho {
     width: 100%;
     min-height: 86px;
-
     display: flex;
     align-items: center;
-
     padding: 0 32px;
-
     background-color: var(--cor-fundo);
     border-bottom: 1px solid var(--cor-borda);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
@@ -118,11 +143,9 @@ a {
 .cabecalho-perfil {
     width: 52px;
     height: 52px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     padding: 0;
     border: none;
     background-color: transparent;
@@ -157,7 +180,7 @@ a {
 
 /* <--- CABEÇALHO PRINCIPAL ---> */
 
-.cabecalho-principal{
+.cabecalho-principal {
     margin: 0;
     padding: 0;
 }
@@ -167,7 +190,7 @@ a {
     font-size: 20px;
 }
 
-.voltar-menu:hover  {
+.voltar-menu:hover {
     text-decoration: underline;
 }
 
@@ -186,57 +209,161 @@ a {
     display: flex;
 }
 
-.card,
-.card-perfil-motorista {
-    background-color: var(--cor-fundo);
-    border: 1px solid var(--cor-borda);
-    border-radius: 20px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.10);
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-
-    padding: 18px 28px 28px;
-}
-
-.titulo-card {
-    color: var(--cor-texto);
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 1.2;
-
-    margin: 0;
-}
-
-/* <--- CONTEÚDO DIREITA ---> */
-
-.painel-informacoes-carona,
-.painel-solicitacao-carona {
-    display: flex;
-    flex-direction: column;
-
-    margin-top: 5px;
-}
-
 .painel-informacoes-carona {
+    display: flex;
+    flex-direction: column;
     gap: 15px;
-
-    width: 75%;
+    width: 65%;
 }
 
 .painel-solicitacao-carona {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 35%;
     padding-left: 15px;
-
-    width: 25%;
 }
 
-/* <--- PERFIL ---> */
+/* 
+   5. SEÇÃO VEÍCULO
+    */
+.card-veiculo {
+    padding: 24px 26px 28px;
+}
 
+.titulo-veiculo {
+    letter-spacing: 0.4px;
+    margin-bottom: 22px;
+}
+
+.grade-veiculo {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 20px;
+    padding-top: 15px;
+}
+
+.campo-veiculo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.rotulo-veiculo {
+    font-size: 21px;
+    font-weight: 800;
+    color: var(--cor-texto);
+    letter-spacing: 0.3px;
+}
+
+.valor-veiculo {
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+
+    border-radius: 10px;
+    border: 1px solid var(--cor-borda);
+    outline: none;
+    background-color: #F3F6FA;
+
+    color: var(--cor-texto);
+    font-size: 18px;
+    font-weight: 500;
+
+    padding: 0 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.valor-cor {
+    padding: 6px;
+}
+
+.faixa-cor-veiculo {
+    width: 100%;
+    height: 32px;
+    border-radius: 8px;
+    background-color: #C92A2A;
+}
+
+/* 
+   6. SEÇÃO AGENDA
+ */
+.card-agenda {
+    padding: 22px 26px 26px;
+}
+
+.titulo-agenda {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.grade-agenda {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 7px 6px;
+    text-align: center;
+}
+
+.dia-agenda {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cor-texto);
+    margin-bottom: 4px;
+}
+
+.celula-agenda {
+    height: 24px;
+    border-radius: 6px;
+}
+
+.legenda-agenda {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--cor-borda);
+}
+
+.legenda-agenda-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cor-texto);
+}
+
+.legenda-cor {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.nivel-0 {
+    background-color: #E2E4E9;
+}
+
+.nivel-1 {
+    background-color: #93C5FD;
+}
+
+.nivel-2 {
+    background-color: #2563EB;
+}
+
+/*  PERFIL DO MOTORISTA, HISTÓRICO E CONQUISTAS
+   */
 .card-perfil-motorista {
     padding: 24px 28px;
-
     display: flex;
     align-items: center;
     gap: 24px;
@@ -245,10 +372,8 @@ a {
 .perfil-foto {
     width: 108px;
     height: 108px;
-
     border-radius: 50%;
     object-fit: cover;
-
     flex-shrink: 0;
 }
 
@@ -261,7 +386,6 @@ a {
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
-
     margin-bottom: 6px;
 }
 
@@ -276,7 +400,6 @@ a {
     display: flex;
     align-items: center;
     gap: 2px;
-
     color: var(--cor-destaque);
     font-size: 14px;
 }
@@ -288,60 +411,166 @@ a {
 
 .perfil-curso {
     margin: 0;
-
     color: var(--cor-texto);
     font-size: 20px;
     font-weight: 500;
     line-height: 1.45;
 }
 
-.aluno-unifoa {
+.perfil-selos {
     display: flex;
-    justify-content: center;
     align-items: center;
-
-    margin-bottom: 6px;
-
-    color: var(--cor-botao);
-    background-color: #95abd35b;
-    border-radius: 25px;
-
-    width: 175px;
-    height: 40px;
-
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1.2;
-
+    flex-wrap: wrap;
+    gap: 12px;
     margin-top: 10px;
+    margin-bottom: 6px;
 }
 
-.aluno-unifoa-texto,
-.aluno-editar-texto {
-    margin-left: 5px;
-}
-
+/* Selos compartilhados */
+.aluno-unifoa,
+.cnh-verificada,
 .aluno-editar {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    margin-bottom: 6px;
-
-    color: var(--cor-botao);
-    background-color: var(--cor-fundo);
     border-radius: 25px;
-
-    border: 2px solid var(--cor-botao);
-
-    width: 175px;
     height: 40px;
-
     font-size: 18px;
     font-weight: 700;
     line-height: 1.2;
+}
 
+.aluno-unifoa {
+    color: var(--cor-botao);
+    background-color: #95abd35b;
+    width: 175px;
+}
+
+.cnh-verificada {
+    color: #0D5C63;
+    background-color: #BCE8E4;
+    padding: 0 18px;
+}
+
+.aluno-editar {
+    color: var(--cor-botao);
+    background-color: var(--cor-fundo);
+    border: 2px solid var(--cor-botao);
+    width: 175px;
     margin-top: 10px;
+    margin-bottom: 6px;
+}
+
+.aluno-unifoa-texto,
+.aluno-editar-texto,
+.cnh-verificada-texto {
+    margin-left: 6px;
+}
+
+/* Histórico */
+.historico-dados {
+    display: flex;
+    width: 100%;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.historico-item,
+.historico-item-inicial,
+.historico-item-conclusao {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.historico-item,
+.historico-item-conclusao {
+    padding-left: 30px;
+    border-left: 1px solid var(--cor-borda);
+}
+
+.historico-item {
+    gap: 10px;
+}
+
+.historico-item-inicial,
+.historico-item-conclusao {
+    gap: 5px;
+}
+
+.historico-item .historico-item-textos {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.historico-valor,
+.solicitacao-vagas-valor {
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+}
+
+.historico-valor {
+    font-size: 25px;
+}
+
+.historico-legenda,
+.solicitacao-vagas-legenda {
+    margin: 0;
+    text-align: center;
+}
+
+.historico-legenda {
+    font-size: 20px;
+}
+
+/* Conquistas */
+.conquistas-motorista {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.conquista,
+.conquista-ruim,
+.conquista-destaque {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 15px;
+    padding: 0 15px;
+}
+
+.conquista {
+    color: var(--cor-texto-positivo);
+    background-color: var(--cor-positivo);
+}
+
+.conquista-ruim {
+    color: var(--cor-texto-negativo);
+    background-color: var(--cor-negativo);
+    font-weight: 400;
+}
+
+.conquista-destaque {
+    color: var(--cor-destaque);
+    background-color: var(--cor-afirmativo);
+}
+
+.conquista-icone,
+.conquista-ruim-icone {
+    padding-right: 10px;
+}
+
+.conquista-texto {
+    font-weight: 400;
 }
 
 /* <--- HISTÓRICO E CONFIABILIDADE ---> */
@@ -431,7 +660,6 @@ a {
 }
 
 .conquista,
-.conquista-ruim,
 .conquista-destaque {
     display: inline-flex;
     justify-content: center;
@@ -462,22 +690,72 @@ a {
     font-weight: normal;
 }
 
-.conquista-ruim {
-    color: rgb(94, 36, 36);
-    background-color: rgb(240, 228, 228);
-}
-
-.conquista-ruim-icone {
-    padding-right: 10px;
-}
-
-.conquista-ruim {
-    font-weight: normal;
-}
-
 .conquista-destaque {
     color: var(--cor-destaque);
     background-color: var(--cor-afirmativo);
+}
+
+/* SEÇÃO COMENTÁRIOS */
+.card-comentarios {
+    padding: 24px 28px;
+}
+
+.titulo-comentarios {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.lista-comentarios {
+    display: flex;
+    flex-direction: column;
+}
+
+.comentario-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.comentario-foto {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.comentario-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.comentario-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.comentario-nome {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--cor-destaque);
+}
+
+.comentario-estrelas {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    color: var(--cor-destaque);
+    font-size: 14px;
+}
+
+.comentario-texto {
+    margin: 0;
+    font-size: 17px;
+    color: var(--cor-texto);
 }
 
 /* <--- BOTÃO DE ACESSIBILIDADE ---> */
