@@ -13,12 +13,15 @@ const campoData = document.querySelector('#campo-data');
 const campoDias = document.querySelector('#campo-dias');
 
 
-const InputPartida = formCriarCarona.elements.partida;
-const InputDestino = formCriarCarona.elements.destino;
-const InputPontoReferencia = formCriarCarona.elements.pontoReferencia;
+const inputPartida = formCriarCarona.elements.partida;
+const inputDestino = formCriarCarona.elements.destino;
+const inputPontoReferencia = formCriarCarona.elements.pontoReferencia;
 
-const InputData = formCriarCarona.elements.campoData;
-const InputHorario = formCriarCarona.elements.horario;
+const inputData = formCriarCarona.elements.campoData;
+const inputHorario = formCriarCarona.elements.horario;
+
+const inputVagasDisponiveis = formCriarCarona.elements.vagasDisponiveis;
+const inputValorCarona = formCriarCarona.elements.valorCarona
 
 let ultimoAlertaDataHorario = null;
 
@@ -44,54 +47,102 @@ function exibirAlertaDataHorario(mensagem, exibirAlerta = true) {
     ultimoAlertaDataHorario = mensagem;
 }
 
-InputPartida.addEventListener('blur', async () => {
-    const partida = InputPartida.value.trim();
+inputPartida.addEventListener('blur', async () => {
+    const partida = inputPartida.value.trim();
 
     const resultado = validarPartida(partida);
 
-    if (!verificarCampo(InputPartida, resultado)) return;
+    if (!verificarCampo(inputPartida, resultado)) return;
 
     if (!isCep(partida)) return;
 
     const consulta = await buscarBairroPorCep(partida);
 
-    if (!verificarCampo(InputPartida, consulta)) return;
+    if (!verificarCampo(inputPartida, consulta)) return;
 
-    InputPartida.value = `${consulta.bairro}, ${consulta.cidade}`;
+    inputPartida.value = `${consulta.bairro}, ${consulta.cidade}`;
 });
 
-InputDestino.addEventListener('blur', () => {
+inputDestino.addEventListener('blur', () => {
     verificarCampo(
-        InputDestino,
-        validarDestino(InputDestino.value)
+        inputDestino,
+        validarDestino(inputDestino.value)
     );
 });
 
-InputPontoReferencia.addEventListener('blur', () => {
+inputPontoReferencia.addEventListener('blur', () => {
     verificarCampo(
-        InputPontoReferencia,
-        validarPontoReferencia(InputPontoReferencia.value)
+        inputPontoReferencia,
+        validarPontoReferencia(inputPontoReferencia.value)
     );
 });
 
-InputData.addEventListener('blur', () => {
+inputData.addEventListener('blur', () => {
     validarDataHorario(true, false);
 });
 
-InputHorario.addEventListener('blur', () => {
+inputHorario.addEventListener('blur', () => {
     validarDataHorario(true, true);
+});
+
+inputVagasDisponiveis.addEventListener('blur', () => {
+    const vagas = formCriarCarona.elements.vagasDisponiveis.value;
+
+    if (vagas !== '' && Number.isInteger(Number(vagas))) {
+        inputVagasDisponiveis.value = Number(vagas)
+    }
+
+    verificarCampo(inputVagasDisponiveis, validarVagasDisponiveis(vagas))
+}); 
+
+inputValorCarona.addEventListener('blur', () => {
+    const valorDigitado = inputValorCarona.value.trim()
+
+        const resultadoValor = validarValorCarona(valorDigitado)
+
+    if(resultadoValor.sucesso) {
+        const valorCarona = Number(
+            valorDigitado
+            .replace('R$', '')
+            .trim()
+            .replace(',', '.')
+        );
+
+        inputValorCarona.value = `R$${valorCarona.toFixed(2).replace('.', ',')}`;
+    }
+
+    verificarCampo(inputValorCarona, resultadoValor);
+});
+
+const btnCancelar = formCriarCarona.elements.botaoCancelar;
+btnCancelar.addEventListener('click', () => {
+    window.location.href = './home.html';
 });
 
 formCriarCarona.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    const formCarona = new FormData(formCriarCarona);
+    const carona = Object.fromEntries(formCarona);
+
+    carona.dias = formCarona.getAll('dias');
 
     if (!validarForms()) {
         mostrarAlerta('Verifique os campos do formulário!', 'erro');
         return;
     }
 
-    const formCarona = new FormData(formCriarCarona);
-    const carona = Object.fromEntries(formCarona);
+    if (carona.tipoCarona === 'recorrente') {
+        const resultadoDIasRecorrentes = validarDiasRecorrentes(carona.dias);
+
+        if (!resultadoDIasRecorrentes.sucesso) {
+            mostrarAlerta(resultadoDIasRecorrentes.mensagem, 'erro');
+
+            return;
+        }
+    }
+
+    carona.valorCarona = Number(carona.valorCarona.replace(',', '.').replace('R$', ''));
 
     console.log(carona.partida);
     console.log(carona.destino);
@@ -99,6 +150,8 @@ formCriarCarona.addEventListener('submit', (e) => {
     console.log(carona.tipoCarona);
     console.log(carona.campoData);
     console.log(carona.horario);
+    console.log(carona.dias);
+    console.log(carona.valorCarona)
 });
 
 function validarPartida(partidaDigitada) {
@@ -282,6 +335,26 @@ function validarData(data) {
     };
 }
 
+function validarDiasRecorrentes(dias) {
+    if (dias.length === 0) {
+        return {
+            sucesso: false,
+            mensagem: 'Selecione pelo menos um dia da semana!',
+        };
+    }
+
+    if (dias.length > 7) {
+        return {
+            sucesso: false,
+            mensagem: 'Não é possível selecionar mais do que 7 dias!'
+        };
+    }
+
+    return {
+        sucesso: true
+    }
+}
+
 function validarHorario(horario, data) {
     if (!horario) {
         return {
@@ -318,14 +391,14 @@ function validarHorario(horario, data) {
 
 function validarDataHorario(exibirAlerta = true, validarHorarioVazio = true) {
     if (radioRecorrente.checked) {
-        removerErro(InputData);
-        removerErro(InputHorario);
+        removerErro(inputData);
+        removerErro(inputHorario);
         ultimoAlertaDataHorario = null;
 
-        const resultadoHorario = validarHorario(InputHorario.value, null);
+        const resultadoHorario = validarHorario(inputHorario.value, null);
 
         if (!resultadoHorario.sucesso) {
-            marcarErro(InputHorario);
+            marcarErro(inputHorario);
 
             if (validarHorarioVazio) {
                 exibirAlertaDataHorario(
@@ -337,17 +410,17 @@ function validarDataHorario(exibirAlerta = true, validarHorarioVazio = true) {
             return false;
         }
 
-        removerErro(InputHorario);
+        removerErro(inputHorario);
         ultimoAlertaDataHorario = null;
 
         return true;
     }
 
-    const resultadoData = validarData(InputData.value);
+    const resultadoData = validarData(inputData.value);
 
     if (!resultadoData.sucesso) {
-        marcarErro(InputData);
-        removerErro(InputHorario);
+        marcarErro(inputData);
+        removerErro(inputHorario);
 
         exibirAlertaDataHorario(
             resultadoData.mensagem,
@@ -357,26 +430,26 @@ function validarDataHorario(exibirAlerta = true, validarHorarioVazio = true) {
         return false;
     }
 
-    if (!InputHorario.value && !validarHorarioVazio) {
-        removerErro(InputData);
-        removerErro(InputHorario);
+    if (!inputHorario.value && !validarHorarioVazio) {
+        removerErro(inputData);
+        removerErro(inputHorario);
         ultimoAlertaDataHorario = null;
 
         return true;
     }
 
     const resultadoHorario = validarHorario(
-        InputHorario.value,
-        InputData.value
+        inputHorario.value,
+        inputData.value
     );
 
     if (!resultadoHorario.sucesso) {
-        if (!InputHorario.value) {
-            removerErro(InputData);
-            marcarErro(InputHorario);
+        if (!inputHorario.value) {
+            removerErro(inputData);
+            marcarErro(inputHorario);
         } else {
-            marcarErro(InputData);
-            marcarErro(InputHorario);
+            marcarErro(inputData);
+            marcarErro(inputHorario);
         }
 
         exibirAlertaDataHorario(
@@ -387,34 +460,118 @@ function validarDataHorario(exibirAlerta = true, validarHorarioVazio = true) {
         return false;
     }
 
-    removerErro(InputData);
-    removerErro(InputHorario);
+    removerErro(inputData);
+    removerErro(inputHorario);
     ultimoAlertaDataHorario = null;
 
     return true;
 }
 
+function validarVagasDisponiveis(vagasDisponiveis) {
+
+    if (!vagasDisponiveis) {
+        return {
+            sucesso: false,
+            mensagem: 'O campo de vagas não pode estar em branco!',
+        };
+    }
+
+    const vagas = Number(vagasDisponiveis)
+
+    if (vagas === 0) {
+
+        return {
+            sucesso: false,
+            mensagem: 'A carona deve conter ao menos 1 vaga disponível!',
+        };
+    }
+
+    if (vagas.length > 1) {
+        return {
+            sucesso: false,
+            mensagem: 'Quantidade de vagaas inválidas!',
+        };
+    }
+
+    if (vagas > 4) {
+        return {
+            sucesso: false,
+            mensagem: 'Quantidade de vagas inválidas!',
+        };
+    }
+
+    return {
+        sucesso: true
+    };
+
+}
+
+function validarValorCarona(valorCarona) {
+    const valorTexto = String(valorCarona ?? '').trim();
+
+    if (!valorTexto.trim()) {
+        return {
+            sucesso: false,
+            mensagem: 'O valor da carona não pode estar em branco!'
+        };
+    }
+
+    const valorValidar = Number(valorTexto.replace('R$', '').trim().replace(',', '.'));
+
+    if (isNaN(valorValidar)) {
+        return {
+            sucesso: false,
+            mensagem: 'Digite um valor válido!'
+        };
+    }
+
+    if (valorValidar < 0) {
+        return {
+            sucesso: false,
+            mensagem: 'O valor da carona não pode ser negativo!'
+        };
+    }
+
+    if (valorValidar < 0.50) {
+        return {
+            sucesso: false,
+            mensagem: 'O valor mínimo da carona deve ser R$ 0,50!'
+        };
+    }
+
+    return {
+        sucesso: true
+    };
+}
+
 function validarForms() {
-    const validarInputPartida = validarPartida(InputPartida.value);
-    const validarInputDestino = validarDestino(InputDestino.value);
+    const validarInputPartida = validarPartida(inputPartida.value);
+    const validarInputDestino = validarDestino(inputDestino.value);
     const validarInputPontoReferencia = validarPontoReferencia(
-        InputPontoReferencia.value
+        inputPontoReferencia.value
     );
 
-    verificarCampo(InputPartida, validarInputPartida, false);
-    verificarCampo(InputDestino, validarInputDestino, false);
-    verificarCampo(InputPontoReferencia, validarInputPontoReferencia, false);
+    const validarInputVagas = validarVagasDisponiveis(inputVagasDisponiveis.value)
+    const validarInputValor = validarValorCarona(inputValorCarona.value);
+
+    verificarCampo(inputPartida, validarInputPartida, false);
+    verificarCampo(inputDestino, validarInputDestino, false);
+    verificarCampo(inputPontoReferencia, validarInputPontoReferencia, false);
+    verificarCampo(inputVagasDisponiveis, validarInputVagas, false);
+    verificarCampo(inputValorCarona, validarInputValor, false);
 
     let validarDataEHorario = true;
 
     if (radioUmaData.checked) {
         validarDataEHorario = validarDataHorario(false, true);
     } else {
-        const resultadoHorario = validarHorario(InputHorario.value, null);
+        const resultadoHorario = validarHorario(inputHorario.value, null);
 
-        verificarCampo(InputHorario, resultadoHorario, false);
+        verificarCampo(inputHorario, resultadoHorario, false);
         validarDataEHorario = resultadoHorario.sucesso;
     }
+
+
 
     return validarInputPartida.sucesso &&
         validarInputDestino.sucesso &&
@@ -429,14 +586,14 @@ function alterarTipo() {
     if (radioRecorrente.checked) {
         campoData.hidden = true;
 
-        InputData.disabled = true;
-        InputData.required = false;
+        inputData.disabled = true;
+        inputData.required = false;
 
         campoDias.hidden = false;
         campoDias.disabled = false;
 
-        removerErro(InputData);
-        removerErro(InputHorario);
+        removerErro(inputData);
+        removerErro(inputHorario);
 
         ultimoAlertaDataHorario = null;
 
@@ -446,7 +603,7 @@ function alterarTipo() {
         campoDias.required = false;
 
         campoData.hidden = false;
-        InputData.disabled = false;
+        inputData.disabled = false;
 
         ultimoAlertaDataHorario = null;
     }
