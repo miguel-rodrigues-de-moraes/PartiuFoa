@@ -12,12 +12,23 @@ const radioRecorrente = document.querySelector('#recorrente');
 const campoData = document.querySelector('#campo-data');
 const campoDias = document.querySelector('#campo-dias');
 
-const InputData = formCriarCarona.elements.campoData;
 
-function verificarCampo(campo, resultado) {
+const InputPartida = formCriarCarona.elements.partida;
+const InputDestino = formCriarCarona.elements.destino;
+const InputPontoReferencia = formCriarCarona.elements.pontoReferencia;
+
+const InputData = formCriarCarona.elements.campoData;
+const InputHorario = formCriarCarona.elements.horario;
+
+let ultimoAlertaDataHorario = null;
+
+function verificarCampo(campo, resultado, exibirAlerta = true) {
     if (!resultado.sucesso) {
         marcarErro(campo);
-        mostrarAlerta(resultado.mensagem, 'erro');
+
+        if (exibirAlerta) {
+            mostrarAlerta(resultado.mensagem, 'erro');
+        }
 
         return false;
     }
@@ -26,57 +37,68 @@ function verificarCampo(campo, resultado) {
     return true;
 }
 
-formCriarCarona.elements.partida.addEventListener('blur', async () => {
-    const campo = formCriarCarona.elements.partida;
-    const partida = campo.value.trim();
+function exibirAlertaDataHorario(mensagem, exibirAlerta = true) {
+    if (!exibirAlerta || ultimoAlertaDataHorario === mensagem) return;
+
+    mostrarAlerta(mensagem, 'erro');
+    ultimoAlertaDataHorario = mensagem;
+}
+
+InputPartida.addEventListener('blur', async () => {
+    const partida = InputPartida.value.trim();
 
     const resultado = validarPartida(partida);
 
-    if (!verificarCampo(campo, resultado)) return;
+    if (!verificarCampo(InputPartida, resultado)) return;
 
     if (!isCep(partida)) return;
 
     const consulta = await buscarBairroPorCep(partida);
 
-    if (!verificarCampo(campo, consulta)) return;
+    if (!verificarCampo(InputPartida, consulta)) return;
 
-    campo.value = `${consulta.bairro}, ${consulta.cidade}`;
+    InputPartida.value = `${consulta.bairro}, ${consulta.cidade}`;
 });
 
-formCriarCarona.elements.destino.addEventListener('blur', () => {
-    const campo = formCriarCarona.elements.destino;
-
-    verificarCampo(campo, validarDestino(campo.value));
+InputDestino.addEventListener('blur', () => {
+    verificarCampo(
+        InputDestino,
+        validarDestino(InputDestino.value)
+    );
 });
 
-formCriarCarona.elements.pontoReferencia.addEventListener('blur', () => {
-    const campo = formCriarCarona.elements.pontoReferencia;
-
-    verificarCampo(campo, validarPontoReferencia(campo.value));
+InputPontoReferencia.addEventListener('blur', () => {
+    verificarCampo(
+        InputPontoReferencia,
+        validarPontoReferencia(InputPontoReferencia.value)
+    );
 });
 
-formCriarCarona.elements.campoData.addEventListener('blur', () => {
-    const campo = formCriarCarona.elements.campoData;
+InputData.addEventListener('blur', () => {
+    validarDataHorario(true, false);
+});
 
-    verificarCampo(campo, validarData(campo.value));
+InputHorario.addEventListener('blur', () => {
+    validarDataHorario(true, true);
 });
 
 formCriarCarona.addEventListener('submit', (e) => {
     e.preventDefault();
-
-    const formCarona = new FormData(formCriarCarona);
-    const carona = Object.fromEntries(formCarona);
 
     if (!validarForms()) {
         mostrarAlerta('Verifique os campos do formulário!', 'erro');
         return;
     }
 
+    const formCarona = new FormData(formCriarCarona);
+    const carona = Object.fromEntries(formCarona);
+
     console.log(carona.partida);
     console.log(carona.destino);
     console.log(carona.pontoReferencia);
     console.log(carona.tipoCarona);
     console.log(carona.campoData);
+    console.log(carona.horario);
 });
 
 function validarPartida(partidaDigitada) {
@@ -138,7 +160,10 @@ async function buscarBairroPorCep(partida) {
     }
 
     try {
-        const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const resposta = await fetch(
+            `https://viacep.com.br/ws/${cep}/json/`
+        );
+
         const dados = await resposta.json();
 
         if (dados.erro) {
@@ -180,7 +205,9 @@ function validarDestino(destino) {
 }
 
 function validarPontoReferencia(pontoReferenciaDigitado) {
-    const pontoReferencia = pontoReferenciaDigitado.trim().replace(/\s+/g, ' ');
+    const pontoReferencia = pontoReferenciaDigitado
+        .trim()
+        .replace(/\s+/g, ' ');
 
     if (!pontoReferencia) {
         return {
@@ -216,9 +243,6 @@ function validarPontoReferencia(pontoReferenciaDigitado) {
 }
 
 function validarData(data) {
-    const dataAtual = new Date();
-    dataAtual.setHours(0, 0, 0, 0);
-
     if (!data) {
         return {
             sucesso: false,
@@ -229,7 +253,22 @@ function validarData(data) {
     const [ano, mes, dia] = data.split('-').map(Number);
 
     const dataCarona = new Date(ano, mes - 1, dia);
+
+    if (
+        dataCarona.getFullYear() !== ano ||
+        dataCarona.getMonth() !== mes - 1 ||
+        dataCarona.getDate() !== dia
+    ) {
+        return {
+            sucesso: false,
+            mensagem: 'Informe uma data válida!'
+        };
+    }
+
+    const dataAtual = new Date();
+
     dataCarona.setHours(0, 0, 0, 0);
+    dataAtual.setHours(0, 0, 0, 0);
 
     if (dataCarona < dataAtual) {
         return {
@@ -243,21 +282,144 @@ function validarData(data) {
     };
 }
 
-function validarForms() {
-    const validarInputPartida = validarPartida(InputPartida.value);
-    const validarInputDestino = validarDestino(formCriarCarona.elements.destino.value);
-    const validarInputPontoReferencia = validarPontoReferencia(formCriarCarona.elements.pontoReferencia.value);
+function validarHorario(horario, data) {
+    if (!horario) {
+        return {
+            sucesso: false,
+            mensagem: 'O horário da carona não pode estar em branco!'
+        };
+    }
 
-    const validarInputData = radioUmaData.checked ?
-        validarData(InputData.value) :
-        {
+    if (!data) {
+        return {
             sucesso: true
         };
+    }
+
+    const [ano, mes, dia] = data.split('-').map(Number);
+    const [horas, minutos] = horario.split(':').map(Number);
+
+    const dataCarona = new Date(ano, mes - 1, dia, horas, minutos);
+    const dataAtual = new Date();
+
+    dataAtual.setSeconds(0, 0);
+
+    if (dataCarona < dataAtual) {
+        return {
+            sucesso: false,
+            mensagem: 'O horário da carona não pode ser anterior à hora atual!'
+        };
+    }
+
+    return {
+        sucesso: true
+    };
+}
+
+function validarDataHorario(exibirAlerta = true, validarHorarioVazio = true) {
+    if (radioRecorrente.checked) {
+        removerErro(InputData);
+        removerErro(InputHorario);
+        ultimoAlertaDataHorario = null;
+
+        const resultadoHorario = validarHorario(InputHorario.value, null);
+
+        if (!resultadoHorario.sucesso) {
+            marcarErro(InputHorario);
+
+            if (validarHorarioVazio) {
+                exibirAlertaDataHorario(
+                    resultadoHorario.mensagem,
+                    exibirAlerta
+                );
+            }
+
+            return false;
+        }
+
+        removerErro(InputHorario);
+        ultimoAlertaDataHorario = null;
+
+        return true;
+    }
+
+    const resultadoData = validarData(InputData.value);
+
+    if (!resultadoData.sucesso) {
+        marcarErro(InputData);
+        removerErro(InputHorario);
+
+        exibirAlertaDataHorario(
+            resultadoData.mensagem,
+            exibirAlerta
+        );
+
+        return false;
+    }
+
+    if (!InputHorario.value && !validarHorarioVazio) {
+        removerErro(InputData);
+        removerErro(InputHorario);
+        ultimoAlertaDataHorario = null;
+
+        return true;
+    }
+
+    const resultadoHorario = validarHorario(
+        InputHorario.value,
+        InputData.value
+    );
+
+    if (!resultadoHorario.sucesso) {
+        if (!InputHorario.value) {
+            removerErro(InputData);
+            marcarErro(InputHorario);
+        } else {
+            marcarErro(InputData);
+            marcarErro(InputHorario);
+        }
+
+        exibirAlertaDataHorario(
+            resultadoHorario.mensagem,
+            exibirAlerta
+        );
+
+        return false;
+    }
+
+    removerErro(InputData);
+    removerErro(InputHorario);
+    ultimoAlertaDataHorario = null;
+
+    return true;
+}
+
+function validarForms() {
+    const validarInputPartida = validarPartida(InputPartida.value);
+    const validarInputDestino = validarDestino(InputDestino.value);
+    const validarInputPontoReferencia = validarPontoReferencia(
+        InputPontoReferencia.value
+    );
+
+    verificarCampo(InputPartida, validarInputPartida, false);
+    verificarCampo(InputDestino, validarInputDestino, false);
+    verificarCampo(InputPontoReferencia, validarInputPontoReferencia, false);
+
+    let validarDataEHorario = true;
+
+    if (radioUmaData.checked) {
+        validarDataEHorario = validarDataHorario(false, true);
+    } else {
+        const resultadoHorario = validarHorario(InputHorario.value, null);
+
+        verificarCampo(InputHorario, resultadoHorario, false);
+        validarDataEHorario = resultadoHorario.sucesso;
+    }
 
     return validarInputPartida.sucesso &&
         validarInputDestino.sucesso &&
         validarInputPontoReferencia.sucesso &&
-        validarInputData.sucesso;
+        validarDataEHorario;
 }
 
 radioRecorrente.addEventListener('change', alterarTipo);
@@ -266,11 +428,17 @@ radioUmaData.addEventListener('change', alterarTipo);
 function alterarTipo() {
     if (radioRecorrente.checked) {
         campoData.hidden = true;
+
         InputData.disabled = true;
         InputData.required = false;
 
         campoDias.hidden = false;
         campoDias.disabled = false;
+
+        removerErro(InputData);
+        removerErro(InputHorario);
+
+        ultimoAlertaDataHorario = null;
 
     } else {
         campoDias.hidden = true;
@@ -279,6 +447,8 @@ function alterarTipo() {
 
         campoData.hidden = false;
         InputData.disabled = false;
+
+        ultimoAlertaDataHorario = null;
     }
 }
 
