@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/usuario.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="shortcut icon" href="assents/icon/favicon.ico" type="image/x-icon">
 
@@ -29,7 +29,9 @@
             </button>
 
             <button class="cabecalho-perfil" type="button" aria-label="Perfil do usuário">
-                <img class="cabecalho-foto" src="assents/img/img-perfil.png" alt="Foto de perfil">
+                <a class="cabecalho-foto" href="perfil.html">
+                    <img class="cabecalho-foto" src="assents/img/img-perfil.png" alt="Foto de perfil">
+                </a>
             </button>
         </div>
     </header>
@@ -195,7 +197,7 @@
 
             <article class="painel-solicitacao-carona">
                <section class="card card-agenda">
-                    <h1 class="titulo-card">Avaliações</h1>
+                    <h1 class="titulo-card">Agenda Semanal</h1>
                     <div class="grade-agenda">
                         <span class="dia-agenda">Seg</span>
                         <span class="dia-agenda">Ter</span>
@@ -251,6 +253,32 @@
                             <span class="legenda-cor nivel-0"></span>
                             <span>Sem aula</span>
                         </div>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h1 class="titulo-card">Próximas Caronas</h1>
+
+                    <div class="caronas-cima">
+                        <p class="carona-texto">Retiro → Campus Olézio Galotti</p>
+                        <p class="carona-data">02/12 | 18:00</p>
+                        <p class="carona-valor">R$ 2,50 / vaga</p>
+                    </div>
+
+                    <div class="caronas">
+                        <p class="carona-texto">HFOA → Campus Olézio Galotti</p>
+                        <p class="carona-data">03/12 | 18:30</p>
+                        <p class="carona-valor">R$ 3,00 / vaga</p>
+                    </div>
+
+                    <div class="caronas">
+                        <p class="carona-texto">HFOA → Retiro</p>
+                        <p class="carona-data">04/12 | 20:00</p>
+                        <p class="carona-valor">R$ 2,00 / vaga</p>
+                    </div>
+
+                    <div class="botao-solicitar-conteudo">Ver todas as caronas
+                                <div class="botao-solicitar-icone"><i class="fa-solid fa-arrow-right-long botao-solicitar-seta"></i></div>
                     </div>
                 </section>
             </article>
