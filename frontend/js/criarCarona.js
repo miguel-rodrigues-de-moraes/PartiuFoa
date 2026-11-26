@@ -62,6 +62,19 @@ formCriarCarona.elements.pontoReferencia.addEventListener('blur', async () => {
     };
 });
 
+formCriarCarona.elements.campoData.addEventListener('blur', async () => {
+    const erroDataCarona = validarData(formCriarCarona.elements.campoData.value);
+
+    if (!erroDataCarona.sucesso) {
+        marcarErro(formCriarCarona.elements.campoData);
+        mostrarAlerta(erroDataCarona.mensagem, 'erro');
+
+        return;
+    } else {
+        removerErro(formCriarCarona.elements.campoData);
+    };
+});
+
 
 formCriarCarona.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -69,8 +82,18 @@ formCriarCarona.addEventListener('submit', async (e) => {
     const formCarona = new FormData(formCriarCarona);
     const carona = Object.fromEntries(formCarona);
 
+    if (!validarForms()) {
+        mostrarAlerta('Verifique os campos do formulário!', 'erro');
+
+        return;
+    };
+
     console.log(carona.partida);
     console.log(carona.destino);
+    console.log(carona.pontoReferencia);
+    console.log(carona.tipoCarona);
+    console.log(carona.campoData);
+
 
 });
 
@@ -208,11 +231,53 @@ function validarPontoReferencia(pontoReferenciaDigitado) {
     };
 };
 
+function validarData(data) {
+    const dataAtual = new Date();
+    dataAtual.setHours(0, 0, 0, 0);
+
+    if (!data) {
+        return {
+            sucesso: false,
+            mensagem: 'O campo data não pode estar em branco!'
+        };
+    };
+
+    const [ano, mes, dia] = data.split('-').map(Number);
+
+    const dataCarona = new Date(ano, mes - 1, dia);
+    dataCarona.setHours(0, 0, 0, 0);
+
+    if (dataCarona < dataAtual) {
+        return {
+            sucesso: false,
+            mensagem: 'A data da carona não pode ser anterior a data atual!'
+        };
+    };
+
+    return {
+        sucesso: true
+    };
+};
+
+function validarForms() {
+    const validarInputPartida = validarPartida(formCriarCarona.elements.partida.value);
+    const validarInputDestino = validarDestino(formCriarCarona.elements.destino.value);
+    const validarInputPontoReferencia = validarPontoReferencia(formCriarCarona.elements.pontoReferencia.value);
+    const validarInputData = radioUmaData.checked ? validarData(InputData.value) : {sucesso: true};
+
+    return validarInputPartida.sucesso && 
+        validarInputDestino.sucesso && 
+        validarInputPontoReferencia.sucesso && 
+        validarInputData.sucesso;
+};
+
 const radioUmaData = document.querySelector('#uma-data');
 const radioRecorrente = document.querySelector('#recorrente');
 
 const campoData = document.querySelector('#campo-data');
 const campoDias = document.querySelector('#campo-dias');
+
+const InputData = formCriarCarona.elements.campoData;
 
 radioRecorrente.addEventListener('change', alterarTipo);
 radioUmaData.addEventListener('change', alterarTipo);
@@ -220,12 +285,20 @@ radioUmaData.addEventListener('change', alterarTipo);
 function alterarTipo() {
     if (radioRecorrente.checked) {
         campoData.hidden = true;
+        InputData.disabled = true;
+        campoData.required = false;
+
         campoDias.hidden = false;
+        campoDias.disabled = false;
     } else {
+        campoDias.hidden = true;
+        campoDias.disabled = true;
+        campoDias.required = false;
+
         campoData.hidden = false;
-        campoDias.hidden= true;
+        campoData.disabled = false;
     };
 
 };
 
-alterarTipo()
+alterarTipo();
