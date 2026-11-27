@@ -452,6 +452,15 @@ a {
 }
 
 @media (max-width: 620px) {
+    .cabecalho-perfil a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 100%;
+    }
+
     .cabecalho {
         min-height: 72px;
 
@@ -468,8 +477,8 @@ a {
 
     .cabecalho-botao,
     .cabecalho-perfil {
-        width: 36px;
-        height: 36px;
+        width: 44px;
+        height: 44px;
     }
 
     .cabecalho-botao {

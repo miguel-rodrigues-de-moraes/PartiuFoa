@@ -459,6 +459,12 @@ a {
 
 /* <--- RESPONSIVIDADE ---> */
 
+@media (640px < width <= 1024px) {
+    .conteudo-principal {
+        padding-right: 66px;
+    }
+}
+
 @media (max-width: 1024px) {
     .busca,
     .lista-caronas {
@@ -599,8 +605,8 @@ a {
 
     .cabecalho-botao,
     .cabecalho-perfil {
-        width: 38px;
-        height: 38px;
+        width: 44px;
+        height: 44px;
     }
 
     .cabecalho-botao {
@@ -660,5 +666,34 @@ a {
 
     .carona-valor {
         font-size: 19px;
+    }
+}
+
+@media (max-width: 640px) {
+    .cabecalho-perfil a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 100%;
+    }
+
+    .acessibilidade-botao {
+        position: static;
+
+        margin-left: auto;
+
+        border-radius: 50%;
+
+        width: 48px;
+        height: 48px;
+    }
+
+    .campo-input,
+    .campo-select {
+        min-width: 0;
+
+        font-size: 18px;
     }
 }

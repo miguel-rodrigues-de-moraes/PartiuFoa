@@ -133,6 +133,9 @@ label {
     align-items: center;
     justify-content: center;
 
+    width: 44px;
+    height: 44px;
+
     border: none;
     background: transparent;
 
@@ -322,5 +325,19 @@ label {
         transform: translateX(0);
 
         opacity: 1;
+    }
+}
+
+/* <--- RESPONSIVIDADE ---> */
+
+@media (width > 640px) {
+    .botao-olho {
+        margin-block: -14px;
+    }
+}
+
+@media (max-width: 640px) {
+    .caixa-input input {
+        min-width: 0;
     }
 }
