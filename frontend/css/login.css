@@ -1,29 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
+/* <--- CONFIGURAÇÕES GERAIS ---> */
+
 * {
     margin: 0;
     padding: 0;
+
     box-sizing: border-box;
 }
 
 body {
     background-color: #eef2f6;
+
     font-family: 'Outfit', Arial, Helvetica, sans-serif;
 }
 
 .pagina-login {
     min-height: 100vh;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     padding: 20px;
 }
 
 .login-cartao {
     width: 100%;
     max-width: 420px;
+
     padding: 35px;
+
     background-color: #FFFFFF;
     border-radius: 16px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -35,12 +43,13 @@ body {
     max-width: 400px;
 }
 
-/* Cabeçalho e logo */
+/* <--- CABEÇALHO ---> */
 
 .login-cabecalho {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     gap: 10px;
     margin-bottom: 30px;
 }
@@ -48,18 +57,21 @@ body {
 .login-logo {
     width: 192px;
     height: auto;
+
     margin-top: -45px;
     margin-bottom: -35px;
+
     object-fit: contain;
 }
 
 .login-titulo {
     font-size: 35px;
     font-weight: 600;
+
     color: #1C3058;
 }
 
-/* Campos formulário */
+/* <--- FORMULÁRIO ---> */
 
 .login-inputs {
     margin-bottom: 16px;
@@ -67,18 +79,23 @@ body {
 
 .login-label {
     display: block;
+
     font-size: 16px;
     font-weight: 600;
+
     color: #1C3058;
+
     margin-bottom: 6px;
 }
 
 .login-caixa-input {
     display: flex;
     align-items: center;
+
     gap: 10px;
 
     width: 100%;
+
     padding: 10px 14px;
 
     background-color: #E9E9E9;
@@ -98,11 +115,13 @@ body {
 
 .login-caixa-input > i {
     color: #0044CC;
+
     flex-shrink: 0;
 }
 
 .login-caixa-input .login-campo {
     width: 100%;
+
     padding: 0;
 
     background-color: transparent;
@@ -111,8 +130,8 @@ body {
 
     font-family: inherit;
     font-size: 14px;
-    color: #1C3058;
 
+    color: #1C3058;
     outline: none;
 }
 
@@ -121,7 +140,7 @@ body {
     box-shadow: none;
 }
 
-/* Campo senha + olho */
+/* <--- CAMPO DE SENHA ---> */
 
 .login-olho {
     display: flex;
@@ -129,12 +148,15 @@ body {
     justify-content: center;
 
     width: 24px;
+
     padding: 0;
 
     border: none;
     background: transparent;
     color: #4A6B9C;
+
     font-size: 16px;
+
     cursor: pointer;
 
     flex-shrink: 0;
@@ -142,12 +164,14 @@ body {
 
 .icone-olho {
     display: inline-block;
+
     width: 20px;
+
     text-align: center;
     font-size: 16px;
 }
 
-/* Esqueceu a senha */
+/* <--- RECUPERAÇÃO DE SENHA ---> */
 
 .login-recuperar {
     margin-left: 15px;
@@ -159,17 +183,18 @@ body {
     font-weight: 500;
 }
 
-/* Botão entrar */
+/* <--- BOTÃO ENTRAR ---> */
 
 .login-botao {
     width: 100%;
+
     padding: 13px;
 
     background-color: #0044CC;
     border: none;
     border-radius: 50px;
-
     color: #FFFFFF;
+
     font-family: inherit;
     font-size: 16px;
     font-weight: 450;
@@ -185,51 +210,65 @@ body {
 /* desabilitado */
 .login-botao:disabled {
     opacity: 0.5;
+
     cursor: not-allowed;
+
     box-shadow: none;
+
     transform: none;
 }
 
 /* habilitado */
 .login-botao:not(:disabled) {
     opacity: 1;
+
     cursor: pointer;
+
     box-shadow: 0 4px 12px rgba(0, 68, 204, 0.25);
+
     transform: scale(1.02);
 }
 
 /* hover */
 .login-botao:not(:disabled):hover {
     background-color: #003399;
+
     transform: scale(1.02) translateY(-2px);
+
     box-shadow: 0 6px 16px rgba(0, 68, 204, 0.35);
 }
 
-/* Botao "Cadastre aqui" */
+/* <--- LINKS DE NAVEGAÇÃO ---> */
 
 .login-link {
     color: #3059C1;
+
     font-size: 16px;
     font-weight: 500;
     text-decoration: none;
+
     transition: color 0.2s ease;
 }
 
 .login-link:hover {
     color: #1C3058;
+
     text-decoration: underline;
 }
 
-/* Botao de cadastrar */
+/* <--- LINK DE CADASTRO ---> */
 
 .login-cadastro {
     margin-top: 16px;
+
     text-align: center;
+
     color: #1C3058;
 }
 
 .login-texto {
     display: inline;
+
     font-size: 16px;
 }
 
@@ -238,7 +277,7 @@ body {
     font-size: 16px;
 }
 
-/* Mensagens de Erro e Sucesso */
+/* <--- ALERTAS ---> */
 
 .container-alertas {
     position: fixed;
@@ -247,21 +286,29 @@ body {
     z-index: 9999;
     display: flex;
     flex-direction: column;
+
     gap: 10px;
 }
 
 .alerta-card {
     display: flex;
     align-items: center;
+
     gap: 12px;
+
     min-width: 280px;
     max-width: 380px;
+
     padding: 16px 20px;
+
     border-radius: 8px;
     color: #fff;
+
     font-family: sans-serif;
     font-size: 14px;
+
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
     animation: deslizarEntrada 0.3s ease forwards;
 }
 
@@ -280,11 +327,15 @@ body {
 
 .alerta-fechar {
     margin-left: auto;
+
     background: none;
     border: none;
     color: #fff;
+
     font-size: 16px;
+
     cursor: pointer;
+
     opacity: 0.8;
 }
 
@@ -295,11 +346,13 @@ body {
 @keyframes deslizarEntrada {
     from {
         transform: translateX(100%);
+
         opacity: 0;
     }
 
     to {
         transform: translateX(0);
+
         opacity: 1;
     }
 }

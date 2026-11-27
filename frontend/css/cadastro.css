@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
+/* <--- CONFIGURAÇÕES GERAIS ---> */
+
 * {
     margin: 0;
     padding: 0;
+
     box-sizing: border-box;
 }
 
@@ -14,35 +17,70 @@ body {
     align-items: center;
 
     min-height: 100vh;
+
     background-color: #eef2f6;
 }
 
 main {
     background-color: #ffffff;
+
     width: 420px;
+
     padding: 35px 30px;
 
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-/* Caixas de Input */
+/* <--- CABEÇALHO ---> */
+
+.cadastro-cabecalho {
+    text-align: center;
+
+    margin-bottom: 24px;
+}
+
+.cadastro-cabecalho .logo {
+    width: 192px;
+    height: auto;
+
+    margin-top: -45px;
+    margin-bottom: -35px;
+}
+
+.cadastro-cabecalho h1 {
+    color: #0b1b3d;
+}
+
+/* <--- FORMULÁRIO ---> */
+
+.campo {
+    margin-bottom: 12px;
+}
+
+label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-weight: 600;
+    font-size: 16px;
+
+    color: #0b1b3d;
+}
 
 .caixa-input {
     display: flex;
     align-items: center;
 
-    background-color: #f1f3f5;
-
-    border: 2px solid rgba(11, 27, 61, 0.1);
-    border-radius: 10px;
+    gap: 10px;
     padding: 10px 14px;
 
-    gap: 10px;
+    background-color: #f1f3f5;
+    border: 2px solid rgba(11, 27, 61, 0.1);
+    border-radius: 10px;
 
-    transition: border-color 0.2s ease,
-        background-color 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: border 0.2s ease, background-color 0.2s ease;
 }
 
 .caixa-input:focus-within {
@@ -51,10 +89,16 @@ main {
     box-shadow: 0 0 0 3px rgba(48, 89, 193, 0.12);
 }
 
+.caixa-input.input-erro {
+    border: 2px solid #e53935;
+    background-color: #fff5f5;
+}
+
 .caixa-input input {
     border: none;
     background-color: transparent;
     outline: none;
+
     width: 100%;
 
     font-family: inherit;
@@ -71,13 +115,16 @@ main {
 
 .caixa-input .icone-olho {
     color: #4a6b9c;
+
     cursor: pointer;
 
     font-size: 16px;
 
     width: 20px;
     min-width: 20px;
+
     text-align: center;
+
     flex-shrink: 0;
 }
 
@@ -88,45 +135,15 @@ main {
 
     border: none;
     background: transparent;
+
     padding: 0;
 
     cursor: pointer;
+
     flex-shrink: 0;
 }
 
-/* Card Principal + Logo */
-
-.card-principal {
-    text-align: center;
-    margin-bottom: 24px;
-}
-
-.card-principal .logo {
-    width: 192px;
-    height: auto;
-
-    margin-top: -45px;
-    margin-bottom: -35px;
-}
-
-.card-principal h1 {
-    color: #0b1b3d;
-    font-size: px;
-}
-
-.campo {
-    margin-bottom: 12px;
-}
-
-label {
-    display: block;
-    font-weight: 600;
-    font-size: 16px;
-    color: #0b1b3d;
-    margin-bottom: 6px;
-}
-
-/* Caixa de Termos + Texto */
+/* <--- TERMOS DE USO ---> */
 
 .termos {
     display: flex;
@@ -143,13 +160,13 @@ label {
     flex-shrink: 0;
 
     accent-color: #04c;
+
     cursor: pointer;
 }
 
 .termos label {
     font-size: 15px;
     font-weight: 400;
-    color: #0b1b3d;
     line-height: 1.4;
 
     margin-bottom: 0;
@@ -157,35 +174,29 @@ label {
 
 .termos a {
     color: #0044cc;
+
     font-weight: 600;
     text-decoration: none;
 }
 
 .termos a:hover {
     color: #002b80;
+
     text-decoration: underline;
 }
 
-/* Botao Cadastrar */
-
-.botao-cadastrar:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.botao-cadastrar:not(:disabled) {
-    box-shadow: 0 4px 12px rgba(0, 68, 204, 0.25);
-    transform: scale(1.02);
-}
+/* <--- CADASTRO E ACESSO AO LOGIN ---> */
 
 .botao-cadastrar {
     width: 100%;
+
     padding: 13px;
+
     background-color: #0044cc;
     border: none;
     border-radius: 50px;
-
     color: #ffffff;
+
     font-family: inherit;
     font-size: 16px;
     font-weight: 450;
@@ -198,8 +209,21 @@ label {
         box-shadow 0.2s ease;
 }
 
+.botao-cadastrar:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+}
+
+.botao-cadastrar:not(:disabled) {
+    box-shadow: 0 4px 12px rgba(0, 68, 204, 0.25);
+
+    transform: scale(1.02);
+}
+
 .botao-cadastrar:not(:disabled):hover {
     transform: scale(1.02) translateY(-2px);
+
     box-shadow: 0 6px 16px rgba(0, 68, 204, 0.35);
 }
 
@@ -207,21 +231,24 @@ label {
     margin-top: 16px;
 
     text-align: center;
+
     color: #0b1b3d;
 }
 
 .link-login a {
     color: #04c;
+
     font-weight: 600;
     text-decoration: none;
 }
 
 .link-login a:hover {
     text-decoration: underline;
+
     color: #003399;
 }
 
-/* Mensagens de Erro e Sucesso */
+/* <--- ALERTAS ---> */
 
 .container-alertas {
     position: fixed;
@@ -230,44 +257,53 @@ label {
     z-index: 9999;
     display: flex;
     flex-direction: column;
+
     gap: 10px;
 }
 
 .alerta-card {
     display: flex;
     align-items: center;
+
     gap: 12px;
+
     min-width: 280px;
     max-width: 380px;
+
     padding: 16px 20px;
+
     border-radius: 8px;
     color: #fff;
+
     font-family: sans-serif;
     font-size: 14px;
+
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
     animation: deslizarEntrada 0.3s ease forwards;
 }
 
-/* Cores por tipo */
 .alerta-erro {
     background-color: #e53935;
-    /* Vermelho */
     border-left: 6px solid #b71c1c;
 }
 
 .alerta-sucesso {
     background-color: #43a047;
-    /* Verde */
     border-left: 6px solid #1b5e20;
 }
 
 .alerta-fechar {
     margin-left: auto;
+
     background: none;
     border: none;
     color: #fff;
+
     font-size: 16px;
+
     cursor: pointer;
+
     opacity: 0.8;
 }
 
@@ -278,22 +314,13 @@ label {
 @keyframes deslizarEntrada {
     from {
         transform: translateX(100%);
+
         opacity: 0;
     }
 
     to {
         transform: translateX(0);
+
         opacity: 1;
     }
-}
-
-/* Input com erro de validação */
-.caixa-input.input-erro {
-    border: 2px solid #e53935;
-    background-color: #fff5f5;
-}
-
-/* Transição suave */
-.caixa-input {
-    transition: border 0.2s ease, background-color 0.2s ease;
 }

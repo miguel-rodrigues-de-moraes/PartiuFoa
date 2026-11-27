@@ -142,7 +142,7 @@ a {
     padding: 28px 0 40px;
 }
 
-/* <--- ÁREA DE BUSCA --->*/
+/* <--- ÁREA DE BUSCA ---> */
 
 .busca {
     width: calc(100% - 48px);
@@ -160,6 +160,7 @@ a {
 .busca-principal {
     display: flex;
     align-items: center;
+
     gap: 18px;
     margin-bottom: 18px;
 }
@@ -320,6 +321,7 @@ a {
 
     border-radius: 50%;
     object-fit: cover;
+
     flex-shrink: 0;
 }
 
